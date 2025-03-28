@@ -12,6 +12,11 @@
   src: url('fonts/ShadowHand.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'minecraft';
+  src: url('fonts/Minecraft.ttf') format('truetype');
+}
+
 /* Base styles for desktop and larger screens */
 *,
 *::before,
