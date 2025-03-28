@@ -173,6 +173,7 @@ h1:hover {
 }
 /* Navbar Base */
 #navbar {
+  font-family: 'minecraft';
   margin-top: 0px;
   display: flex;
   justify-content: space-between;
