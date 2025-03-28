@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Etrella';
+  src: url('fonts/Estrella-Early\ copy.otf') format('otf');
+}
+@font-face {
+  font-family: 'GW Bantley';
+  src: url('fonts/GWBantley-Regular-Trial.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'ShadowHand';
+  src: url('fonts/ShadowHand.ttf') format('ttf');
+}
+
 *,
 *::before,
 *::after {
@@ -15,7 +29,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:minecraft;
+  font-family:'minecraft';
   font-weight: 400;
   font-style: normal;
   background-color:#000000;
@@ -157,6 +171,7 @@ html {
 
 /* Content container */
 .landing-content {
+  font-family: 'minecraft';
   position: relative;
   display: flex;
   flex-direction: column; /* Stacks elements but allows overlays */
