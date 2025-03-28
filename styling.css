@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'Etrella';
-  src: url('fonts/Estrella-Early\ copy.otf') format('otf');
+  src: url('fonts/Estrella-Early\ copy.otf') format('truetype');
 }
 @font-face {
   font-family: 'GW Bantley';
-  src: url('fonts/GWBantley-Regular-Trial.ttf') format('ttf');
+  src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'ShadowHand';
-  src: url('fonts/ShadowHand.ttf') format('ttf');
+  src: url('fonts/ShadowHand.ttf') format('truetype');
 }
 
 /* Base styles for desktop and larger screens */
