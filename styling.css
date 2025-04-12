@@ -65,12 +65,6 @@ body {
 }
 
 
-
-h2 {
-  font-family: 'shadowhand';
-  text-decoration: none;
-}
-
 #changingTextContainer {
   width: 100%;
   height: 100vh;
@@ -80,7 +74,7 @@ h2 {
 }
 
 #changingText {
-  color: #ffffffa8; /* Text color */
+  color: #ffffff; /* Text color */
   font-family: 'ShadowHand';
   display: flex;
   flex-direction: column; /* Stack words vertically */
@@ -186,120 +180,106 @@ h1 {
 h1:hover {
   color: #1F1E19; 
 }
-/* Navbar Base */
+
 #navbar {
-  font-family: 'minecraft';
+  font-family: 'minecraft', sans-serif;
   position: fixed;
-  top: 0; /* optional, to stick it at the top */
+  top: 0;
   left: 50%;
-  transform: translateX(-50%); /* shifts it back to center */
+  transform: translateX(-50%);
   width: 90vw;
   max-width: 100%;
   z-index: 1000;
-
   margin: 0;
   padding: 40px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   white-space: nowrap;
   overflow: hidden;
 }
-/* Navbar Links */
+
 .navbar-links {
   display: flex;
   align-items: center;
   font-size: 30px;
   font-weight: lighter;
   gap: 30px;
-  text-decoration: none;
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Hover Effect for Links */
 .navbar-links a {
-  font-size: inherit;
   text-decoration: none;
   color: #ff00d4;
   transition: color 0.3s ease;
 }
 
 .navbar-links a:hover {
-  color: #1F1E19;
+  color: #1f1e19;
 }
 
-.navbar-links a::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 15px;
-  height: 15px;
-  background-color: #ff00d4;
-  border-radius: 50%;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-}
-
-.navbar-links a:hover::after {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-}
-
-/* Navbar Logo */
 .navbar-logo {
-  display: flex;
-  align-items: center;
   max-width: 50px;
   height: auto;
 }
 
-/* Adjustments for Mobile Devices */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #ff00d4;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
 @media (max-width: 768px) {
-  #navbar {
-    padding: 20px 15px; 
-  }
-
   .navbar-links {
-    font-size: 20px; 
-    gap: 20px;
-    flex-wrap: wrap; /* Wrap links if necessary but stay horizontal */
+    display: none; /* <- this is your enemy right now */
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 999;
+    padding: 0;
+    gap: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
   }
 
-  .navbar-logo {
-    max-width: 37px;
+  .navbar-links.show {
+    display: flex; /* 🩵 THIS IS THE FIX */
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    padding: 20px;
+    gap: 15px;
   }
 
-  .navbar-links a {
-    padding: 8px 10px; 
+  #menu-toggle {
+    display: block;
   }
 }
-
-
-
-/* Further Adjustments for Very Small Screens (e.g., Phones) */
-@media (max-width: 480px) {
-  #navbar {
-    flex-direction: row; /* Ensure the navbar stays horizontal */
-    flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
-    justify-content: space-between;
-  }
-
-  .navbar-links {
-    flex-direction: row; /* Force horizontal layout */
-    gap: 10px;
-  }
-
-  .navbar-links a {
-    font-size: 18px; 
-  }
-
-  .navbar-logo {
-    margin-bottom: 0; /* Remove extra space */
-  }
-}
-
 
 .content {
   text-align: center;

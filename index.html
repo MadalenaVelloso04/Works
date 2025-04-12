@@ -29,17 +29,28 @@
     <div class="main">
       <header>
         <div id="navbar">
-          <a class="navbar-links" href="./">
+          <!-- Logo -->
+          <a href="./">
             <img src="images/logo.png" alt="Logo" class="navbar-logo" />
           </a>
-          <div class="navbar-links">
-            <a class="navbar-links a" href="#about-me" id="about-me-content">About me</a>
-            <a class="navbar-links a" href="./projects.html">Projects</a>
-            <a class="navbar-links a" href="#contact-section">Contacts</a>
+    
+          <!-- Links -->
+          <div class="navbar-links" id="nav-links">
+            <a href="#about-me">About me</a>
+            <a href="./projects.html">Projects</a>
+            <a href="#contact-section">Contacts</a>
           </div>
+    
+          <!-- Hamburger Button -->
+          <button id="menu-toggle" aria-label="Toggle menu">
+            <div class="hamburger" class="navbar-links" id="nav-links">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
         </div>
       </header>
-
 
       <div class="container">
         <img
@@ -51,9 +62,7 @@
       </div>
 
       <div class="content">
-        <h1>
-          <h1 id="changingText">Mada Velloso</h1>
-        </h1>
+        <h1 id="changingText">Mada Velloso</h1>
       </div>
       <h3 class="descript">
         "You can't use up<br />
@@ -118,6 +127,11 @@
       <section class="new-section" id="new-section">
         <div class="scroll-container">
           <div class="scroll-content">
+            <img
+            src="images/newposters/mitcover.webp"
+            alt="Image 001"
+            loading="lazy"
+          />
             <img
               src="images/newposters/Encapsulate_culture@5x.webp"
               alt="Image 0"
@@ -250,7 +264,7 @@
 
     <!-- Circle cursor element -->
     <div class="circle-cursor"></div>
-
+    <script src="hamburguer.js"></script>
     <script src="script.js"></script>
 
     <script src="imageofme.js"></script>
