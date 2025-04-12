@@ -17,10 +17,30 @@
   src: url('fonts/Minecraft.ttf') format('truetype');
 }
 
-*,
+/*
+*  html5resetcss
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+*
 *::before,
 *::after {
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 /* Basic Reset */
@@ -51,22 +71,24 @@ html {
 
 /* Navbar Base */
 #navbar {
-  text-transform: lowercase;
-  margin-top: 0px;
+  font-family: 'minecraft';
+  position: fixed;
+  top: 0; /* optional, to stick it at the top */
+  left: 50%;
+  transform: translateX(-50%); /* shifts it back to center */
+  width: 90vw;
+  max-width: 100%;
+  z-index: 1000;
+
+  margin: 0;
+  padding: 40px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%; 
-  max-width: 100%;
-  z-index: 1000;
+
   white-space: nowrap;
   overflow: hidden;
 }
-
 /* Navbar Links */
 .navbar-links {
   display: flex;
@@ -79,10 +101,7 @@ html {
 
 /* Hover Effect for Links */
 .navbar-links a {
-  padding: 10px 15px;
   font-size: inherit;
-  font-weight: lighter;
-  position: relative;
   text-decoration: none;
   color: #ff00d4;
   transition: color 0.3s ease;
@@ -90,7 +109,6 @@ html {
 
 .navbar-links a:hover {
   color: #1F1E19;
-  cursor: none;
 }
 
 .navbar-links a::after {
@@ -114,6 +132,8 @@ html {
 
 /* Navbar Logo */
 .navbar-logo {
+  display: flex;
+  align-items: center;
   max-width: 50px;
   height: auto;
 }
@@ -139,6 +159,8 @@ html {
   }
 }
 
+
+
 /* Further Adjustments for Very Small Screens (e.g., Phones) */
 @media (max-width: 480px) {
   #navbar {
@@ -160,7 +182,6 @@ html {
     margin-bottom: 0; /* Remove extra space */
   }
 }
-
 /* Landing Section - Fullscreen Centering */
 .landing-section {
   position: relative;
@@ -329,17 +350,18 @@ html {
 }
 
 .container {
-  padding: 40px;
+  width: 90vw;
+  margin: 5%;
   max-width: 100%; /* Allow it to fill the container */
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
   padding-top: 40px;
   max-width: 90vw;
-  display:grid;
+overflow: hidden;
 }
 
 .grid {
-  background-color: #00000083;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  background-color: #6d6d6d83;
   border-radius: 30px;
   box-shadow: #1F1E19 30px;
   max-width: 100%; /* Allow it to fill the container */
@@ -352,8 +374,6 @@ html {
   
   .img-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
     object-fit: cover;
     width: 23vw;
     height: 50vh;
@@ -367,6 +387,7 @@ html {
   .img-container:hover .img-content-hover {
     cursor: none;
     display: block;
+
   }
   
   .img1 {
@@ -382,7 +403,7 @@ html {
   }
   
   .img-content-hover {
-    z-index: 1;
+    z-index: 4;
     position: absolute;
     top: 0;
     left: 0;
@@ -396,9 +417,10 @@ html {
     border: 2px solid #000000; /* Change this color to any you want */
     border-radius: 10px;
   }
-  
+
+
   .title {
-    color: #000000;
+    color: #ff00d4;
     font-size: 1.5rem;
     font-weight: 700;
   }
@@ -423,20 +445,31 @@ html {
   
   @supports (display: grid) {
     .gallery .grid {
-      grid-gap: 1rem;
+      width: 90%;
+      align-items: center;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   
   @media (display: grid) {
+    .gallery .grid .title {
+      display: grid;
+    }
+  }
+  
+
+  @media (display: img-container) {
     .gallery .grid {
+      display: grid;
       grid-template-columns: repeat(1, 1fr);
+  
     }
   }
   
 
   @media(min-width: md) {
     nav ul {
-      justify-content: flex-end;
+      justify-content: center;
     }
   }
   
@@ -453,7 +486,7 @@ html {
     }
   
     .img-content {
-      display: block;
+       display: inline-block;
       padding: 1rem 0;
     }
   }
