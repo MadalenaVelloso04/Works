@@ -1,10 +1,11 @@
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
-    menuToggle.addEventListener("click", function () {
-      console.log("Hamburger clicked!");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("show");
+      menuToggle.classList.toggle("open");
     });
-  });
-
+  }
+});
