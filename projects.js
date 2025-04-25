@@ -1,11 +1,20 @@
-const imgContent = document.querySelectorAll('.img-content-hover');
 
-function showImgContent(e) {
-  for(var i = 0; i < imgContent.length; i++) {
-    x = e.pageX;
-    y = e.pageY;
-    imgContent[i].style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  }
-};
+function showCategory(id) {
+  const allCategories = document.querySelectorAll('.project-category');
+  const allFolders = document.querySelectorAll('.folder');
 
-document.addEventListener('mousemove', showImgContent);
+  allCategories.forEach(cat => cat.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  allFolders.forEach(folder => {
+    folder.classList.remove('active-folder');
+    if (folder.dataset.folder === id) {
+      folder.classList.add('active-folder');
+    }
+  });
+}
+
+// Automatically open Posters on page load
+document.addEventListener("DOMContentLoaded", () => {
+  showCategory('Posters');
+});
