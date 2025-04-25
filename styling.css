@@ -189,7 +189,7 @@ h1:hover {
 #navbar {
   font-family: 'minecraft', sans-serif;
   position: fixed;
-  top: 0;
+  top: 0; /* optional, to stick it at the top */
   left: 50%;
   transform: translateX(-50%);
   width: 90vw;
@@ -260,7 +260,7 @@ h1:hover {
     justify-content: center;
     align-items: center;
     background-color: #000000;
-    top: 50%;
+    top: 0;
     left: 0;
     right: 0;
     height: 100vh;
