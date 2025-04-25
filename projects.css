@@ -64,7 +64,71 @@ html {
   scroll-behavior: smooth;
 }
 
+#navbar {
+  font-family: 'minecraft', sans-serif;
+  position: fixed;
+  top: 0; /* optional, to stick it at the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 100%;
+  z-index: 1000;
+  margin: 0;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
 
+.navbar-links {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: lighter;
+  gap: 30px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ff00d4;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #1f1e19;
+}
+
+.navbar-logo {
+  max-width: 50px;
+  height: auto;
+}
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 28px;
+  z-index: 999;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background-color: #ff00d4;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
 @media (max-width: 768px) {
   .navbar-links {
     visibility: hidden;
@@ -121,7 +185,17 @@ html {
   }
 }
 
+#menu-toggle.open .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
 
+#menu-toggle.open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle.open .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
 /* Landing Section - Fullscreen Centering */
 .landing-section {
     background-color: #000;
@@ -290,7 +364,7 @@ html {
   }
   
   .folder {
-    width: 120px;
+    width: 140px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -440,7 +514,7 @@ html {
   }
 
   .folder {
-    width: 70px;
+    width: 90px;
   }
 
   .folder img {
