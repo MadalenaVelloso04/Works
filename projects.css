@@ -455,6 +455,71 @@ html {
     text-shadow: 0 0 5px #ff00ff;
   }
 
+/* Small screens: tablets and phones */
+@media (max-width: 768px) {
+  .folder-grid {
+    gap: 1rem;
+  }
+
+  .folder {
+    width: 80px;
+  }
+
+  .folder img {
+    width: 50px;
+  }
+
+  .folder span {
+    font-size: 0.85rem;
+  }
+
+  .project-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+  }
+
+  .project-card {
+    height: auto;
+  }
+
+  .project-info h4 {
+    font-size: 0.9rem;
+  }
+
+  .project-info p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra small screens: phones */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .folder-grid {
+    gap: 0.8rem;
+  }
+
+  .folder {
+    width: 70px;
+  }
+
+  .folder img {
+    width: 45px;
+  }
+
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .project-info h4 {
+    font-size: 0.85rem;
+  }
+
+  .project-info p {
+    font-size: 0.7rem;
+  }
+}
 
 
 
