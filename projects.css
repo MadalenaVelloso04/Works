@@ -417,7 +417,7 @@ html {
   .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-    gap: 1rem;
+    gap: 01rem;
     margin-top: 1.5rem;
   }
   
@@ -444,7 +444,7 @@ html {
   
   .project-info {
     padding: 0.75rem 1rem;
-    height: 40%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -466,6 +466,26 @@ html {
   .hidden {
     display: none;
   }
+
+
+  .view-project-button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #ff00ff; /* neon pink like your active folder */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .view-project-button:hover {
+    background-color: #cc00cc; /* a slightly darker pink on hover */
+    transform: translateY(-2px);
+  }
+  
+
   
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -550,6 +570,11 @@ html {
   .project-gallery {
     grid-template-columns: 1fr;
   }
+
+  .project-card {
+    height: auto;
+  }
+
 
   .project-info h4 {
     font-size: 0.85rem;
