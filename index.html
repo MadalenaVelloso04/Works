@@ -39,54 +39,57 @@
           </button>
         </div>
       </header>
-
+    
       <div class="container">
         <img
-          src="images/brancoeu_05.png"
+          src="images/Polaroid Png PNG Transparent With Clear Background ID 109206 _ TopPNG.png"
           alt="Interactive Drawing"
           class="interactive-drawing"
           id="interactiveDrawing"
         />
       </div>
 
-      <div class="content">
-        <h1 id="changingText">Mada Velloso</h1>
-      </div>
-      <h3 class="descript">
-        "You can't use up<br />
-        creativity.<br />
-        The more you use, <br />
-        the more you have." <br />
-        - Maya Angelou
-      </h3>
+<div class="content">
+  <h1 id="changingText">Mada Velloso</h1>
+</div>
+<h3 class="descript">
+  "You can't use up
+  creativity.
+  The more you use, 
+  the more you have." 
+  - Maya Angelou
+</h3>
 
-      <a class="letstalk" href="mailto:madalenavelloso04@gmail.com">LETS TALK</a>
-      <script>
-        const texts = ["Hello", "Hello Hello", "Hello Hello Hello"];
-        let count = 0;
-        const textElement = document.getElementById("changingText");
-
-        function updateTextVertically(text) {
-          // Clear the current content
-          textElement.innerHTML = "";
-
-          // Split text into words and add each word as a line
-          const words = text.split(" ");
-          words.forEach((word) => {
-            const wordElement = document.createElement("div");
-            wordElement.textContent = word;
-            textElement.appendChild(wordElement);
-          });
-        }
-
-        // Update text every second
-        setInterval(() => {
-          updateTextVertically(texts[count]);
-          count = (count + 1) % texts.length;
-        }, 1000);
-   </script>
-
-
+<a class="letstalk" href="mailto:madalenavelloso04@gmail.com"><span class="different-letter">Lets</span>_talk</a>
+</div>
+<script>
+  const texts = [
+  "Visual_ Storyteller",
+  "Artistic_ Thinker",
+  "Design_ Explorer",
+  "Creative_ Dreamer",
+  "Sketch_ Seeker"
+];
+  let count = 0;
+  const textElement = document.getElementById("changingText");
+  
+  function wrapWords(text) {
+    return text.split(' ').map(word => {
+      if (!word) return '';
+      return `<span class="word"><span class="first-letter">${word[0]}</span>${word.slice(1)}</span>`;
+    }).join(' ');
+  }
+  
+  setInterval(() => {
+    textElement.classList.remove('animate');
+    void textElement.offsetWidth; // trigger reflow
+    textElement.innerHTML = wrapWords(texts[count]);
+    textElement.classList.add('animate');
+    count = (count + 1) % texts.length;
+  }, 2500);
+  </script>
+  
+  
     <section class="about-me" id="about-me">
       <div class="about-me-content">
         <div class="about-me-text">
@@ -112,97 +115,35 @@
 
     <!-- New Section Beneath About Me -->
     <section class="new-section" id="new-section">
-      <section class="new-section" id="new-section">
-        <div class="scroll-container">
-          <div class="scroll-content">
-            <img
-            src="images/newposters/mitcover.webp"
-            alt="Image 001"
-            loading="lazy"
-          />
-            <img
-              src="images/newposters/Encapsulate_culture@5x.webp"
-              alt="Image 0"
-              loading="lazy"
-            />
-            <img
-              src="images/newposters/PRIMAVERA_01.webp"
-              alt="Image 01"
-              loading="lazy"
-            />
-            <img
-              src="images/newposters/EXPERIMENTALGRAPHICS2.webp"
-              alt="Image 02"
-              loading="lazy"
-            />
-            <img
-              src="images/newposters/Experimentalgraphicsfinal.webp"
-              alt="Image 03"
-              loading="lazy"
-            />
-            <img
-              src="images/posterdescarrilados.webp"
-              alt="Image 1"
-              loading="lazy"
-            />
-            <img src="images/mo1.png" alt="Image 2" loading="lazy" />
-            <img
-              src="images/New Folder With Items 2/Design.webp"
-              alt="Image 3"
-              loading="lazy"
-            />
-            <img
-              src="images/New Folder With Items 2/Prancheta 1_1 copy.webp"
-              alt="Image 4"
-              loading="lazy"
-            />
-            <img
-              src="images/budapeste_A2_300ppi_final copy (1).jpg"
-              alt="Image 5"
-              loading="lazy"
-            />
-          </div>
+      <div class="scroll-container">
+        <div class="scroll-content">
+          <!-- ORIGINAL IMAGES -->
+          <img src="images/newposters/mitcover.webp" alt="Image 001" loading="lazy" />
+          <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Image 0" loading="lazy" />
+          <img src="images/newposters/PRIMAVERA_01.webp" alt="Image 01" loading="lazy" />
+          <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Image 02" loading="lazy" />
+          <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Image 03" loading="lazy" />
+          <img src="images/posterdescarrilados.webp" alt="Image 1" loading="lazy" />
+          <img src="images/mo1.png" alt="Image 2" loading="lazy" />
+          <img src="images/New Folder With Items 2/Design.webp" alt="Image 3" loading="lazy" />
+          <img src="images/New Folder With Items 2/Prancheta 1_1 copy.webp" alt="Image 4" loading="lazy" />
+          <img src="images/budapeste_A2_300ppi_final copy (1).jpg" alt="Image 5" loading="lazy" />
+    
+          <!-- DUPLICATED IMAGES for seamless loop -->
+          <img src="images/newposters/mitcover.webp" alt="Image 001" loading="lazy" />
+          <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Image 0" loading="lazy" />
+          <img src="images/newposters/PRIMAVERA_01.webp" alt="Image 01" loading="lazy" />
+          <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Image 02" loading="lazy" />
+          <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Image 03" loading="lazy" />
+          <img src="images/posterdescarrilados.webp" alt="Image 1" loading="lazy" />
+          <img src="images/mo1.png" alt="Image 2" loading="lazy" />
+          <img src="images/New Folder With Items 2/Design.webp" alt="Image 3" loading="lazy" />
+          <img src="images/New Folder With Items 2/Prancheta 1_1 copy.webp" alt="Image 4" loading="lazy" />
+          <img src="images/budapeste_A2_300ppi_final copy (1).jpg" alt="Image 5" loading="lazy" />
         </div>
-      </section>
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const scrollContent = document.querySelector(".scroll-content");
-          const images = Array.from(scrollContent.querySelectorAll("img")); // Convert NodeList to Array
-
-          // Function to preload images
-          function preloadImages(images, callback) {
-            let loadedCount = 0;
-            images.forEach((img) => {
-              const tempImg = new Image();
-              tempImg.src = img.src;
-              tempImg.onload = () => {
-                loadedCount++;
-                console.log(`Image Loaded: ${img.src}`);
-                if (loadedCount === images.length) callback();
-              };
-            });
-          }
-
-          // Duplicate images for seamless scrolling
-          scrollContent.innerHTML += scrollContent.innerHTML;
-
-          // Once all images are preloaded
-          preloadImages(images, () => {
-            const updatedImages = Array.from(
-              scrollContent.querySelectorAll("img")
-            ); // Include duplicated images
-            let totalWidth = 0;
-
-            updatedImages.forEach((img) => {
-              totalWidth += img.offsetWidth;
-            });
-
-            scrollContent.style.width = `${totalWidth}px`; // Set the total width
-            scrollContent.style.animationPlayState = "running"; // Start the animation
-          });
-        });
-      </script>
+      </div>
     </section>
+    
 
     <section id="contact-section">
       <div class="contact-container">

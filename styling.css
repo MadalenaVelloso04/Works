@@ -1,46 +1,193 @@
 @font-face {
-  font-family: 'Etrella';
-  src: url('fonts/Estrella-Early\ copy.otf') format('truetype');
+  font-family: "Etrella";
+  src: url("fonts/Estrella-Early\ copy.otf") format("truetype");
 }
 @font-face {
-  font-family: 'GW Bantley';
-  src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'ShadowHand';
-  src: url('fonts/ShadowHand.ttf') format('truetype');
+  font-family: "GW Bantley";
+  src: url("fonts/GWBantley-Regular-Trial.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'minecraft';
-  src: url('fonts/Minecraft.ttf') format('truetype');
+  font-family: "ShadowHand";
+  src: url("fonts/ShadowHand.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "minecraft";
+  src: url("fonts/Minecraft.ttf") format("truetype");
 }
 
 /*
 *  html5resetcss
 */
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-body{line-height:1}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-nav ul{list-style:none}
-blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:none}
-a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
-ins{background-color:#ff9;color:#000;text-decoration:none}
-mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
-del{text-decoration:line-through}
-abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
-table{border-collapse:collapse;border-spacing:0}
-hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
-input,select{vertical-align:middle}
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+nav ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input,
+select {
+  vertical-align: middle;
+}
 
-*
-*::before,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* *::before,
 *::after {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -50,8 +197,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'minecraft';
-  font-family: 'ShadowHand';
+  font-family: "minecraft";
   font-weight: 400;
   height: 100vh;
   text-decoration: none;
@@ -69,6 +215,10 @@ body {
   z-index: 2;
 }
 
+:root {
+  --pink: #ff00d4;
+  --black: #0c0c0c;
+}
 
 #changingTextContainer {
   width: 100%;
@@ -79,115 +229,195 @@ body {
 }
 
 #changingText {
-  color: #ffffff; /* Text color */
-  font-family: 'ShadowHand';
+  text-transform: none;
+  color: #ffffff;
+  font-family: "minecraft";
   display: flex;
-  flex-direction: column; /* Stack words vertically */
-  gap: 10px; /* Spacing between words */
-  font-size: 7vw; /* Responsive font size */
-  text-align: center; /* Center align text */
-  white-space: nowrap; /* Prevent word wrapping */
+  flex-direction: inline;
+  justify-content: center;
+  gap: 10px;
+  font-size: 7vw;
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+.word {
+  display: inline-flex; /* keep first letter and word together */
+  justify-content: center; /* horizontally centers the word */
+  align-items: baseline; /* align the first letter and the word itself */
+}
+
+.first-letter {
+  color: #000000;
+  text-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4, 0 0 20px #ff00d4;
+  font-family: "GW Bantley"; /* (put quotes if your font has spaces!) */
+  font-size: 10vw; /* bigger than the rest */
+  line-height: 1; /* prevent strange height issues */
+  display: inline-block;
+  vertical-align: middle; /* better for different sizes */
+  position: relative;
+  top: 0.15em; /* tweak this value to push it down */
+}
+
+@keyframes slideUpFade {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#changingText.animate {
+  animation: slideUpFade 0.3s ease;
 }
 
 @media (max-width: 768px) {
   #changingText {
-      font-size: 15vw; /* Increase font size for smaller screens */
+    font-size: 10vw;
+    flex-direction: column;
+  }
+  .first-letter {
+    color: #000000;
+    text-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4, 0 0 20px #ff00d4;
+    font-family: "GW Bantley"; /* (put quotes if your font has spaces!) */
+    font-size: 17vw; /* bigger than the rest */
+    line-height: 1; /* prevent strange height issues */
+    display: inline-block;
+    vertical-align: middle; /* better for different sizes */
+    position: relative;
+    top: 0.15em; /* tweak this value to push it down */
   }
 }
 
 @media (max-width: 480px) {
   #changingText {
-      font-size: 12vw; /* Increase font size for smaller screens */
+    font-size: 12vw;
+    flex-direction: column;
+  }
+
+  .first-letter {
+    color: #000000;
+    font-family: "GW Bantley"; /* (put quotes if your font has spaces!) */
+    font-size: 17vw; /* bigger than the rest */
+    line-height: 1; /* prevent strange height issues */
+    display: inline-block;
+    vertical-align: middle; /* better for different sizes */
+    position: relative;
+    top: 0.15em; /* tweak this value to push it down */
   }
 }
 
-
 .descript {
+  display: flex;
+  flex-direction: column;
+  width: 29vw;
   position: absolute;
   bottom: 0px;
   left: 30px;
   text-transform: uppercase;
-  font-family: 'minecraft';
+  font-family: "minecraft";
   font-size: 2vw;
-  color:  #ff00d4;
-  margin-bottom: 10px;
+  color: #ff00d4;
+  margin-bottom: 1%;
 }
 
-/* Smaller screens */
 @media (max-width: 768px) {
   .descript {
+    width: 40vw;
+    font-size: 3vw;
+    left: 5%;
+    bottom: 0.5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .descript {
+    justify-content: center;
+    text-align: center;
+    width: 90vw;
     font-size: 3vw;
     left: 5%;
   }
 }
 
+.different-letter {
+  font-family: GW Bantley;
+  src: url("fonts/GWBantley-Regular-Trial.ttf") format("truetype");
+  font-size: 7vw;
+  font-weight: lighter;
+  color: #ff00d4;
+}
 
 .letstalk {
   position: absolute;
-  bottom: 5px;
+  bottom: 0%;
   right: 30px;
-  text-transform: uppercase;
-  font-family: 'shadowhand';
-  font-size: 6vw;
-  color:  #ff00d4;
-  text-decoration: none; 
+  font-family: "minecraft";
+  font-size: 7vw;
+  color: #ffffff;
+  text-decoration: none;
   z-index: 10;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
 }
 
-/* Smaller screens */
 @media (max-width: 768px) {
   .letstalk {
-    font-size: 5vw; 
+    font-size: 9vw;
     right: 5%;
   }
 }
 
 @media (max-width: 480px) {
   .letstalk {
-    font-size: 8vw;  
-    right: 5%;
+justify-content: center;
+ text-align: center;
+    font-size: 20vw;
+    bottom: 2%;
+  }
+  .different-letter {
+    font-size: 30vw;
   }
 }
 
 .letstalk:hover {
-  color: #1F1E19; 
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff00d4, 0 0 20px #ff00d4;
 }
 
-.letstalk::after {
-  content: '';
-  position: absolute;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   top: 50%;
-  left: -40px;
-  transform: translateY(-50%) scale(0); 
-  width: 30px;
-  height: 30px;
-  background-color:  #ff00d4;
-  border-radius: 50%; 
-  transition: transform 0.3s ease, opacity 0.3s ease; 
-  opacity: 0; 
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* On hover, make the circle appear */
-.letstalk:hover::after {
-  transform: translateY(-50%) scale(1);
-  opacity: 1;
+#interactiveDrawing {
+  width: 30vw;
+  transition: transform 0.5s ease;
 }
 
-h1 {
-  text-transform: uppercase;
-  font-style: normal;
-  font-size: 80px;
-  text-align: center;
-  transition: color 0.5s ease-in-out;
-  color: #ff00d4;
+#interactiveDrawing:hover {
+  transform: translateY(-10px) scale(1.05);
 }
 
-h1:hover {
-  color: #1F1E19; 
+@media (max-width: 768px) {
+  #interactiveDrawing {
+    width: 50vw;
+    transition: transform 0.5s ease;
+  }
 }
 
 #navbar {
-  font-family: 'minecraft', sans-serif;
+  font-family: "minecraft", sans-serif;
   position: fixed;
   top: 0; /* optional, to stick it at the top */
   left: 50%;
@@ -214,11 +444,31 @@ h1:hover {
 .navbar-links a {
   text-decoration: none;
   color: #ff00d4;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
 }
 
+
 .navbar-links a:hover {
-  color: #1f1e19;
+  text-shadow: 0 0 8px #ff00d4, 0 0 15px #ff00d4;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff00d4;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-links a:hover::after {
+  width: 80%;
+  box-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4;
+  animation: flicker 0.8s infinite;
 }
 
 .navbar-logo {
@@ -270,7 +520,8 @@ h1:hover {
     z-index: 2000;
     opacity: 0;
     transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+    transition: opacity 0.3s ease, transform 0.3s ease,
+      visibility 0s linear 0.3s;
   }
 
   .navbar-links a {
@@ -296,18 +547,24 @@ h1:hover {
   }
 
   /* Stagger effect - each link a little later */
-  .navbar-links.show a:nth-child(1) { transition-delay: 0.2s; }
-  .navbar-links.show a:nth-child(2) { transition-delay: 0.4s; }
-  .navbar-links.show a:nth-child(3) { transition-delay: 0.6s; }
-  .navbar-links.show a:nth-child(4) { transition-delay: 0.8s; }
+  .navbar-links.show a:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  .navbar-links.show a:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  .navbar-links.show a:nth-child(3) {
+    transition-delay: 0.6s;
+  }
+  .navbar-links.show a:nth-child(4) {
+    transition-delay: 0.8s;
+  }
 
   #menu-toggle {
     display: block;
     z-index: 2100; /* above the menu */
   }
 }
-
-
 
 #menu-toggle.open .hamburger span:nth-child(1) {
   transform: rotate(45deg) translateY(10px);
@@ -342,26 +599,6 @@ h1:hover {
   transition: transform 0.1s ease;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.interactive-drawing {
-  position: absolute;
-  width: 600px;
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.5s ease-in-out;
-}
 /* Desktop and larger screens */
 .about-me {
   position: relative;
@@ -370,7 +607,7 @@ h1:hover {
   overflow: hidden;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-image: url('images/mephoto.png');
+  background-image: url("images/mephoto.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -388,10 +625,26 @@ h1:hover {
   align-items: right !important;
   padding: 20px !important;
   max-width: 30vw !important;
-  color:#ffffff !important;
-  font-family: "itc-avant-garde-gothic-pro", sans-serif!important;
+  color: #ffffff !important;
+  font-family: "itc-avant-garde-gothic-pro", sans-serif !important;
   font-style: bold;
   font-size: 1.2vw;
+}
+
+/* Tablet screens */
+@media (max-width: 900px) {
+  .about-me {
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .about-me-content {
+    max-width: 70vw !important; /* Narrower text block */
+    font-size: 0.8rem !important; /* Smaller text */
+    line-height: 1.4 !important;
+    padding: 15px !important;
+    top: 50% !important;
+    left: 50% !important;
+  }
 }
 
 /* Tablet screens */
@@ -402,8 +655,8 @@ h1:hover {
     background-size: cover;
   }
   .about-me-content {
-    max-width: 70vw !important;  /* Narrower text block */
-    font-size: 0.8rem !important;  /* Smaller text */
+    max-width: 70vw !important; /* Narrower text block */
+    font-size: 0.8rem !important; /* Smaller text */
     line-height: 1.4 !important;
     padding: 15px !important;
     top: 50% !important;
@@ -414,9 +667,9 @@ h1:hover {
 /* Mobile screens (iPhones) */
 @media (max-width: 480px) {
   .about-me-content {
-    max-width: 98vw !important;  /* Allow text to stretch across the screen */
+    max-width: 98vw !important; /* Allow text to stretch across the screen */
     font-size: 0.8rem !important; /* Smaller text */
-    line-height: 1.3 !important;  /* Reduce spacing between lines */
+    line-height: 1.3 !important; /* Reduce spacing between lines */
     padding: 5px !important;
   }
 
@@ -432,62 +685,86 @@ h1:hover {
   }
 }
 
-
-/* Section to fill the viewport */
 .new-section {
   height: 100vh;
-  overflow: hidden; /* Prevent scrolling outside the viewport */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000; /* Background color */
-}
-
-/* Scroll container to handle the animation */
-.scroll-container {
-  display: flex;
-  overflow: hidden;
-  width: 100%; /* Full viewport width */
-  position: relative;
-  height: 100%; /* Full viewport height */
-}
-
-
-/* Images styling */
-.scroll-content img {
-  height: 80%;
-  max-width: 100%; /* Ensure they don't stretch too much */
-  object-fit: contain;
-  transition: transform 0.3s ease-in-out;
+  background-color: #000;
 }
 
 .scroll-content {
   display: flex;
   align-items: center;
-  gap: 20px; /* Space between images */
-  animation: scroll-animation 7s linear infinite; /* Adjust speed */
-  will-change: transform; /* Hint to the browser for optimization */
+  gap: 20px;
+  animation: scroll-animation 20s linear infinite;
+  will-change: transform;
+  width: max-content; /* ✅ Ensures no layout shift or jitter */
+}
+
+.scroll-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  align-content: center;
+}
+
+/* Bonus: smoother scaling during hover */
+.scroll-content img {
+  height: 90vh;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  backface-visibility: hidden; /* ✅ Prevents GPU jank */
+  will-change: transform;
 }
 
 .scroll-content img:hover {
   transform: scale(1.05);
 }
 
-
-  @keyframes scroll-animation {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100%)); /* Scroll the full width */
-    }
+@keyframes scroll-animation {
+  0% {
+    transform: translateX(0%);
   }
-  
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 🔁 Responsive Image Scaling */
+@media (max-width: 1024px) {
+  .scroll-content img {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-content img {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .new-section {
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+  }
+  .scroll-content img {
+    height: 70vh;
+  }
+}
 
 #contact-section {
   max-width: 100vw;
-  background-color:#ff00d4;
-  color:#000000;
+  background-color: #ff00d4;
+  color: #000000;
   padding: 40px;
   text-align: left;
 }
@@ -508,7 +785,7 @@ h1:hover {
   padding-top: 1vh;
 }
 .contact-info {
-font-family: minecraft;
+  font-family: minecraft;
   display: flex;
   align-items: left;
   margin-bottom: 20px;
@@ -524,7 +801,7 @@ a:hover img {
 }
 
 .contact-item a {
-  color:#1F1E19;
+  color: #1f1e19;
   text-decoration: none;
 }
 
@@ -533,7 +810,7 @@ a:hover img {
 }
 
 .social-media a {
-  color:#1F1E19;
+  color: #1f1e19;
   margin: 0 15px;
   font-size: 1vw;
   text-decoration: none;
@@ -541,15 +818,14 @@ a:hover img {
   flex-direction: column;
 }
 
-
 /* For mobile responsiveness */
 @media (max-width: 768px) {
   .contact-info {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .social-media a {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .contact-container h2 {
@@ -557,7 +833,7 @@ a:hover img {
     min-width: 20px;
     margin-bottom: 20px;
   }
-  
+
   .contact-container p {
     font-size: 3vw;
     padding-top: 1vh;
@@ -568,12 +844,12 @@ a:hover img {
 /* For mobile responsiveness */
 @media (max-width: 488px) {
   .contact-info {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .social-media a {
-      font-size: 2rem;
-      padding: 1vh;
+    font-size: 2rem;
+    padding: 1vh;
   }
 
   .contact-container h2 {
@@ -581,30 +857,9 @@ a:hover img {
     min-width: 20px;
     margin-bottom: 20px;
   }
-  
+
   .contact-container p {
     font-size: 3vw;
     padding-top: 1vh;
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

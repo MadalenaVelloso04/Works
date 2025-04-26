@@ -228,7 +228,7 @@ html {
 #gifposter img {
   position: absolute;
   top: -70%; /* Moves GIF slightly upwards */
-  left: -55%;
+  left: -60%;
   transform: translateX(-50%); /* Centers the image */
   width: 30vw;
   height: auto;
@@ -254,6 +254,25 @@ html {
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
+
+@media screen and (max-width: 900px) {
+  #gifposter img {
+    top: 0%;
+    left: -30%;
+    width: 70vw;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  #gifposter2 img {
+    top: -150%;
+    left: 45%;
+    width: 65vw;
+    transform: translateX(-50%) rotate(10deg);
+    z-index: -1;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   #gifposter img {
@@ -468,6 +487,13 @@ html {
     text-shadow: 0 0 5px #ff00ff;
   }
 
+  @media (max-width: 900px) {
+    .project-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+
 /* Small screens: tablets and phones */
 @media (max-width: 768px) {
   .folder-grid {
@@ -487,7 +513,7 @@ html {
   }
 
   .project-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .project-card {
@@ -514,7 +540,7 @@ html {
   }
 
   .folder {
-    width: 90px;
+    width: 100px;
   }
 
   .folder img {
