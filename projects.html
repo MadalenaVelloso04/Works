@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://use.typekit.net/aie2ati.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      @font-face {
+  font-family: 'GW Bantley';
+  src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+}
         .different-letter {
             font-family: GW Bantley;
             src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
@@ -46,8 +50,6 @@
             </div>
           </button>
         </div>
-      </header>
-
         <section id="landing" class="landing-section">
             <div class="landing-content">
                 <!-- First GIF -->
@@ -61,7 +63,7 @@
                 <!-- Text Content -->
                 <div class="text-content">
                     <p class="h1">@<span class="different-letter">My</span>_Works</p>
-                    <p><a class="seemore"sp href="#folders-section">Scroll down</a></p>
+                    <p><a class="seemore" href="#folders-section">Scroll down</a></p>
                 </div>
             </div>
         </section>
@@ -83,93 +85,92 @@
             <img src="images/branding 3D Icon For Real Estate (HD) (1).png" alt="Branding">
             <span>Branding</span>
           </div>
-          <div class="folder" data-folder="3Dimention" onclick="showCategory('3Dimention')">
-            <img src="images/Forest 3D Icon For Real Estate (HD).png" alt="3Dimention">
-            <span>3Dimention</span>
+          <div class="folder" data-folder="3Dimension" onclick="showCategory('3Dimension')">
+            <img src="images/Forest 3D Icon For Real Estate (HD).png" alt="3Dimension">
+            <span>3Dimension</span>
           </div>
         </div>
-      
-        <!-- Hidden Categories -->
-        <div id="Posters" class="project-category active">
-          <h3>Posters</h3>
-          
-          <div class="project-gallery">
-            <!-- Example card -->
-            <div class="project-card">
-                <img src="images/newposters/mitcover.webp" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>A thought on AI</h4>
-                  <p>Built with Photoshop</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-              <div class="project-card">
-                <img src="images/newposters/PRIMAVERA_01.webp" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Primavera</h4>
-                  <p>Built with Photoshop</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-              <div class="project-card">
-                <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Encapsulate Culturea</h4>
-                  <p>Built with Photoshop/Blender</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-            <div class="project-card">
-                <img src="images/newposters/brains.jpg" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>A thought on AI_02</h4>
-                  <p>Built with Photoshop</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-            <div class="project-card">
-                <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Heritage</h4>
-                  <p>Built with Photoshop</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-              <div class="project-card">
-                <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Material Memories</h4>
-                  <p>Built with Photoshop</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-              <div class="project-card">
-                <img src="images/madalena_never2small.png" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Never 2 Small</h4>
-                  <p>Built with Photoshop/Bitmap treatment</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-              <div class="project-card">
-                <img src="images/mo1.png" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Mon Oncle</h4>
-                  <p>Built with Illustrator</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-              <div class="project-card">
-                <img src="images/budapeste_A2_300ppi_final copy (1).jpg" alt="Project 1" onclick="openModal(this.src)">
-                <div class="project-info">
-                  <h4>Cities</h4>
-                  <p>Built with Pen/Illustrator</p>
-                  <a href="link-to-project-page.html" class="view-project-button">View Project</a>
-                </div>
-              </div>
-            <!-- More cards -->
+    
+  <div id="Posters" class="project-category active">
+    <h3>Posters</h3>
+    
+    <div class="project-gallery">
+      <!-- Example card -->
+      <div class="project-card">
+          <img src="images/newposters/mitcover.webp" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>A thought on AI</h4>
+            <p>Built with Photoshop</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
           </div>
         </div>
+        <div class="project-card">
+          <img src="images/newposters/PRIMAVERA_01.webp" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Primavera</h4>
+            <p>Built with Photoshop</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Encapsulate Culturea</h4>
+            <p>Built with Photoshop/Blender</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+      <div class="project-card">
+          <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Heritage</h4>
+            <p>Built with Photoshop</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Material Memories</h4>
+            <p>Built with Photoshop</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/madalena_never2small.png" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Never 2 Small</h4>
+            <p>Built with Photoshop/Bitmap treatment</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/newposters/brains.jpg" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>A thought on AI_02</h4>
+            <p>Built with Photoshop</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/mo1.png" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Mon Oncle</h4>
+            <p>Built with Illustrator</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/budapeste_A2_300ppi_final copy (1).jpg" alt="Project 1" onclick="openModal(this.src)">
+          <div class="project-info">
+            <h4>Cities</h4>
+            <p>Built with Pen/Illustrator</p>
+            <a href="link-to-project-page.html" class="view-project-button">View Project</a>
+          </div>
+        </div>
+      <!-- More cards -->
+    </div>
+  </div>
 
         <div id="Illustration" class="project-category hidden">
             <h3>Illustration</h3>
@@ -194,7 +195,7 @@
               <div class="project-card">
                 <img src="images/illustra/matildetexto2.5.jpg" alt="Project 1" onclick="openModal(this.src)">
                 <div class="project-info">
-                  <h4>MAtilde</h4>
+                  <h4>Matilde</h4>
                   <p>Built with Ipad/Photoshop</p>
                   <a href="link-to-project-page.html" class="view-project-button">View Project</a>
                 </div>
@@ -307,8 +308,8 @@
             </div>
           </div>
 
-          <div id="3Dimention" class="project-category hidden">
-            <h3>3Dimention</h3>
+          <div id="3Dimension" class="project-category hidden">
+            <h3>3Dimension</h3>
             <div class="project-gallery">
               <!-- Example card -->
               <div class="project-card">
@@ -352,11 +353,11 @@
       
       <div id="imageModal" class="hidden" onclick="closeModal()">
         <img id="modalImage" src="" alt="Folder Preview">
-      </div
+      </div>
 
 
 
-    !-- Circle cursor element -->
+
     <div class="circle-cursor"></div>
     <script src="hamburguer.js"></script>
     <script src="script.js"></script>
