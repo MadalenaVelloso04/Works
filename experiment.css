@@ -262,13 +262,12 @@ body {
   height: 60vh;
   margin: 5vh 0;
   background-image: url('images/newposters/experimental.png');
-  background-size: inherit;
-  position: relative;
-  height: 60vh;
-  overflow: hidden;
+  background-attachment: inherit;
   background-size: cover;
   background-position: center;
-  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
   .parallax-banner h2 {
  text-align: center;
