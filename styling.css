@@ -650,17 +650,17 @@ justify-content: center;
 /* Tablet screens */
 @media (max-width: 768px) {
   .about-me {
+    height: 70vh;
     background-attachment: fixed;
-    background-size: cover;
+    background-size:cover;
   }
   .about-me-content {
-    max-width: 70vw !important; /* Narrower text block */
+    width: 80vw;
     font-size: 0.8rem !important; /* Smaller text */
-    line-height: 1.4 !important;
-    padding: 15px !important;
-    top: 50% !important;
-    left: 50% !important;
+    line-height: 1.3 !important; /* Reduce spacing between lines */
+    padding: 5px !important;
   }
+
 }
 
 /* Mobile screens (iPhones) */
@@ -679,8 +679,8 @@ justify-content: center;
 
   .about-me {
     height: 70vh;
-    background-attachment: fixed;
-    background-size: cover;
+    background-attachment:inherit;
+    background-size:cover;
   }
 }
 
