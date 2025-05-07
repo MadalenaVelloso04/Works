@@ -666,7 +666,7 @@ justify-content: center;
 /* Mobile screens (iPhones) */
 @media (max-width: 480px) {
   .about-me-content {
-    max-width: 100vw !important; /* Allow text to stretch across the screen */
+    width: 80vw;
     font-size: 0.8rem !important; /* Smaller text */
     line-height: 1.3 !important; /* Reduce spacing between lines */
     padding: 5px !important;
@@ -678,6 +678,7 @@ justify-content: center;
   }
 
   .about-me {
+    height: 70vh;
     background-attachment: fixed;
     background-size: cover;
   }
