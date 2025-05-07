@@ -197,41 +197,6 @@ body {
   transform: rotate(-45deg) translateY(-10px);
 }
 
-.parallax-banner {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  height: 60vh;
-  background-image: url('images/newposters/experimental.png');
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.parallax-banner h2 {
-  font-size: 48px;
-  font-family: 'minecraft';
-  color: #ff00d4;
-  text-shadow: 0 0 10px #ff00d4;
-}
-
-[data-animate] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-
-[data-animate].show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
-
-
 
 .hero-intro {
   padding: 8rem 2rem 4rem;
@@ -288,6 +253,29 @@ body {
   font-family: 'minecraft', sans-serif;
   color: #ff00d4;
   text-shadow: 0 0 10px #ff00d4;
+}
+
+@media (max-width: 480px) {
+
+  .parallax-banner {
+  height: 60vh;
+  margin: 5vh 0;
+  background-image: url('images/newposters/experimental.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .parallax-banner h2 {
+ text-align: center;
+    font-size: 48px;
+    font-family: 'minecraft', sans-serif;
+    color: #ff00d4;
+    text-shadow: 0 0 10px #ff00d4;
+  }
+
 }
 
 .scroll-row {
