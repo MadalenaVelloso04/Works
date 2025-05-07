@@ -217,6 +217,7 @@ body {
   display: block;
 }
 
+
 .subtext {
   max-width: 600px;
   margin: 1rem auto 2rem;
@@ -299,6 +300,17 @@ body {
 .scroll-container img:hover {
   transform: scale(1.05);
 }
+
+@keyframes scrollShift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-10px); }
+}
+
+.scroll-container img {
+  animation: scrollShift 6s ease-in-out infinite alternate;
+}
+
+
 
 .project-block {
   margin: 6rem auto;
@@ -441,4 +453,20 @@ body {
   .hand-scribble-header-right {
     right: -20%;
   }
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
 }
