@@ -143,8 +143,8 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
         <div class="image-block text-block">
           <img src="images/newposters/mockupheritage.png" data-aos="fade-up" alt="">
           <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Timeless<br>Morris</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
+            <p class="quote" data-aos="fade-up" data-aos-delay="300">Timeless<br>Morris</p>
+            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
             </p>
           </div>
@@ -168,8 +168,8 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
         <div class="image-block text-block">
           <img src="images/newposters/memorismockup.png" data-aos="fade-up" alt="">
           <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Timeless<br>Morris</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
+            <p class="quote" data-aos="fade-up" data-aos-delay="300">Timeless<br>Morris</p>
+            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
             </p>
           </div>
@@ -200,8 +200,8 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
         <div class="image-block text-block">
           <img src="images/newposters/primaveramockup.png" data-aos="fade-up" alt="">
           <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Timeless<br>Morris</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
+            <p class="quote" data-aos="fade-up" data-aos-delay="300">Timeless<br>Morris</p>
+            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
             </p>
           </div>
@@ -264,8 +264,18 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
     AOS.init({
       duration: 1000,
       once: true,
+      offset: 300,
     });
+
+    window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  document.querySelectorAll('.scroll-container img').forEach((img, i) => {
+    img.style.transform = `translateY(${scrollY * 0.1 * (i % 2 === 0 ? 1 : -1)}px)`;
+  });
+});
   </script>
+
+
 
 </body>
 </html>

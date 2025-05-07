@@ -3,183 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poster Universe</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Animated Editorial Layout</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: sans-serif;
-      background: #fff;
+      background: #f4f4f4;
+      color: #111;
       overflow-x: hidden;
     }
-
-    .hero-intro {
-      text-align: center;
-      padding: 8rem 2rem 4rem;
+    section {
+      padding: 10vh 5vw;
+      position: relative;
     }
-
-    .hero-intro h1 {
-      font-size: clamp(2rem, 8vw, 6rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+    h1.headline {
+      font-size: 4rem;
+      line-height: 1.1;
+      overflow: hidden;
     }
-
-    .hero-intro .subtext {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      color: #444;
-      font-size: 1.125rem;
+    .reveal-on-scroll {
+      opacity: 0;
+      clip-path: inset(100% 0 0 0);
+      animation: revealImage 1.2s ease-out forwards;
     }
-
-    .hero-tags {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
+    @keyframes revealImage {
+      to {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+      }
     }
-
-    .hero-tags span {
-      background: #000;
-      color: #fff;
-      padding: 6px 14px;
-      font-size: 0.875rem;
-      border-radius: 30px;
+    .parallax-item {
+      will-change: transform;
+      transition: transform 0.1s;
     }
-
-    .poster-gallery {
-  padding: 4rem 2rem;
-  background: #f9f9f9;
-}
-
-.poster-row {
-  display: flex;
-  overflow-x: auto;
-  gap: 2rem;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 2rem;
-}
-
-.poster {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  position: relative;
-}
-
-.poster:hover {
-  transform: translateY(-10px);
-}
-
-.poster img {
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.poster-expanded {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2rem;
-  border-top: 1px solid #ccc;
-}
-
-.poster-expanded.show {
-  display: flex;
-}
-
-#poster-expanded img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-#poster-caption {
-  font-size: 1rem;
-  color: #444;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-    footer {
-      background: #111;
-      color: #eee;
-      text-align: center;
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .project {
+      background: #fff;
       padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .project:hover {
+      transform: translateY(-10px);
+    }
+    .flicker {
+      font-weight: bold;
+      color: #fff;
+      background: #111;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .flicker:hover {
+      animation: flicker 1s infinite;
+    }
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+      }
+    }
+    .magnet {
+      display: inline-block;
+      transition: transform 0.2s ease;
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="hero-intro">
-      <h1><span>Incredible</span> Changes Begin With You</h1>
-      <p class="subtext">An experimental 3D poster archive exploring modern digital aesthetics through modeling, motion, and type.</p>
-      <div class="hero-tags">
-        <span>Generative</span>
-        <span>3D</span>
-        <span>Glitch</span>
-        <span>Analog</span>
-        <span>Typography</span>
-      </div>
-    </section>
+  <section>
+    <h1 class="headline">This is <span class="flicker">KINETIC</span> Editorial Design</h1>
+  </section>
 
-    <section class="poster-gallery">
-        <div class="poster-row">
-          <div class="poster" data-title="NR_01">
-            <img src="images/newposters/mitcover.webp" alt="NR_01">
-          </div>
-          <div class="poster" data-title="NR_02">
-            <img src="images/newposters/brains.jpg" alt="NR_02">
-          </div>
-          <div class="poster" data-title="NR_03">
-            <img src="images/newposters/mockupmagazine (1).jpg" alt="NR_03">
-          </div>
-          <!-- Add more posters as needed -->
-        </div>
-      
-        <!-- Expanded view container -->
-        <div class="poster-expanded" id="poster-expanded">
-          <img src="" alt="Expanded poster" id="expanded-img">
-          <p id="poster-caption"></p>
-        </div>
-      </section>
-      
+  <section class="project-grid">
+    <div class="project parallax-item">Project 1</div>
+    <div class="project parallax-item">Project 2</div>
+    <div class="project parallax-item">Project 3</div>
+    <div class="project parallax-item">Project 4</div>
+  </section>
 
-    
-    <footer>
-      <p>&copy; 2025 Madalena Velloso</p>
-    </footer>
-  </main>
+  <section>
+    <img src="images/newposters/experimental.png" class="reveal-on-scroll" style="width:100%; border-radius:12px;" />
+  </section>
+
+  <section>
+    <div class="magnet" style="font-size:2rem; cursor:pointer;">Hover me 🧲</div>
+  </section>
 
   <script>
-    const posters = document.querySelectorAll('.poster');
-    const expanded = document.getElementById('poster-expanded');
-    const expandedImg = document.getElementById('expanded-img');
-    const caption = document.getElementById('poster-caption');
-  
-    posters.forEach(poster => {
-      poster.addEventListener('click', () => {
-        const img = poster.querySelector('img');
-        expandedImg.src = img.src;
-        expandedImg.alt = img.alt;
-        caption.textContent = poster.getAttribute('data-title');
-        expanded.classList.add('show');
-  
-        // Optional: Scroll to the expanded section
-        expanded.scrollIntoView({ behavior: 'smooth' });
+    // Split Text Reveal
+    const chars = document.querySelector('.headline').textContent.split('');
+    const container = document.querySelector('.headline');
+    container.innerHTML = '';
+    chars.forEach((char, i) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.style.opacity = 0;
+      span.style.display = 'inline-block';
+      span.style.transform = 'translateY(20px)';
+      span.style.transition = `opacity 0.4s ${i * 50}ms, transform 0.4s ${i * 50}ms`;
+      container.appendChild(span);
+      setTimeout(() => {
+        span.style.opacity = 1;
+        span.style.transform = 'translateY(0)';
+      }, 100);
+    });
+
+    // Parallax Effect
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      document.querySelectorAll('.parallax-item').forEach((el, i) => {
+        const speed = (i % 2 === 0 ? -1 : 1) * 0.1;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+
+    // Magnetic Hover
+    const magnets = document.querySelectorAll('.magnet');
+    magnets.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = 'translate(0, 0)';
       });
     });
   </script>
-  
 </body>
 </html>
