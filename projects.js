@@ -27,3 +27,28 @@ function openModal(src) {
 function closeModal() {
   document.getElementById('imageModal').classList.add('hidden');
 }
+
+
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+  observer.observe(card);
+});
+
+
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.parallax-text').forEach(el => {
+    const speed = 0.3; // Adjust for more/less movement
+    const offset = window.scrollY * speed;
+    el.style.transform = `translateY(${offset}px)`;
+  });
+});
+
+document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));

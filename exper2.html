@@ -1,142 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animated Editorial Layout</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f4f4f4;
-      color: #111;
-      overflow-x: hidden;
-    }
-    section {
-      padding: 10vh 5vw;
-      position: relative;
-    }
-    h1.headline {
-      font-size: 4rem;
-      line-height: 1.1;
-      overflow: hidden;
-    }
-    .reveal-on-scroll {
-      opacity: 0;
-      clip-path: inset(100% 0 0 0);
-      animation: revealImage 1.2s ease-out forwards;
-    }
-    @keyframes revealImage {
-      to {
-        clip-path: inset(0 0 0 0);
-        opacity: 1;
-      }
-    }
-    .parallax-item {
-      will-change: transform;
-      transition: transform 0.1s;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .project {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-10px);
-    }
-    .flicker {
-      font-weight: bold;
-      color: #fff;
-      background: #111;
-      padding: 0.5em 1em;
-      border-radius: 8px;
-      display: inline-block;
-    }
-    .flicker:hover {
-      animation: flicker 1s infinite;
-    }
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff;
-      }
-      20%, 24%, 55% {
-        text-shadow: none;
-      }
-    }
-    .magnet {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link rel="stylesheet" href="exper2.css" />
 </head>
 <body>
-  <section>
-    <h1 class="headline">This is <span class="flicker">KINETIC</span> Editorial Design</h1>
-  </section>
+ <!-- Your existing navbar -->
 
-  <section class="project-grid">
-    <div class="project parallax-item">Project 1</div>
-    <div class="project parallax-item">Project 2</div>
-    <div class="project parallax-item">Project 3</div>
-    <div class="project parallax-item">Project 4</div>
-  </section>
+    <header>
+      <div id="navbar">
+        <!-- Logo -->
+        <a href="./">
+          <img src="images/logo.png" alt="Logo" class="navbar-logo" />
+        </a>
 
-  <section>
-    <img src="images/newposters/experimental.png" class="reveal-on-scroll" style="width:100%; border-radius:12px;" />
-  </section>
+        <div class="navbar-links" id="nav-links">
+          <a href="./#about-me">About me</a>
+          <a href="./projects.html">Projects</a>
+          <a href="./#contact-section">Contacts</a>
+        </div>
 
-  <section>
-    <div class="magnet" style="font-size:2rem; cursor:pointer;">Hover me 🧲</div>
-  </section>
+                <!-- Hamburger Button -->
+        <button id="menu-toggle" aria-label="Toggle menu">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+</header>
 
-  <script>
-    // Split Text Reveal
-    const chars = document.querySelector('.headline').textContent.split('');
-    const container = document.querySelector('.headline');
-    container.innerHTML = '';
-    chars.forEach((char, i) => {
-      const span = document.createElement('span');
-      span.textContent = char;
-      span.style.opacity = 0;
-      span.style.display = 'inline-block';
-      span.style.transform = 'translateY(20px)';
-      span.style.transition = `opacity 0.4s ${i * 50}ms, transform 0.4s ${i * 50}ms`;
-      container.appendChild(span);
-      setTimeout(() => {
-        span.style.opacity = 1;
-        span.style.transform = 'translateY(0)';
-      }, 100);
-    });
 
-    // Parallax Effect
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      document.querySelectorAll('.parallax-item').forEach((el, i) => {
-        const speed = (i % 2 === 0 ? -1 : 1) * 0.1;
-        el.style.transform = `translateY(${scrolled * speed}px)`;
-      });
-    });
+<section class="hero">
+  <div>
+    <img src="images/INSTAGRAM K-AFE copy/behance k-afe/PNG/logopng copy.png">
+  </div>
+</section>
 
-    // Magnetic Hover
-    const magnets = document.querySelectorAll('.magnet');
-    magnets.forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-      });
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'translate(0, 0)';
-      });
-    });
-  </script>
+
+  <div class="container">
+  <div class="section-heading">
+    <h2 class="sticky-heading"> Beauty is in the eye of the beholder. I think that's how it goes...</h2>
+  </div>
+  
+  <div class="product-grid grid-half">
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/Mupimockup.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/banner.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/tshirtmockup.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/menumockup.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/PNG/keyvisual.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/coffeemufmockup.jpeg" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-heading">
+    <h2 class="sticky-heading">What is beauty though? It's pretty subjective overall</h2>
+  </div>
+  
+  <div class="product-grid grid-full">
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/BC-1-Fabricated-2.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/menu.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/homepagered.jpeg" alt="">
+    </div>
+    <div class="product-card">
+      <img src="images/INSTAGRAM K-AFE copy/behance k-afe/stickers1.jpeg" alt="">
+    </div>
+  </div>
+</div>
+
+  <div class="circle-cursor"></div>
+  <script src="script.js"></script>
+  <script src="hamburguer.js"></script>
 </body>
 </html>
