@@ -1236,82 +1236,163 @@ justify-content: center;
     height: 180px;
   }
 }
-
-.new-section {
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-}
-
-.scroll-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  animation: scroll-animation 20s linear infinite;
-  will-change: transform;
-  width: max-content; /* ✅ Ensures no layout shift or jitter */
-}
-
-.scroll-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  align-content: center;
-}
-
-/* Bonus: smoother scaling during hover */
-.scroll-content img {
-  height: 90vh;
-  width: auto;
-  object-fit: contain;
-  transition: transform 0.4s ease;
-  backface-visibility: hidden; /* ✅ Prevents GPU jank */
-  will-change: transform;
-}
-
-.scroll-content img:hover {
-  transform: scale(1.05);
-}
-
-@keyframes scroll-animation {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* 🔁 Responsive Image Scaling */
-@media (max-width: 1024px) {
-  .scroll-content img {
-    height: 90vh;
-  }
-}
-
-@media (max-width: 768px) {
-  .scroll-content img {
-    height: 90vh;
-  }
-}
-
-@media (max-width: 480px) {
-  .new-section {
-    height: 80vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-  }
-  .scroll-content img {
-    height: 70vh;
-  }
-}
+ .gallery-section {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      position: relative;
+    }
+    
+    /* Subtle gradient overlay for depth */
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 25vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    .gallery-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 25vh;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    .scroll-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      perspective: 1000px;
+    }
+    
+    .scroll-content {
+      display: flex;
+      align-items: center;
+      gap: 40px; /* Increased spacing between images */
+      animation: scroll-animation 40s linear infinite; /* Slowed down for better viewing */
+      will-change: transform;
+      width: max-content;
+      padding: 0 5vw;
+      transform-style: preserve-3d;
+    }
+    
+    .scroll-content img {
+      height: 75vh; /* Slightly smaller than full height */
+      width: auto;
+      object-fit: contain;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      opacity: 0.85;
+      transform: translateZ(0) scale(0.95);
+      filter: brightness(0.9);
+    }
+    
+    .scroll-content img:hover {
+      transform: translateZ(50px) scale(1.05);
+      opacity: 1;
+      filter: brightness(1.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      z-index: 10;
+    }
+    
+    /* Staggered positioning for more visual interest */
+    .scroll-content img:nth-child(odd) {
+      transform: translateY(-5vh) translateZ(0) scale(0.95);
+    }
+    
+    .scroll-content img:nth-child(odd):hover {
+      transform: translateY(-5vh) translateZ(50px) scale(1.05);
+    }
+    
+    .scroll-content img:nth-child(3n) {
+      transform: translateY(5vh) translateZ(0) scale(0.95);
+    }
+    
+    .scroll-content img:nth-child(3n):hover {
+      transform: translateY(5vh) translateZ(50px) scale(1.05);
+    }
+    
+    /* Pause animation on container hover */
+    .scroll-container:hover .scroll-content {
+      animation-play-state: paused;
+    }
+    
+    @keyframes scroll-animation {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Title overlay */
+    .gallery-title {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      z-index: 10;
+      opacity: 0.8;
+      mix-blend-mode: difference;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .scroll-content img {
+        height: 65vh;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .scroll-content {
+        gap: 20px;
+      }
+      .scroll-content img {
+        height: 60vh;
+      }
+      .gallery-title {
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-section {
+        height: 80vh;
+      }
+      .scroll-content {
+        gap: 15px;
+      }
+      .scroll-content img {
+        height: 50vh;
+      }
+      .gallery-title {
+        font-size: 1rem;
+        letter-spacing: 4px;
+      }
+    }
 
 .site-footer {
   background: #ff00d4;
