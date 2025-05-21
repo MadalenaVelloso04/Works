@@ -216,7 +216,7 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
     </section>
   
 
-     <section class="project-block" id="nr4">
+     <section class="project-block" id="nr6">
       <div class="project-title right">
         <h1>NR_06</h1>
         <img src="images/scribbles/416 copy.png" class="hand-scribble-header-right" alt="">
@@ -232,8 +232,33 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
             </p>
           </div>
         </div>
-        <div class="image-block">
-          <img src="images/madalena_never2small.png" data-aos="fade-up" alt="Project visual">
+    <div class="image-block">
+          <div class="carousel-container">
+        <div class="carousel-slides">
+          <!-- Images will be added here dynamically or statically -->
+          <img src="images/madalena_never2small.png" alt="Project Image 1" class="carousel-slide active">
+          <img src="images/newposters/madalena_araras.png" alt="Project Image 2" class="carousel-slide">
+          <img src="images/newposters/DOWELOVE_01.png" alt="Project Image 3" class="carousel-slide">
+        </div>
+        
+        <!-- Navigation arrows -->
+        <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous image">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+        
+        <button class="carousel-arrow carousel-arrow-next" aria-label="Next image">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+        
+        <!-- Optional: Image counter -->
+        <div class="carousel-counter">
+          <span class="current-slide">1</span> / <span class="total-slides">3</span>
+        </div>
+      </div>
         </div>
       </div>
     </section>
@@ -246,7 +271,7 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
     </section>
 
 
-     <section class="project-block" id="nr5">
+     <section class="project-block" id="nr7">
       <div class="project-title">
         <h1>NR_07</h1>
         <img src="images/scribbles/416 copy.png" class="hand-scribble-header" alt="">
@@ -276,7 +301,7 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
 
     
 
-     <section class="project-block" id="nr4">
+     <section class="project-block" id="nr8">
       <div class="project-title right">
         <h1>NR_08</h1>
         <img src="images/scribbles/416 copy.png" class="hand-scribble-header-right" alt="">
@@ -292,13 +317,16 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
             </p>
           </div>
         </div>
-        <div class="image-block">
+     <div class="image-block">
           <div class="carousel-container">
         <div class="carousel-slides">
           <!-- Images will be added here dynamically or statically -->
-          <img src="images/mo1.png" alt="Project Image 1" class="carousel-slide active">
+             <img src="images/mo1.png" alt="Project Image 1" class="carousel-slide active">
           <img src="images/mo2.png" alt="Project Image 2" class="carousel-slide">
           <img src="images/mo3.png" alt="Project Image 3" class="carousel-slide">
+          <img src="images/mo4.png" alt="Project Image 4" class="carousel-slide">
+          <img src="images/mo5.png" alt="Project Image 5" class="carousel-slide">
+          <img src="images/mo6.png" alt="Project Image 6" class="carousel-slide">
         </div>
         
         <!-- Navigation arrows -->
@@ -316,14 +344,12 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
         
         <!-- Optional: Image counter -->
         <div class="carousel-counter">
-          <span class="current-slide">1</span> / <span class="total-slides">3</span>
+          <span class="current-slide">1</span> / <span class="total-slides">6</span>
         </div>
       </div>
-        </div>
-      </div>
+    </div>
     </section>
    
-  
 
 
 
@@ -374,6 +400,7 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
   </script>
   
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script>
     AOS.init({
       duration: 1000,
@@ -388,73 +415,52 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
   });
 });
   </script>
-  <!-- JavaScript for carousel functionality -->
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevButton = document.querySelector('.carousel-arrow-prev');
-    const nextButton = document.querySelector('.carousel-arrow-next');
-    const currentSlideEl = document.querySelector('.current-slide');
-    const totalSlidesEl = document.querySelector('.total-slides');
+    // Initialize all carousels on the page
+    const carousels = document.querySelectorAll('.carousel-container');
     
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    
-    // Initialize counter
-    currentSlideEl.textContent = '1';
-    totalSlidesEl.textContent = totalSlides.toString();
-    
-    // Function to update current slide
-    function updateSlide(newIndex) {
-      // Remove active class from all slides
-      slides.forEach(slide => slide.classList.remove('active'));
+    carousels.forEach(carousel => {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevButton = carousel.querySelector('.carousel-arrow-prev');
+      const nextButton = carousel.querySelector('.carousel-arrow-next');
+      const currentSlideEl = carousel.querySelector('.current-slide');
+      const totalSlidesEl = carousel.querySelector('.total-slides');
       
-      // Add active class to new current slide
-      slides[newIndex].classList.add('active');
+      let currentIndex = 0;
+      const totalSlides = slides.length;
       
-      // Update counter
-      currentSlideEl.textContent = (newIndex + 1).toString();
+      // Initialize counter
+      totalSlidesEl.textContent = totalSlides.toString();
       
-      // Update current index
-      currentIndex = newIndex;
-    }
-    
-    // Previous button click handler
-    prevButton.addEventListener('click', function() {
-      const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-      updateSlide(newIndex);
-    });
-    
-    // Next button click handler
-    nextButton.addEventListener('click', function() {
-      const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-      updateSlide(newIndex);
-    });
-    
-    // Optional: Auto-play functionality
-    // Uncomment this if you want auto-play
-    /*
-    const autoPlayInterval = 5000; // 5 seconds
-    
-    let intervalId = setInterval(function() {
-      const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-      updateSlide(newIndex);
-    }, autoPlayInterval);
-    
-    // Pause auto-play on hover
-    const carouselContainer = document.querySelector('.carousel-container');
-    
-    carouselContainer.addEventListener('mouseenter', function() {
-      clearInterval(intervalId);
-    });
-    
-    carouselContainer.addEventListener('mouseleave', function() {
-      intervalId = setInterval(function() {
+      // Function to update current slide
+      function updateSlide(newIndex) {
+        // Remove active class from all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Add active class to new current slide
+        slides[newIndex].classList.add('active');
+        
+        // Update counter
+        currentSlideEl.textContent = (newIndex + 1).toString();
+        
+        // Update current index
+        currentIndex = newIndex;
+      }
+      
+      // Previous button click handler
+      prevButton.addEventListener('click', function() {
+        const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+        updateSlide(newIndex);
+      });
+      
+      // Next button click handler
+      nextButton.addEventListener('click', function() {
         const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
         updateSlide(newIndex);
-      }, autoPlayInterval);
+      });
     });
-    */
   });
 </script>
 

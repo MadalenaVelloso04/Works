@@ -453,7 +453,7 @@ html {
 }
 
 
-  /* New carousel styles */
+  /* Carousel styles */
   .carousel-container {
     position: relative;
     overflow: hidden;
@@ -519,8 +519,6 @@ html {
     font-size: 14px;
     z-index: 10;
   }
-
-  
 
 .site-footer {
   background: #111;
@@ -634,3 +632,4 @@ html {
 .project:nth-child(odd) {
   transform: translateY(calc(var(--scroll) * 0.1));
 }
+
