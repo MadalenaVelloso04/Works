@@ -1,0 +1,585 @@
+/*
+*  html5resetcss
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+/* BRUTALIST K-AFE CSS */
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Core brutalist styles */
+html, body {
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.2;
+  overflow-x: hidden;
+}
+
+/* Brutalist typography */
+h1, h2, h3 {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+
+/* High contrast neon elements */
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4, 0 0 15px #ff00d4;
+}
+
+#navbar {
+  font-family: 'minecraft', sans-serif;
+  position: fixed;
+  top: 0; /* optional, to stick it at the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 100%;
+  z-index: 1000;
+  margin: 0;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: lighter;
+  gap: 30px;
+}
+
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ff00d4;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+}
+
+
+.navbar-links a:hover {
+  text-shadow: 0 0 8px #ff00d4, 0 0 15px #ff00d4;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff00d4;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-links a:hover::after {
+  width: 80%;
+  box-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4;
+  animation: flicker 0.8s infinite;
+}
+
+.navbar-logo {
+  max-width: 50px;
+  height: auto;
+}
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 28px;
+  z-index: 999;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background-color: #ff00d4;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+@media (max-width: 768px) {
+  .navbar-links {
+    visibility: hidden;
+    pointer-events: none;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    gap: 40px;
+    z-index: 2000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  .navbar-links a {
+    font-size: 36px;
+    color: #ff00d4;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .navbar-links.show {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .navbar-links.show a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger effect - each link a little later */
+  .navbar-links.show a:nth-child(1) { transition-delay: 0.2s; }
+  .navbar-links.show a:nth-child(2) { transition-delay: 0.4s; }
+  .navbar-links.show a:nth-child(3) { transition-delay: 0.6s; }
+  .navbar-links.show a:nth-child(4) { transition-delay: 0.8s; }
+
+  #menu-toggle {
+    display: block;
+    z-index: 2100; /* above the menu */
+  }
+}
+
+#menu-toggle.open .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+
+#menu-toggle.open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle.open .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+
+
+  /* Circle cursor styling */
+  .circle-cursor {
+      position: absolute;
+      border-radius: 50%; /* This makes it a circle */
+      background-color: rgba(255, 255, 255, 0.673); /* Customize the color */
+      pointer-events: none; /* Allow interaction through the circle cursor */
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ff00d49f;
+      mix-blend-mode: difference; /* The key to the effect */
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+
+/* Brutalist hero section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid #fff;
+  background-color: #000;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.hero::after {
+  content: "K-AFE / K-AFE / K-AFE / K-AFE / K-AFE / K-AFE / K-AFE";
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  font-size: 120px;
+  opacity: 0.1;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: bold;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero img {
+  width: 40vw;
+  max-width: 400px;
+  margin-bottom: 40px;
+  border: 5px solid #fff;
+  padding: 20px;
+}
+
+.hero-info {
+  max-width: 700px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hero-title {
+  font-size: 48px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-date {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-top: 30px;
+  border-top: 2px solid #fff;
+  padding-top: 15px;
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 5px solid #fff;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.section-heading {
+  padding: 50px 20px;
+  background-color: #000;
+  border-right: 5px solid #fff;
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .section-heading {
+    border-right: none;
+    border-bottom: 5px solid #fff;
+    height: auto;
+  }
+}
+
+.sticky-heading {
+  position: sticky;
+  top: 100px;
+  color: #fff;
+  font-size: 36px;
+  text-transform: uppercase;
+  max-width: 400px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.section-text {
+  margin-top: 30px;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 350px;
+}
+
+/* Brutalist grid */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    width: 30%;
+  }
+  
+  .product-grid {
+    width: 70%;
+  }
+}
+
+.grid-half > div {
+  width: 100%;
+  border: 5px solid #000;
+}
+
+@media (min-width: 768px) {
+  .grid-half > div {
+    width: 50%;
+  }
+}
+
+.grid-full > div {
+  width: 100%;
+  border: 5px solid #000;
+}
+
+/* Brutalist product cards */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Brutalist product overlay */
+.product-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.product-card:hover::after {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Hamburger menu for mobile */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 24px;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  #menu-toggle {
+    display: block;
+    z-index: 1100;
+  }
+  
+  .navbar-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .navbar-links.show {
+    display: flex;
+  }
+  
+  #menu-toggle.open .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  #menu-toggle.open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #menu-toggle.open .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .navbar-links a {
+    font-size: 36px;
+    margin: 15px 0;
+  }
+}
+
+/* Back to top with brutalist style */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.back-to-top.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Image modal with brutalist style */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  border: 5px solid #fff;
+}
+
+.modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.close-modal {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Brutalist animation */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s linear infinite;
+  animation-play-state: paused;
+}
+
+.glitch:hover {
+  animation-play-state: running;
+}

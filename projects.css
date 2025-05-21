@@ -651,6 +651,24 @@ html {
 
 
 
+.site-footer {
+  background: #ff00d4;
+  color: #eee;
+  padding: 2rem;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #eee;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  line-height: 2rem;
+}
+
+.site-footer a:hover {
+  color: #ff00d4;
+}
 
 
 

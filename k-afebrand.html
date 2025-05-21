@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link rel="stylesheet" href="k-afebrand.css" />
+</head>
+<body>
+ <!-- Your existing navbar -->
+
+    <header>
+      <div id="navbar">
+        <!-- Logo -->
+        <a href="./">
+          <img src="images/logo.png" alt="Logo" class="navbar-logo" />
+        </a>
+
+        <div class="navbar-links" id="nav-links">
+          <a href="./#about-me">About me</a>
+          <a href="./projects.html">Projects</a>
+          <a href="./#contact-section">Contacts</a>
+        </div>
+
+                <!-- Hamburger Button -->
+        <button id="menu-toggle" aria-label="Toggle menu">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+</header>
+
+  <section class="hero">
+    <img src="images/INSTAGRAM K-AFE copy/behance k-afe/PNG/logopng copy.png" alt="K-AFE Logo">
+    <div class="hero-info">
+      <h1 class="hero-title">K-AFE Brand Identity</h1>
+      <p class="hero-description">A contemporary café brand identity inspired by the cultural fusion of Korean aesthetics and coffee culture. Bold typography meets minimalist design to create a unique brand experience that stands out in the competitive café marketplace.</p>
+      <p class="hero-date">ESTABLISHED 2023</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2 class="sticky-heading">BEAUTY IS IN THE EYE OF THE BEHOLDER.</h2>
+      <p class="section-text">K-AFE's visual identity challenges conventional café aesthetics by embracing bold contrasts and unexpected design elements. The brand's approach to beauty is deliberate and unapologetic, creating spaces and experiences that demand attention rather than seeking approval.</p>
+    </div>
+    
+    <div class="product-grid grid-half">
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/Mupimockup.jpeg" alt="Mug Mockup">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/banner.jpeg" alt="Banner">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/tshirtmockup.jpeg" alt="T-shirt Mockup">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/menumockup.jpeg" alt="Menu Mockup">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/PNG/keyvisual.jpeg" alt="Key Visual">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/coffeemufmockup.jpeg" alt="Coffee Mug Mockup">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2 class="sticky-heading">WHAT IS BEAUTY THOUGH? IT'S SUBJECTIVE.</h2>
+      <p class="section-text">K-AFE rejects the standardized aesthetic of third-wave coffee shops. Instead, it embraces a raw, unfiltered design language that celebrates imperfection. Through stark typography, unconventional layouts, and industrial textures, the brand creates a memorable and distinctive identity in a saturated market.</p>
+    </div>
+    
+    <div class="product-grid grid-full">
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/BC-1-Fabricated-2.jpeg" alt="Fabricated">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/menu.jpeg" alt="Menu">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/homepagered.jpeg" alt="Homepage Red">
+      </div>
+      <div class="product-card">
+        <img src="images/INSTAGRAM K-AFE copy/behance k-afe/stickers1.jpeg" alt="Stickers">
+      </div>
+    </div>
+  </div>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Image modal structure -->
+  <div id="image-modal" class="image-modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img id="modal-image" src="" alt="Enlarged view">
+    </div>
+  </div>
+
+  <script>
+    // Image modal functionality
+    const productCards = document.querySelectorAll('.product-card');
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-image');
+    const closeModal = document.querySelector('.close-modal');
+
+    productCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const imgSrc = this.querySelector('img').src;
+        modalImg.src = imgSrc;
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Brutalist hover effects
+    const headings = document.querySelectorAll('.sticky-heading');
+    headings.forEach(heading => {
+      heading.addEventListener('mouseover', function() {
+        this.style.letterSpacing = '-2px';
+        setTimeout(() => {
+          this.style.letterSpacing = '1px';
+        }, 100);
+        setTimeout(() => {
+          this.style.letterSpacing = '0px';
+        }, 200);
+      });
+    });
+  </script>
+
+ <!-- Circle cursor element -->
+    <div class="circle-cursor"></div>
+    <script src="hamburguer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
