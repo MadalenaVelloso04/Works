@@ -639,4 +639,3 @@ html {
 .project:nth-child(odd) {
   transform: translateY(calc(var(--scroll) * 0.1));
 }
-
