@@ -39,7 +39,8 @@ body {
   box-sizing: border-box;
   font-family:'minecraft';
   font-family: 'Space Grotesk', sans-serif;
-  background-color: #ffffff;
+  background-color: #000000;
+  color: #eee;
   overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
@@ -243,6 +244,7 @@ html {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  color: #eee;
 }
 
 .hero-intro h1 span {
@@ -253,7 +255,7 @@ html {
 .subtext {
   max-width: 600px;
   margin: 1rem auto 2rem;
-  color: #444;
+  color: #858585;
   font-size: 1.125rem;
 }
 
@@ -265,8 +267,8 @@ html {
 }
 
 .hero-tags span {
-  background: #000;
-  color: white;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
   padding: 6px 14px;
   font-size: 0.875rem;
   border-radius: 30px;
@@ -275,7 +277,7 @@ html {
 .parallax-banner {
   height: 60vh;
   margin: 5vh 0;
-  background-image: url('images/newposters/experimental.png');
+  background-image: url('images/illustra/illustrauniverse.png');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -285,10 +287,10 @@ html {
 }
 
 .parallax-banner h2 {
-  font-size: 48px;
-  font-family: 'minecraft', sans-serif;
-  color: #ff00d4;
-  text-shadow: 0 0 10px #ff00d4;
+  font-size: 88px;
+font-family: 'GW Bantley';
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -296,7 +298,6 @@ html {
   .parallax-banner {
   height: 60vh;
   margin: 5vh 0;
-  background-image: url('images/newposters/experimental.png');
   background-attachment: inherit;
   background-size: cover;
   background-position: center;
@@ -306,10 +307,7 @@ html {
 }
   .parallax-banner h2 {
  text-align: center;
-    font-size: 48px;
-    font-family: 'minecraft', sans-serif;
-    color: #ff00d4;
-    text-shadow: 0 0 10px #ff00d4;
+    font-size: 78px;
   }
 
 }
@@ -319,7 +317,6 @@ html {
   .parallax-banner {
   height: 60vh;
   margin: 5vh 0;
-  background-image: url('images/newposters/experimental.png');
   background-attachment: inherit;
   background-size: cover;
   background-position: center;
@@ -330,9 +327,6 @@ html {
   .parallax-banner h2 {
  text-align: center;
     font-size: 48px;
-    font-family: 'minecraft', sans-serif;
-    color: #ff00d4;
-    text-shadow: 0 0 10px #ff00d4;
   }
 
 }
@@ -364,8 +358,6 @@ html {
 .scroll-container img {
   animation: scrollShift 6s ease-in-out infinite alternate;
 }
-
-
 
 .project-block {
   margin: 6rem auto;
@@ -416,12 +408,13 @@ html {
   align-items: start;
 }
 
-.project-grid.reverse {
-  direction: rtl;
+/* Layout swap for sections with right-aligned titles */
+.project-title.right + .project-grid .image-block:first-child {
+  order: 2;
 }
 
-.project-grid.reverse .image-block {
-  direction: ltr;
+.project-title.right + .project-grid .text-block {
+  order: 1;
 }
 
 .image-block {
@@ -449,76 +442,8 @@ html {
 .quote-bottom {
   margin-top: 1rem;
   font-size: 1.1rem;
-  color: #333;
+  color: #b4b4b4;
 }
-
-
-  /* Carousel styles */
-  .carousel-container {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .carousel-slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .carousel-slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .carousel-slide.active {
-    opacity: 1;
-    position: relative;
-  }
-  
-  .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .carousel-arrow:hover {
-    background-color: rgba(255, 255, 255, 1);
-  }
-  
-  .carousel-arrow-prev {
-    left: 16px;
-  }
-  
-  .carousel-arrow-next {
-    right: 16px;
-  }
-  
-  .carousel-counter {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-size: 14px;
-    z-index: 10;
-  }
 
 .site-footer {
   background: #111;
@@ -544,6 +469,12 @@ html {
     grid-template-columns: 1fr;
   }
 
+  /* Reset order for mobile - all stacked vertically */
+  .project-title.right + .project-grid .image-block:first-child,
+  .project-title.right + .project-grid .text-block {
+    order: unset;
+  }
+
   .quote {
     font-size: 6vw;
     text-align: center;
@@ -556,18 +487,14 @@ html {
   .hand-scribble-header,
   .hand-scribble-header-right {
     max-width: 50%;
-    
   }
 }
 
 @media (max-width: 480px) {
 
-   .project-block {
-  margin: 6rem auto;
-  width: 80%;
-  max-width: 100vw;
-}
-
+  .project-block{
+    max-width: 100vw;
+  }
   .hand-scribble-header,
   .hand-scribble-header-right {
     position: absolute;
@@ -575,7 +502,7 @@ html {
     max-width: 60%;
     pointer-events: none;
     z-index: 1;
- 
+    overflow: hidden;
   }
   .hand-scribble-header {
     left: -20%;
@@ -584,24 +511,6 @@ html {
     right: -20%;
   }
 }
-
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-
 
 @keyframes fadeInUp {
   0% {
@@ -640,3 +549,10 @@ html {
   transform: translateY(calc(var(--scroll) * 0.1));
 }
 
+.different-letter {
+    font-family: GW Bantley;
+    src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    font-size: 20vw;
+    font-weight: lighter;
+    color: #ff00d4;
+}
