@@ -394,26 +394,41 @@ function createParticles() {
       </div>
     </div>
   </section>
-
-   
-      <footer class="site-footer" id="contact-section">
-        <div class="footer-content">
-          <p>&copy; 2025 Madalena Velloso</p>
-          <div class="social-links">
-            <a href="https://twitter.com/yourhandle" target="_blank">Instagram</a>
-            <a href="https://github.com/yourhandle" target="_blank">Behance</a>
-            <a href="https://linkedin.com/in/yourhandle" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-      </footer>
     
-<section class="contact-me">
-  <h2>Or You Can leave Me a Note</h2>
-  <input type="text" placeholder="name"/>
-    <input type="text" placeholder="email"/>
-      <input type="text" placeholder="message"/>
-      <button>Send Message</button>
+<section class="contact-me" id="contact-section" >
+  <!-- Floating particles background -->
+  <div class="contact-particles">
+    <div class="contact-particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+    <div class="contact-particle" style="left: 80%; top: 15%; animation-delay: 2s;"></div>
+    <div class="contact-particle" style="left: 65%; top: 70%; animation-delay: 4s;"></div>
+    <div class="contact-particle" style="left: 25%; top: 80%; animation-delay: 6s;"></div>
+    <div class="contact-particle" style="left: 90%; top: 60%; animation-delay: 8s;"></div>
+    <div class="contact-particle" style="left: 15%; top: 50%; animation-delay: 10s;"></div>
+  </div>
+
+  <h2>Leave Me a Note</h2>
+
+  <form class="contact-form"
+  action="https://formspree.io/f/mnndyeez"
+  method="POST"
+>
+<input type="text" name="name" placeholder="Your Name" required />
+<input type="email" name="email" placeholder="Your Email" required />
+<textarea name="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+  </form>
 </section>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Madalena Velloso</p>
+    <div class="social-links">
+      <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+      <a href="https://behance.net/yourhandle" target="_blank">Behance</a>
+      <a href="https://linkedin.com/in/yourhandle" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 
     </section>
 
