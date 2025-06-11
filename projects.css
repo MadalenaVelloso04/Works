@@ -67,7 +67,7 @@ html {
 #navbar {
   font-family: 'minecraft', sans-serif;
   position: fixed;
-  top: 0; /* optional, to stick it at the top */
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 90vw;
@@ -158,7 +158,8 @@ html {
     position: absolute;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background-color: #000000bb;
+    backdrop-filter: blur(10px);
     top: 0;
     left: 0;
     right: 0;
@@ -217,6 +218,7 @@ html {
 #menu-toggle.open .hamburger span:nth-child(3) {
   transform: rotate(-45deg) translateY(-10px);
 }
+
 /* Landing Section - Fullscreen Centering */
 .landing-section {
     background-color: #000;
