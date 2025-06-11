@@ -26,9 +26,14 @@
 
 
 <body>
+  
     <div class="scroll-indicator">
     <div class="scroll-progress"></div>
   </div>
+
+  <button id="backToTop" title="Back to top">↑</button>
+
+
 
     <!-- Landing Section -->
     <header>
@@ -369,7 +374,8 @@
       </footer>
     
 
-<script>   // Scroll progress indicator
+<script>   
+// Scroll progress indicator
     window.addEventListener('scroll', () => {
       const scrollProgress = document.querySelector('.scroll-progress');
       const scrollTop = document.documentElement.scrollTop;
@@ -377,8 +383,26 @@
       const scrollPercent = (scrollTop / scrollHeight) * 100;
       scrollProgress.style.width = scrollPercent + '%';
     });
+
+    // back to top
+  const backToTopBtn = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
     </script>
-    
+
     <div class="circle-cursor"></div>
     <script src="hamburguer.js"></script>
     <script src="script.js"></script>

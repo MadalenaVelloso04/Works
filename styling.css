@@ -1517,7 +1517,7 @@ justify-content: center;
       width: 100%;
       height: 3px;
       background: #f0f0f0;
-      z-index: 1001;
+      z-index: 6001;
     }
 
     .scroll-progress {
@@ -1526,3 +1526,31 @@ justify-content: center;
       width: 0%;
       transition: width 0.1s ease;
     }
+
+    #backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  border: 1px solid #ff00d4;
+  border-radius: 50%;
+  color: #ff00d4;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop:hover {
+  transform: scale(1.1);
+}
+
+#backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -40,7 +40,7 @@ input,select{vertical-align:middle}
     /* Typography hierarchy */
     h1 {
       font-family: 'Helvetica Neue', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 4vw, 4rem);
       font-weight: 300;
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -98,7 +98,6 @@ input,select{vertical-align:middle}
       backdrop-filter: blur(10px);
       z-index: 1000;
       padding: 1rem 0;
-      border-bottom: 1px solid #393939;
     }
 
     .nav-container {
@@ -144,7 +143,7 @@ input,select{vertical-align:middle}
     .nav-links a {
       text-transform: uppercase;
       text-decoration: none;
-      color: #bcbcbc;
+      color: #ff00d4;
       font-size: 0.95rem;
       font-weight: 400;
       transition: color 0.3s ease;
@@ -168,7 +167,6 @@ input,select{vertical-align:middle}
       font-family: 'minecraft';
       display: inline-block;
       border-radius: 20px;
-      font-size: 0.85rem;
       margin-bottom: 2rem;
   font-size: clamp(8vw, 10vw, 6vw); /* Responsive font size */
   font-weight: 700;
