@@ -135,6 +135,7 @@ input,select{vertical-align:middle}
     }
 
     .nav-links {
+      font-family: 'minecraft';
       display: flex;
       gap: 2rem;
       list-style: none;
