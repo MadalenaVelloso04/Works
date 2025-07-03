@@ -1,0 +1,485 @@
+    /*
+    * html5resetcss
+    */
+    html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+    body{line-height:1}
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+    nav ul{list-style:none}
+    blockquote,q{quotes:none}
+    blockquote:before,blockquote:after,q:before,q:after{content:none}
+    a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+    ins{background-color:#ff9;color:#000;text-decoration:none}
+    mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+    del{text-decoration:line-through}
+    abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+    table{border-collapse:collapse;border-spacing:0}
+    hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+    input,select{vertical-align:middle}
+
+    /* CLEAN DESCARRILADOS CSS */
+
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Typography hierarchy */
+    h1 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: #000000;
+    }
+
+    h2 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #222222;
+    }
+
+    h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #444444;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: #555555;
+    }
+
+    .lead {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #333333;
+      font-weight: 400;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      color: #777777;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Links */
+    a {
+      color: #ca2929;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #a02222;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      font-family: 'minecraft', monospace;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(202, 41, 41, 0.2);
+    }
+
+    .nav-container {
+      max-width: 90vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Back to projects button */
+    .back-to-projects {
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-family: 'minecraft', monospace;
+      left: 2rem;
+      padding: 1rem 0rem;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-projects:hover {
+      color: #ca2929;
+      transform: translateX(5px);
+    }
+
+    .back-to-projects::before {
+      content: "←";
+      margin-right: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ca2929;
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #a02222;
+    }
+
+    /* Hero section */
+    .hero {
+      margin-top: 80px;
+      padding: 1rem 2rem 6rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      font-family: 'minecraft', monospace;
+      display: inline-block;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      font-size: clamp(6vw, 8vw, 4rem);
+      font-weight: 700;
+      line-height: 1;
+      color: #ca2929;
+      text-align: center;
+    }
+
+    .different-letter {
+      font-family: 'GW Bantley';
+      font-size: 20vw;
+      font-weight: lighter;
+      color: #ca2929;
+    }
+
+    .hero-title {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main content layout */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Article sections */
+    .article-section {
+      scroll-margin-top: 150px;
+      margin-bottom: 6rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .section-meta {
+      position: sticky;
+      top: 120px;
+    }
+
+    .section-number {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #999999;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      max-width: none;
+    }
+
+    /* Clean Image layouts - Single column */
+    .image-grid {
+      margin: 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Remove all grid layouts - everything stacks */
+    .grid-2x2,
+    .grid-full {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Clean image containers */
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      background: #f8f8f8;
+      border: 1px solid rgba(202, 41, 41, 0.1);
+    }
+
+    .image-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      border-color: rgba(202, 41, 41, 0.3);
+    }
+
+    .image-container img,
+    .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* Consistent aspect ratios */
+    .image-container {
+      aspect-ratio: 16/9;
+      min-height: 300px;
+    }
+
+    /* Quote styling */
+    .quote-section {
+      background: #f8f8f8;
+      padding: 3rem;
+      border-radius: 8px;
+      margin: 4rem 0;
+      text-align: center;
+      border: 1px solid rgba(202, 41, 41, 0.1);
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: #ca2929;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .quote-author {
+      font-size: 1rem;
+      color: #666666;
+      font-weight: 500;
+    }
+
+    /* Process section */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .process-item {
+      background: #f8f8f8;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(202, 41, 41, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .process-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(202, 41, 41, 0.3);
+    }
+
+    .process-number {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: #ca2929;
+      margin-bottom: 1rem;
+    }
+
+    /* Brand colors section */
+    .color-palette {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .color-swatch {
+      flex: 1;
+      height: 120px;
+      border-radius: 8px;
+      display: flex;
+      align-items: end;
+      padding: 1rem;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .color-black { background: #000; }
+    .color-white { background: #fff; color: #000; }
+    .color-red { background: #ca2929; }
+
+    /* Footer */
+    footer {
+      background: #f8f8f8;
+      padding: 3rem 0;
+      margin-top: 6rem;
+      border-top: 1px solid rgba(202, 41, 41, 0.1);
+      text-align: center;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .article-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .section-meta {
+        position: static;
+      }
+
+      .hero {
+        padding: 2rem 1rem 4rem;
+      }
+
+      .hero-badge {
+        font-size: clamp(8vw, 10vw, 3rem);
+      }
+
+      .different-letter {
+        font-size: 15vw;
+      }
+
+      .main-content {
+        padding: 0 1rem;
+      }
+
+      .quote-section {
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .quote {
+        font-size: 1.2rem;
+      }
+
+      .color-palette {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .back-to-projects {
+        left: 1rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      .image-container {
+        min-height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-badge {
+        font-size: 2rem;
+      }
+
+      .different-letter {
+        font-size: 12vw;
+      }
+      
+      .image-container {
+        min-height: 180px;
+      }
+      
+      .nav-container {
+        max-width: 95vw;
+        padding: 0 1rem;
+      }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(202, 41, 41, 0.1);
+      z-index: 1001;
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: #ca2929;
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger animation delays */
+    .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    .fade-in:nth-child(2) { transition-delay: 0.2s; }
+    .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .fade-in:nth-child(4) { transition-delay: 0.4s; }
