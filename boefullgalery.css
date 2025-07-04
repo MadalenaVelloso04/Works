@@ -31,6 +31,8 @@ input,select{vertical-align:middle}
 
     body {
       font-family: 'Inter', sans-serif;
+      background-image: url(./images/gare/PNG/bg@300x.png);
+      background-attachment: fixed;
       background-color: #000000;
       color: #e0e0e0;
       line-height: 1.6;
@@ -287,7 +289,7 @@ input,select{vertical-align:middle}
     .quote {
       font-size: 1.5rem;
       line-height: 1.4;
-      color: #ca4e29;
+      color: #ACD591;
       font-style: italic;
       margin-bottom: 1rem;
     }
@@ -340,10 +342,13 @@ input,select{vertical-align:middle}
       font-weight: 500;
     }
 
-    .color-black { background: #000; }
-    .color-white { background: #fff; color: #000; border: 1px solid #e0e0e0; }
-    .color-orange { background: #CA4E29; }
-
+.color-black { background: #2c2b2b; }
+.color-acidgreen {background: #ACD591}
+.color-white {background: #FFFFFF; color: #484848}
+.color-pink {background: #D53D96}
+.color-blue {background: #3372A9}
+.color-purple {background: #9379AB}
+          
     /* Responsive design */
     @media (max-width: 768px) {
       .nav-links {
@@ -424,7 +429,7 @@ input,select{vertical-align:middle}
 
     .scroll-progress {
       height: 100%;
-      background: linear-gradient(90deg, #ff00d4, #000);
+      background: linear-gradient(90deg, #ACD591, #000);
       width: 0%;
       transition: width 0.1s ease;
     }
