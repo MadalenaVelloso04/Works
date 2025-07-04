@@ -18,6 +18,11 @@
 
     /* CLEAN DESCARRILADOS CSS */
 
+
+@font-face {
+  font-family: 'minecraft';
+  src: url('fonts/Minecraft.ttf') format('truetype');
+}
     /* Reset and base styles */
     * {
       box-sizing: border-box;
