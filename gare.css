@@ -101,7 +101,7 @@ input,select{vertical-align:middle}
       left: 0;
       right: 0;
       margin: 0;
-      font-family: 'minecraft';
+      font-family:'minecraft';
       background-color: #0000005f;
       backdrop-filter: blur(10px);
       z-index: 1000;
@@ -435,6 +435,10 @@ input,select{vertical-align:middle}
           
     /* Responsive design */
     @media (max-width: 768px) {
+      body {
+        background-image: none;
+      }
+
       .nav-links {
         display: none;
       }
