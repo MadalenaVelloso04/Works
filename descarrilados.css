@@ -446,9 +446,6 @@
         padding: 0.6rem 1.2rem;
       }
 
-      .image-container {
-        min-height: 200px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -460,10 +457,7 @@
         font-size: 12vw;
       }
       
-      .image-container {
-        min-height: 180px;
-      }
-      
+
       .nav-container {
         max-width: 95vw;
         padding: 0 1rem;
