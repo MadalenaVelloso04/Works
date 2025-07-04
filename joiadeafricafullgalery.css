@@ -93,7 +93,7 @@ input,select{vertical-align:middle}
       left: 0;
       right: 0;
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'minecraft';
       background-color: #0000005f;
       backdrop-filter: blur(10px);
       z-index: 1000;
@@ -287,7 +287,7 @@ input,select{vertical-align:middle}
     .quote {
       font-size: 1.5rem;
       line-height: 1.4;
-      color: #ff00d4;
+      color: #ca4e29;
       font-style: italic;
       margin-bottom: 1rem;
     }
@@ -342,7 +342,7 @@ input,select{vertical-align:middle}
 
     .color-black { background: #000; }
     .color-white { background: #fff; color: #000; border: 1px solid #e0e0e0; }
-    .color-pink { background: #ff00d4; }
+    .color-orange { background: #CA4E29; }
 
     /* Responsive design */
     @media (max-width: 768px) {
