@@ -23,37 +23,34 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
 
 <body>
   <!-- Your existing navbar -->
-  <div class="main">
-    <header>
-      <div id="navbar">
-        <!-- Logo -->
-        <a href="./">
-          <img src="images/logo.png" alt="Logo" class="navbar-logo" />
-        </a>
-    
-        <div class="navbar-links" id="nav-links">
-          <a href="./#about-me">About me</a>
-          <a href="./projects.html">Projects</a>
-          <a href="./#contact-section">Contacts</a>
-        </div>
-    
-        <!-- Hamburger Button -->
-        <button id="menu-toggle" aria-label="Toggle menu">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-      </div>
-    </header>
+<div class="scroll-indicator">
+    <div class="scroll-progress"></div>
+  </div>
 
-    <section class="hero-intro">
-      <h1><span>Process</span> over Results</h1>
-      <p class="subtext">
+  <nav>
+    <div class="nav-container">
+      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
+      <ul class="nav-links">
+        <li><a href="#nr1">NR_01</a></li>
+        <li><a href="#nr2">NR_02</a></li>
+        <li><a href="#nr3">NR_03</a></li>
+        <li><a href="#nr4">NR_04</a></li>
+        <li><a href="#nr5">NR_05</a></li>
+        <li><a href="#nr6">NR_06</a></li>
+        <li><a href="#nr7">NR_07</a></li>
+        <li><a href="#nr8">NR_08</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero fade-in">
+       <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
+      <h1 class="hero-title fade-in">Process over Results</h1>
+      <p class="hero-description lead fade-in">
         An experimental 3D poster archive exploring modern digital aesthetics through modeling, motion, and type.
       </p>
-      <div class="hero-tags">
+      <div class="hero-tags fade-in">
         <span>Generative</span>
         <span>3D</span>
         <span>Glitch</span>
@@ -61,312 +58,278 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
         <span>Typography</span>
       </div>
     </section>
-  
-    <section class="parallax-banner">
-      <h2>POSTER UNIVERSE</h2>
-    </section>
 
-    
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/newposters/mitcover.webp" alt="">
-      </div>
-    </section>
-  
-    <section class="project-block" id="nr1">
-      <div class="project-title">
-        <h1>NR_01</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header" alt="">
-      </div>
-      
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/newposters/mitcover.webp"data-aos="fade-up"alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <img src="images/newposters/mockup_mit.jpg" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Timeless<br>Morris</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-         <b> Timeless Morris</b> is a magazine cover concept that pays tribute to William Morris and the Arts and Crafts movement. 
-         It highlights the need to return to hands-on, authentic creation in response to the growing influence of artificial intelligence in the art world. 
-         <br>
-         By echoing Morris's values, it calls attention to how AI is impacting real artists and reminds us of the enduring value of human craft.
-            </p>
+
+    <div class="main-content">
+      <article class="article-section fade-in" id="nr1">
+        <aside class="section-meta fade-in">
+          <div class="section-number">01 / NR_01</div>
+          <div class="project-title">
+            <h1>Timeless Morris</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">A tribute to authentic creation in the age of artificial intelligence.</p>
+          <p class="project-description">
+            <b>Timeless Morris</b> is a magazine cover concept that pays tribute to William Morris and the Arts and Crafts movement. 
+            It highlights the need to return to hands-on, authentic creation in response to the growing influence of artificial intelligence in the art world. 
+            By echoing Morris's values, it calls attention to how AI is impacting real artists and reminds us of the enduring value of human craft.
+          </p>
+
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container tall">
+                <img src="images/newposters/mitcover.webp" alt="Timeless Morris poster">
+              </div>
+              <div class="image-container square">
+                <img src="images/newposters/mockup_mit.jpg" alt="Timeless Morris mockup">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/newposters/brains.jpg" alt="">
-      </div>
-    </section>
-  
-    <section class="project-block" id="nr2">
-      <div class="project-title right">
-        <h1>NR_02</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header-right" alt="">
-      </div>
-  
-      <div class="project-grid reverse">
-        <div class="image-block text-block">
-          <img src="images/newposters/mockupmagazine (1).jpg" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Machine<br>Mirage</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-<b>Machine Mirage</b> follows the same visual language and thematic direction as my previous <i>Timeless Morris</i> project. 
-This time, the message is more direct: a commentary on how AI is distorting our minds and creative processes. <br>
-The concept is illustrated figuratively, showing multiple brains being infiltrated and corrupted by a strange, intangible force
- — representing the elusive and invasive nature of artificial intelligence.
-            </p>
+      </article>
+
+      <article class="article-section fade-in" id="nr2">
+        <aside class="section-meta fade-in">
+          <div class="section-number">02 / NR_02</div>
+          <div class="project-title">
+            <h1>Machine Mirage</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">The elusive infiltration of artificial intelligence into human creativity.</p>
+          <p class="project-description">
+            <b>Machine Mirage</b> follows the same visual language and thematic direction as my previous <i>Timeless Morris</i> project. 
+            This time, the message is more direct: a commentary on how AI is distorting our minds and creative processes. 
+            The concept is illustrated figuratively, showing multiple brains being infiltrated and corrupted by a strange, intangible force
+            — representing the elusive and invasive nature of artificial intelligence.
+          </p>
+
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container square">
+                <img src="images/newposters/mockupmagazine (1).jpg" alt="Machine Mirage mockup">
+              </div>
+              <div class="image-container tall">
+                <img src="images/newposters/brains.jpg" alt="Machine Mirage poster">
+              </div>
+            </div>
           </div>
         </div>
-        <div class="image-block">
-          <img src="images/newposters/brains.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-      </div>
-    </section>
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="">
-      </div>
-    </section>
+      </article>
 
-    <section class="project-block" id="nr3">
-      <div class="project-title">
-        <h1>NR_03</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header" alt="">
-      </div>
-      
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <img src="images/newposters/mockupheritage.png" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Heritage</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-          <b>Heritage</b> is a three-poster project where I explored the idea of everyday objects I can't live without. 
-          To add depth, I connected each item to my sense of home, a personal reflection shaped by my experience as an Erasmus student.
-            </p>
+      <article class="article-section fade-in" id="nr3">
+        <aside class="section-meta fade-in">
+          <div class="section-number">03 / NR_03</div>
+          <div class="project-title">
+            <h1>Heritage</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">Everyday objects that connect us to home.</p>
+          <p class="project-description">
+            <b>Heritage</b> is a three-poster project where I explored the idea of everyday objects I can't live without. 
+            To add depth, I connected each item to my sense of home, a personal reflection shaped by my experience as an Erasmus student.
+          </p>
+
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container tall">
+                <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Heritage poster">
+              </div>
+              <div class="image-container square">
+                <img src="images/newposters/mockupheritage.png" alt="Heritage mockup">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="">
-      </div>
-    </section>
-  
-    <section class="project-block" id="nr4">
-      <div class="project-title right">
-        <h1>NR_04</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header-right" alt="">
-      </div>
-  
-      <div class="project-grid reverse">
-        <div class="image-block text-block">
-          <img src="images/newposters/memorismockup.png" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Material Memories</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-               <b>Material Memories</b> is the second poster in my three-part project exploring everyday elements that connect me to home. 
-               Continuing the same theme, I shifted the graphic style and featured different objects to express the idea from a new visual perspective.
-            </p>
+      </article>
+
+      <article class="article-section fade-in" id="nr4">
+        <aside class="section-meta fade-in">
+          <div class="section-number">04 / NR_04</div>
+          <div class="project-title">
+            <h1>Material Memories</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">A new visual perspective on familiar connections.</p>
+          <p class="project-description">
+            <b>Material Memories</b> is the second poster in my three-part project exploring everyday elements that connect me to home. 
+            Continuing the same theme, I shifted the graphic style and featured different objects to express the idea from a new visual perspective.
+          </p>
+
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container square">
+                <img src="images/newposters/memorismockup.png" alt="Material Memories mockup">
+              </div>
+              <div class="image-container tall">
+                <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Material Memories poster">
+              </div>
+            </div>
           </div>
         </div>
-        <div class="image-block">
-          <img src="images/newposters/Experimentalgraphicsfinal.webp" data-aos="fade-up" alt="Project visual">
-        </div>
-      </div>
-    </section>
+      </article>
 
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/newposters/PRIMAVERA_01.webp" alt="">
-      </div>
-    </section>
+      <article class="article-section fade-in" id="nr5">
+        <aside class="section-meta fade-in">
+          <div class="section-number">05 / NR_05</div>
+          <div class="project-title">
+            <h1>Primavera</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">The spirit of Portuguese festivals captured in mixed media.</p>
+          <p class="project-description">
+            <b>Primavera</b> is an experimental poster where I mixed different hand-drawn sketches I made previously. 
+            I was inspired by some of my favorite Portuguese festivals and how they make me feel, portraying that as visually as I could.
+          </p>
 
-
-     <section class="project-block" id="nr5">
-      <div class="project-title">
-        <h1>NR_05</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header" alt="">
-      </div>
-      
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/newposters/PRIMAVERA_01.webp" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <img src="images/newposters/primaveramockup.png" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Primavera</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-              <b>Primavera</b> is an experemental poster where i mixed different hand-drawn sketched I made previously. 
-              I was inspired by some of my favorite Portuguese Festivals and how they make me feel, portraying that as visually as I could.
-            </p>
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container tall">
+                <img src="images/newposters/PRIMAVERA_01.webp" alt="Primavera poster">
+              </div>
+              <div class="image-container square">
+                <img src="images/newposters/primaveramockup.png" alt="Primavera mockup">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-       <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/madalena_never2small.png" alt="">
-      </div>
-    </section>
-  
+      <article class="article-section fade-in" id="nr6">
+        <aside class="section-meta fade-in">
+          <div class="section-number">06 / NR_06</div>
+          <div class="project-title">
+            <h1>Bitmap Project</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">Climate change through bold, screen-printed visuals.</p>
+          <p class="project-description">
+            <b>Bitmap Project</b> is a series of posters focused on exploring overlays using only bitmap textures, all designed with silkscreen printing in mind. 
+            Using a consistent color palette, I approached the theme of climate change through bold, graphic visuals tailored for the screen printing process.
+          </p>
 
-     <section class="project-block" id="nr6">
-      <div class="project-title right">
-        <h1>NR_06</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header-right" alt="">
-      </div>
-  
-      <div class="project-grid reverse">
-        <div class="image-block text-block">
-          <img src="images/newposters/bitmapmockup.png" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Bitmap<br>Project</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-              <b>Bitmap Project</b> is a series of posters focused on exploring overlays using only bitmap textures, all designed with silkscreen printing in mind. 
-              Using a consistent color palette, I approached the theme of climate change through bold, graphic visuals tailored for the screen printing process.
-            </p>
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container square">
+                <img src="images/newposters/bitmapmockup.png" alt="Bitmap Project mockup">
+              </div>
+              <div class="image-container tall">
+                <div class="carousel-container">
+                  <div class="carousel-slides">
+                    <img src="images/madalena_never2small.png" alt="Bitmap Project 1" class="carousel-slide active">
+                    <img src="images/newposters/madalena_araras.png" alt="Bitmap Project 2" class="carousel-slide">
+                    <img src="images/newposters/DOWELOVE_01.png" alt="Bitmap Project 3" class="carousel-slide">
+                  </div>
+                  <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                  </button>
+                  <button class="carousel-arrow carousel-arrow-next" aria-label="Next image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </button>
+                  <div class="carousel-counter">
+                    <span class="current-slide">1</span> / <span class="total-slides">3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    <div class="image-block">
-          <div class="carousel-container">
-        <div class="carousel-slides">
-          <!-- Images will be added here dynamically or statically -->
-          <img src="images/madalena_never2small.png" alt="Project Image 1" class="carousel-slide active">
-          <img src="images/newposters/madalena_araras.png" alt="Project Image 2" class="carousel-slide">
-          <img src="images/newposters/DOWELOVE_01.png" alt="Project Image 3" class="carousel-slide">
-        </div>
-        
-        <!-- Navigation arrows -->
-        <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous image">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-        </button>
-        
-        <button class="carousel-arrow carousel-arrow-next" aria-label="Next image">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 18 6-6-6-6"/>
-          </svg>
-        </button>
-        
-        <!-- Optional: Image counter -->
-        <div class="carousel-counter">
-          <span class="current-slide">1</span> / <span class="total-slides">3</span>
-        </div>
-      </div>
-        </div>
-      </div>
-    </section>
+      </article>
 
+      <article class="article-section fade-in" id="nr7">
+        <aside class="section-meta fade-in">
+          <div class="section-number">07 / NR_07</div>
+          <div class="project-title">
+            <h1>Encapsulate Culture</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">Preserving Portuguese culture through 3D metaphor.</p>
+          <p class="project-description">
+            <b>Encapsulate Culture</b> is the final piece in my daily objects project, created using mixed media including Blender 3D modeling and Photoshop. 
+            The concept was to literally encapsulate Portuguese culture and preserve it while living abroad. 
+            I represented this through a modeled moka pot — symbolizing Portugal's deep-rooted coffee culture — enclosed in a plastic bag, as a metaphor for protection and preservation.
+          </p>
 
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/newposters/Encapsulate_culture@5x.webp" alt="">
-      </div>
-    </section>
-
-
-     <section class="project-block" id="nr7">
-      <div class="project-title">
-        <h1>NR_07</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header" alt="">
-      </div>
-      
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/newposters/Encapsulate_culture@5x.webp" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <img src="images/newposters/Anagram_Magazine.png" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Encapsulate<br>Culture</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-           <b>Encapsulate Culture</b> is the final piece in my daily objects project, created using mixed media including Blender 3D modeling and Photoshop. 
-           The concept was to literally encapsulate Portuguese culture and preserve it while living abroad. 
-           I represented this through a modeled moka pot — symbolizing Portugal's deep-rooted coffee culture — enclosed in a plastic bag, as a metaphor for protection and preservation.
-            </p>
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container tall">
+                <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Encapsulate Culture poster">
+              </div>
+              <div class="image-container square">
+                <img src="images/newposters/Anagram_Magazine.png" alt="Encapsulate Culture mockup">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-       <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/mononcle.webp" alt="">
-      </div>
-    </section>
+      <article class="article-section fade-in" id="nr8">
+        <aside class="section-meta fade-in">
+          <div class="section-number">08 / NR_08</div>
+          <div class="project-title">
+            <h1>Mon Oncle Project</h1>
+          </div>
+        </aside>
+        <div class="section-content fade-in">
+          <p class="project-quote">Celebrating Hulot's quiet rebellion through minimalist design.</p>
+          <p class="project-description">
+            For the <b>Mon Oncle</b> posters, I centered the design around Monsieur Hulot and his signature items—hat, pipe, 
+            raincoat, and stance—to reflect his quirky routine and warmth in contrast to the sterile modern world. Inspired by Bauhaus minimalism, 
+            I used clean compositions, warm textures, and a cheerful color palette to highlight the charm and gentle humor of Tati's film. 
+            The posters aim to celebrate Hulot's quiet rebellion and individuality through simplicity and thoughtful visual contrast.
+          </p>
 
-     <section class="project-block" id="nr8">
-      <div class="project-title right">
-        <h1>NR_08</h1>
-        <img src="images/scribbles/416 copy.png" class="hand-scribble-header-right" alt="">
-      </div>
-  
-      <div class="project-grid reverse">
-        <div class="image-block text-block">
-          <img src="images/WebP/mononcle5.webp" data-aos="fade-up" alt="">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Mon Oncle<br>Project</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-             For the Mon Oncle posters, I centered the design around Monsieur Hulot and his signature items—hat, pipe, 
-             raincoat, and stance—to reflect his quirky routine and warmth in contrast to the sterile modern world. Inspired by Bauhaus minimalism, 
-             I used clean compositions, warm textures, and a cheerful color palette to highlight the charm and gentle humor of Tati's film. 
-             The posters aim to celebrate Hulot's quiet rebellion and individuality through simplicity and thoughtful visual contrast.
-            </p>
+          <div class="scroll-row fade-in">
+            <div class="scroll-container">
+              <img src="images/mononcle.webp" alt="Mon Oncle Project Overview">
+            </div>
+          </div>
+
+          <div class="image-grid fade-in">
+            <div class="grid-2x2">
+              <div class="image-container square">
+                <img src="images/WebP/mononcle5.webp" alt="Mon Oncle design process">
+              </div>
+              <div class="image-container tall">
+                <div class="carousel-container">
+                  <div class="carousel-slides">
+                    <img src="images/mo1.png" alt="Mon Oncle Poster 1" class="carousel-slide active">
+                    <img src="images/mo2.png" alt="Mon Oncle Poster 2" class="carousel-slide">
+                    <img src="images/mo3.png" alt="Mon Oncle Poster 3" class="carousel-slide">
+                    <img src="images/mo4.png" alt="Mon Oncle Poster 4" class="carousel-slide">
+                    <img src="images/mo5.png" alt="Mon Oncle Poster 5" class="carousel-slide">
+                    <img src="images/mo6.png" alt="Mon Oncle Poster 6" class="carousel-slide">
+                  </div>
+                  <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                  </button>
+                  <button class="carousel-arrow carousel-arrow-next" aria-label="Next image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </button>
+                  <div class="carousel-counter">
+                    <span class="current-slide">1</span> / <span class="total-slides">6</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-     <div class="image-block">
-          <div class="carousel-container">
-        <div class="carousel-slides">
-          <!-- Images will be added here dynamically or statically -->
-             <img src="images/mo1.png" alt="Project Image 1" class="carousel-slide active">
-          <img src="images/mo2.png" alt="Project Image 2" class="carousel-slide">
-          <img src="images/mo3.png" alt="Project Image 3" class="carousel-slide">
-          <img src="images/mo4.png" alt="Project Image 4" class="carousel-slide">
-          <img src="images/mo5.png" alt="Project Image 5" class="carousel-slide">
-          <img src="images/mo6.png" alt="Project Image 6" class="carousel-slide">
-        </div>
-        
-        <!-- Navigation arrows -->
-        <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous image">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-        </button>
-        
-        <button class="carousel-arrow carousel-arrow-next" aria-label="Next image">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 18 6-6-6-6"/>
-          </svg>
-        </button>
-        
-        <!-- Optional: Image counter -->
-        <div class="carousel-counter">
-          <span class="current-slide">1</span> / <span class="total-slides">6</span>
-        </div>
-      </div>
+      </article>
     </div>
-    </section>
-   
-
-
-
-
 
     <footer class="site-footer">
       <div class="footer-content">
@@ -378,10 +341,8 @@ The concept is illustrated figuratively, showing multiple brains being infiltrat
         </div>
       </div>
     </footer>
-  
-
-
   </main>
+
   <div class="circle-cursor"></div>
   <script src="script.js"></script>
   <script src="hamburguer.js"></script>
@@ -389,90 +350,81 @@ The concept is illustrated figuratively, showing multiple brains being infiltrat
   <script src="sliding.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hash = window.location.hash;
-  
-      if (hash) {
-        // Ensure we start from the top instantly
-        window.scrollTo({ top: 0, behavior: "auto" });
-  
-        // Wait a moment, then scroll smoothly to the target section
-        setTimeout(() => {
-          const target = document.querySelector(hash);
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 300); // adjust delay if needed
-      }
-    });
-  </script>
-  
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 300,
+  document.addEventListener('DOMContentLoaded', function () {
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollProgress = document.querySelector('.scroll-progress');
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
     });
 
-    window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  document.querySelectorAll('.scroll-container img').forEach((img, i) => {
-    img.style.transform = `translateY(${scrollY * 0.1 * (i % 2 === 0 ? 1 : -1)}px)`;
-  });
-});
-  </script>
+    // Fade-in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all carousels on the page
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    fadeInElements.forEach(el => observer.observe(el));
+
+    // Carousel functionality
     const carousels = document.querySelectorAll('.carousel-container');
-    
     carousels.forEach(carousel => {
       const slides = carousel.querySelectorAll('.carousel-slide');
       const prevButton = carousel.querySelector('.carousel-arrow-prev');
       const nextButton = carousel.querySelector('.carousel-arrow-next');
       const currentSlideEl = carousel.querySelector('.current-slide');
       const totalSlidesEl = carousel.querySelector('.total-slides');
-      
       let currentIndex = 0;
       const totalSlides = slides.length;
-      
-      // Initialize counter
-      totalSlidesEl.textContent = totalSlides.toString();
-      
-      // Function to update current slide
+
+      if (totalSlidesEl) totalSlidesEl.textContent = totalSlides.toString();
+
       function updateSlide(newIndex) {
-        // Remove active class from all slides
         slides.forEach(slide => slide.classList.remove('active'));
-        
-        // Add active class to new current slide
         slides[newIndex].classList.add('active');
-        
-        // Update counter
-        currentSlideEl.textContent = (newIndex + 1).toString();
-        
-        // Update current index
+        if (currentSlideEl) currentSlideEl.textContent = (newIndex + 1).toString();
         currentIndex = newIndex;
       }
-      
-      // Previous button click handler
-      prevButton.addEventListener('click', function() {
-        const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-        updateSlide(newIndex);
-      });
-      
-      // Next button click handler
-      nextButton.addEventListener('click', function() {
-        const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-        updateSlide(newIndex);
+
+      if (prevButton)
+        prevButton.addEventListener('click', () => {
+          const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+          updateSlide(newIndex);
+        });
+
+      if (nextButton)
+        nextButton.addEventListener('click', () => {
+          const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+          updateSlide(newIndex);
+        });
+    });
+
+    // Smooth scrolling
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
   });
 </script>
-
-
-
 </body>
 </html>
