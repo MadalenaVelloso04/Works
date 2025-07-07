@@ -637,3 +637,96 @@ input,select{vertical-align:middle}
       font-size: 0.9rem;
       text-transform: uppercase;
     }
+
+    /* ----- MOBILE FIXES FOR IMAGE GAPS & LAYOUT (iPhone size) ----- */
+@media (max-width: 480px) {
+  /* General layout padding adjustments */
+  .hero,
+  .main-content,
+  .section-content {
+    padding: 1rem !important;
+  }
+
+  .image-grid {
+    margin: 1.5rem 0 !important;
+  }
+
+  /* Force column layout instead of grid */
+  .grid-2x2,
+  .grid-full,
+  .image-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Reset fixed aspect ratios for mobile */
+  .tall,
+  .square,
+  .wide {
+    aspect-ratio: unset !important;
+  }
+
+  /* Ensure proper scaling and fit for images */
+  .image-container {
+    aspect-ratio: unset !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .image-container img,
+  .image-container video {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  /* Make nav links cleaner on small screens */
+  .nav-links {
+    display: none !important;
+  }
+
+  .section-meta {
+    position: static !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+  }
+
+  .back-to-projects {
+    left: 1rem;
+    font-size: 0.8rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .color-palette {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .quote {
+    font-size: 1.1rem !important;
+  }
+
+  .video-container {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  iframe,
+  video {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+}
