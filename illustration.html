@@ -8,451 +8,459 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     @font-face {
-font-family: 'GW Bantley';
-src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-}
-      .different-letter {
-          font-family: GW Bantley;
-          src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-          font-size: 20vw;
-          font-weight: lighter;
-          color: #ff00d4;
-      }
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+    
+    @font-face {
+      font-family: 'minecraft';
+      src: url('fonts/Minecraft.ttf') format('truetype');
+    }
+    
+    .different-letter {
+      font-family: 'GW Bantley';
+      font-size: inherit;
+      font-weight: lighter;
+      color: #ff00d4;
+    }
+    
+    /* Override some styles for illustration-specific needs */
+    .hero-tags span {
+      background: rgba(255, 0, 212, 0.1);
+      color: #ff00d4;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Your existing navbar -->
-  <div class="main">
-    <header>
-      <div id="navbar">
-        <!-- Logo -->
-        <a href="./">
-          <img src="images/logo.png" alt="Logo" class="navbar-logo" />
-        </a>
-    
-        <div class="navbar-links" id="nav-links">
-          <a href="./#about-me">About me</a>
-          <a href="./projects.html">Projects</a>
-          <a href="./#contact-section">Contacts</a>
-        </div>
-    
-        <!-- Hamburger Button -->
-        <button id="menu-toggle" aria-label="Toggle menu">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-      </div>
-    </header>
+  <div class="scroll-indicator">
+    <div class="scroll-progress"></div>
+  </div>
 
-    <section class="hero-intro">
-      <h1><span>Process</span> over Results</h1>
-      <p class="subtext">
-        An experimental 3D poster archive exploring modern digital aesthetics through modeling, motion, and type.
+  <nav>
+    <div class="nav-container">
+      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
+      <ul class="nav-links">
+        <li><a href="#nr1">NR_01</a></li>
+        <li><a href="#nr2">NR_02</a></li>
+        <li><a href="#nr3">NR_03</a></li>
+        <li><a href="#nr4">NR_04</a></li>
+        <li><a href="#nr5">NR_05</a></li>
+        <li><a href="#nr6">NR_06</a></li>
+        <li><a href="#nr7">NR_07</a></li>
+        <li><a href="#nr8">NR_08</a></li>
+        <li><a href="#nr9">NR_09</a></li>
+        <li><a href="#nr10">NR_10</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero fade-in">
+      <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
+      <h1 class="hero-title fade-in">Illustration Universe</h1>
+      <p class="hero-description lead fade-in">
+        An experimental illustration archive showcasing digital art and creative exploration through various techniques and mediums.
       </p>
-      <div class="hero-tags">
-        <span>Generative</span>
-        <span>3D</span>
-        <span>Glitch</span>
-        <span>Analog</span>
-        <span>Typography</span>
+      <div class="hero-tags fade-in">
+        <span>Adobe Photoshop</span>
+        <span>Adobe Illustrator</span>
+        <span>Procreate</span>
       </div>
     </section>
+<div class="main-content">
+         <article class="article-section fade-in" id="nr1">
+            <aside class="section-meta fade-in">
+                <div class="section-number">01 / Candy Castle</div>
+                <div class="project-title">
+                    <h1>Candy Castle Children Story</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">A sweet, imaginative world where fantasy meets everyday 
+                    curiosity</p>
+                <p class="project-description">
+                    <b>Candy Castle</b> This vibrant sequence tells a playful children's story set in a candy-colored 
+                    town where a magical ice cream house appears. 
+                    Each scene bursts with saturated colors, soft textures, 
+                    and whimsical characters. The narrative unfolds with excited 
+                    townspeople — from curious kids to surprised adults — 
+                    interacting with the edible structure. The illustrations 
+                    blend humor and exaggeration in a stylized, almost theatrical 
+                    way, using a consistent pink-toned palette and dynamic 
+                    compositions to guide the viewer through the joyful chaos. 
+                    It's a sweet, imaginative world where fantasy meets everyday 
+                    curiosity.      </p>
+                  <div class="image-grid grid-2x2">
+  <div class="image-container square">
+    <img src="images/illustra/story1.JPG" alt="Mon Oncle Poster 1">
+  </div>
+  <div class="image-container square">
+    <img src="images/illustra/story2.JPG" alt="Mon Oncle Poster 2">
+  </div>
+  <div class="image-container square">
+    <img src="images/illustra/story3.JPG" alt="Mon Oncle Poster 3">
+  </div>
+  <div class="image-container square">
+    <img src="images/illustra/story4.JPG" alt="Mon Oncle Poster 4">
+  </div>
+</div>
+            </div>
+        </article>
+
+         <article class="article-section fade-in" id="nr2">
+            <aside class="section-meta fade-in">
+                <div class="section-number">02 / Graphic Novel</div>
+                <div class="project-title">
+                    <h1>Graphic Novel</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Urban solitude and the poetry of everyday spaces.</p>
+                <p class="project-description">
+                    <b>Graphic Novel</b> A short graphic story about one determined dog, a closed door, and the urgent mystery of midnight needs.
+                    Armed with nothing but paws, persistence, and a bit of dramatic flair, our furry hero takes on the ultimate household challenge: waking a human.
+                    Will the mission succeed?
+                    Let's just say… no door stands a chance when nature calls.
+
+     </p>
+                 <div class="image-grid grid-2x2">
+  <div class="image-container tall">
+    <img src="images/illustra/cronic.JPG" alt="Mon Oncle Poster 1">
+  </div>
+  <div class="image-container tall">
+    <img src="images/illustra/IMG_0307 copy.JPG" alt="Mon Oncle Poster 2">
+  </div>
+</div>
+            </div>
+        </article>
+
+
+        
+
+        <article class="article-section fade-in" id="nr3">
+            <aside class="section-meta fade-in">
+                <div class="section-number">03 / Matilde</div>
+                <div class="project-title">
+                    <h1>Matilde</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">A portrait study in character and emotion.</p>
+                <p class="project-description">
+                    <b>Matilde</b> A symbolic portrait of my sister. 
+                    This piece blends abstract textures with narrative light. 
+                    The golden beam cutting through the cloudy sky suggests 
+                    clarity and purpose, illuminating a quiet field where a 
+                    small golden house rests among stylized trees. 
+                    It reflects her introspective strength. 
+                    A contemporary polymath who, despite her vast ambitions, 
+                    sometimes dreams only of a simple garden. The layered digital 
+                    brushwork and grainy overlays create a tactile and atmospheric 
+                    landscape that feels both cosmic and deeply person
+                </p>
+                <div class="image-container tall">
+                    <img src="images/illustra/matildetexto2.5.jpg" alt="Matilde Portrait">
+                </div>
+            </div>
+        </article>
+
+        <article class="article-section fade-in" id="nr4">
+            <aside class="section-meta fade-in">
+                <div class="section-number">04 / Beach</div>
+                <div class="project-title">
+                    <h1>Beach</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Where ocean meets memory and dreams take flight.</p>
+                <p class="project-description">
+                    <b>Beach</b> This beach scene uses a bold, 
+                    minimalist style with clean vector shapes and vibrant color blocks. 
+                    The composition is stripped down to essentials, creating a graphic, 
+                    almost abstract feel. The flat tones, exaggerated shadows, 
+                    and geometric forms give the illustration a retro yet modern aesthetic, 
+                    while the figure's relaxed pose and melting ground suggest a playful 
+                    twist on summer heat and stillness. It's a visual study in simplicity, 
+                    contrast, and stylized form.
+
+     </p>
+                <div class="image-container wide">
+                    <img src="images/illustra/praia1 copy.png" alt="Beach Landscape">
+                </div>
+            </div>
+        </article>
+
+        <article class="article-section fade-in" id="nr5">
+            <aside class="section-meta fade-in">
+                <div class="section-number">05 / Walk</div>
+                <div class="project-title">
+                    <h1>Walk</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Journey through sun-drenched paths and golden moments.</p>
+                <p class="project-description">
+                    <b>Walk</b> This piece captures a quiet moment of togetherness, 
+                    as two figures walk barefoot under the warm sun. 
+                    The painterly textures and layered brushstrokes give the 
+                    landscape a soft, tactile quality, blending digital techniques 
+                    with a natural, almost hand-printed feel. Bold color blocks 
+                    and visible marks evoke movement in the trees and ground, 
+                    while the lighting guides the eye gently into the horizon. 
+                    It's a peaceful and intimate scene that balances detail with 
+                    abstraction.
+                </p>
+                <div class="image-container wide">
+                    <img src="images/illustra/beach.jpg" alt="Walking by the Shore">
+                </div>
+            </div>
+        </article>
+
   
-    <section class="parallax-banner">
-      <h2>Illustration Universe</h2>
-    </section>
+        <article class="article-section fade-in" id="nr6">
+            <aside class="section-meta fade-in">
+                <div class="section-number">06 / Fashion illustrations</div>
+                <div class="project-title">
+                    <h1>Fashion illustrations</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote"> Electric blue and intense red</p>
+                <p class="project-description">
+                    <b>Fashion illustrations</b>
+                  These fashion illustrations emphasize bold color, elongated proportions, 
+                  and expressive poses to capture both style and attitude. 
+                  The textured digital brushwork adds depth to the flat color 
+                  fields, creating a balance between graphic design 
+                  and painterly detail. The use of saturated backgrounds 
+                  — electric blue and intense red — frames each figure with 
+                  striking contrast, enhancing the drama and elegance of their 
+                  silhouettes. It's a contemporary, stylized approach that 
+                  celebrates both the body and the garment with visual confidence.
+                </p>
+               <div class="image-grid grid-2x2">
+  <div class="image-container tall">
+    <img src="images/illustra/bluegirl copy.png" alt="Mon Oncle Poster 1">
+  </div>
+  <div class="image-container tall">
+    <img src="images/illustra/fashion2.png" alt="Mon Oncle Poster 2">
+  </div>
+</div>
+            </div>
+        </article>
 
-    
-  
-     <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/sleeping.jpg" alt="">
-      </div>
-    </section>
-  
-    <section class="project-block" id="nr1">
-      <div class="project-title">
-        <h1>NR_01</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header" alt="">
-      </div>
-      
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/sleeping.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Sleeping<br>girl</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/matildetexto2.5.jpg" alt="">
-      </div>
-    </section>
-  
-    <section class="project-block" id="nr2">
-      <div class="project-title right">
-        <h1>NR_02</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header-right" alt="">
-      </div>
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/matildetexto2.5.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Matilde</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/praia.jpg" alt="">
-      </div>
-    </section>
+        <article class="article-section fade-in" id="nr7">
+            <aside class="section-meta fade-in">
+                <div class="section-number">07 / Jungle</div>
+                <div class="project-title">
+                    <h1>Jungle</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Lost in the embrace of wild, untamed nature.</p>
+                <p class="project-description">
+                    <b>Jungle</b> immerses viewers in the dense, mysterious world of tropical wilderness. 
+                    This piece explores the relationship between human presence and the overwhelming power 
+                    of nature. The rich, layered composition and deep greens create an atmosphere of both 
+                    wonder and reverence for the natural world, celebrating the complexity and beauty of 
+                    ecosystems beyond human control.
+                </p>
+                <div class="image-container wide">
+                    <img src="images/illustra/jungle.jpg" alt="Jungle Exploration">
+                </div>
+            </div>
+        </article>
 
-    <section class="project-block" id="nr3">
-      <div class="project-title">
-        <h1>NR_03</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header" alt="">
-      </div>
-      
-     <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/praia.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Praia</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/IMG_0142.JPG" alt="">
-      </div>
-    </section>
-  
-    <section class="project-block" id="nr4">
-      <div class="project-title right">
-        <h1>NR_04</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header-right" alt="">
-      </div>
-  
-      <div class="project-grid">
-        <div class="image-block">
-          <img src="images/illustra/IMG_0142.JPG" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="300">Material Memories</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="300">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+         <article class="article-section fade-in" id="nr8">
+            <aside class="section-meta fade-in">
+                <div class="section-number">08 / Breakfast</div>
+                <div class="project-title">
+                    <h1>Breakfast</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Tender moments shared over morning rituals.</p>
+                <p class="project-description">
+                    <b>Breakfast</b> captures the intimate warmth of shared morning moments between an elderly couple. 
+                    This piece explores the quiet beauty of everyday rituals, where simple acts of care and companionship 
+                    create profound connections. The soft lighting and gentle composition reflect the peaceful contentment 
+                    found in life's simple pleasures and enduring love.
+                </p>
+                <div class="image-container tall">
+                    <img src="images/illustra/oldcouple.jpg" alt="Breakfast Together">
+                </div>
+            </div>
+        </article>
 
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/oldcouple.jpg" alt="">
-      </div>
-    </section>
+        <article class="article-section fade-in" id="nr9">
+            <aside class="section-meta fade-in">
+                <div class="section-number">09 / Sleeping</div>
+                <div class="project-title">
+                    <h1>Sleeping</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Finding peace in moments of rest and solitude.</p>
+                <p class="project-description">
+                    <b>Sleeping</b> A student sleeps at her desk, oblivious to the teacher 
+                    and classmates behind her. The bold lines, comic-inspired halftones, 
+                    and vibrant purples create a dramatic yet dreamy atmosphere. 
+                    The mix of hand-drawn textures with digital shading gives the 
+                    piece a dynamic, layered feel, capturing the tension between daydreaming 
+                    and the structured world of the classroom.    </p>
+                <div class="image-container tall">
+                    <img src="images/illustra/sleeping.jpg" alt="Sleeping Girl">
+                </div>
+            </div>
+        </article>
 
-     <section class="project-block" id="nr5">
-      <div class="project-title">
-        <h1>NR_05</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header" alt="">
-      </div>
-      
-      <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/oldcouple.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Breakfast</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <article class="article-section fade-in" id="nr10">
+            <aside class="section-meta fade-in">
+                <div class="section-number">10 / Self-Portrait</div>
+                <div class="project-title">
+                    <h1>Self-Portrait</h1>
+                </div>
+            </aside>
+            <div class="section-content fade-in">
+                <p class="project-quote">Flattened shapes and a limited red-black-white palette</p>
+                <p class="project-description">
+                    <b>Self-Portrait</b> This bold self-portrait uses flattened shapes 
+                    and a limited red-black-white palette to explore identity and duality. 
+                    Overlapping features create tension and balance, suggesting multiple 
+                    perspectives within a single expression. The style is graphic and symbolic, 
+                    relying on clean vector forms and strong contrasts to express inner complexity 
+                    with striking simplicity.
 
-       <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/beach.jpg" alt="">
-      </div>
-    </section>
-  
-     <section class="project-block" id="nr6">
-      <div class="project-title right">
-        <h1>NR_06</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header-right" alt="">
-      </div>
-  
-     <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/beach.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Matilde</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/jungle.jpg" alt="">
-      </div>
-    </section>
-
-     <section class="project-block" id="nr7">
-      <div class="project-title">
-        <h1>NR_07</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header" alt="">
-      </div>
-      
-    <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/jungle.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Rainy<br>Readings</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-       <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/cafe copy.png" alt="">
-      </div>
-    </section>
-
-     <section class="project-block" id="nr8">
-      <div class="project-title right">
-        <h1>NR_08</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header-right" alt="">
-      </div>
-  
-     <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/cafe copy.png"data-aos="fade-up"alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Café<br>Readings</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-         <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/girl.jpg" alt="">
-      </div>
-    </section>
-
-    <section class="project-block" id="nr9">
-      <div class="project-title">
-        <h1>NR_09</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header" alt="">
-      </div>
-      
-    <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/girl.jpg" data-aos="fade-up" alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Rainy<br>Readings</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-     <section class="scroll-row">
-      <div class="scroll-container">
-        <img src="images/illustra/medraw copy.png" alt="">
-      </div>
-    </section>
-
-  <section class="project-block" id="nr10">
-      <div class="project-title right">
-        <h1>NR_10</h1>
-        <img src="images/scribbles/416 copy.png" data-aos="fade-up" class="hand-scribble-header-right" alt="">
-      </div>
-  
-     <div class="project-grid">
-        <div class="image-block tall">
-          <img src="images/illustra/medraw copy.png"data-aos="fade-up"alt="Project visual">
-        </div>
-        <div class="image-block text-block">
-          <div class="quote-block">
-            <p class="quote" data-aos="fade-up" data-aos-delay="200">Café<br>Readings</p>
-            <p class="quote-bottom" data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia autem neque magni illo eius nihil blanditiis ducimus facilis! Aut ducimus facere voluptatum eveniet iste dolore hic placeat perspiciatis tempore?
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-   
-
-
-
-
+              </p>
+                <div class="image-container tall">
+                    <img src="images/illustra/self_portrait copy.png" alt="Artist Self-Portrait">
+                </div>
+            </div>
+        </article>
+    </div>
 
     <footer class="site-footer">
       <div class="footer-content">
         <p>&copy; 2025 Madalena Velloso</p>
         <div class="social-links">
-          <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
-          <a href="https://github.com/yourhandle" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/yourhandle" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/naoseique.etal/" target="_blank">Instagram</a>
+          <a href="https://www.behance.net/madalenavelloso3" target="_blank">Behance</a>
+          <a href="https://www.linkedin.com/in/madalena-de-sep%C3%BAlveda-velloso-b5b4b5345" target="_blank">LinkedIn</a>
         </div>
       </div>
     </footer>
-  
-
-
-
-
-
-
-
   </main>
-  <div class="circle-cursor"></div>
+
+   <div class="circle-cursor"></div>
   <script src="script.js"></script>
   <script src="hamburguer.js"></script>
   <script src="scrollprojectsection.js"></script>
   <script src="sliding.js"></script>
-
+  
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Scroll progress bar
+      window.addEventListener('scroll', () => {
+        const scrollProgress = document.querySelector('.scroll-progress');
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
+      });
+
+      // Fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const fadeInElements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      fadeInElements.forEach(el => observer.observe(el));
+
+      // Carousel functionality
+      const carousels = document.querySelectorAll('.carousel-container');
+      carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevButton = carousel.querySelector('.carousel-arrow-prev');
+        const nextButton = carousel.querySelector('.carousel-arrow-next');
+        const currentSlideEl = carousel.querySelector('.current-slide');
+        const totalSlidesEl = carousel.querySelector('.total-slides');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        if (totalSlidesEl) totalSlidesEl.textContent = totalSlides.toString();
+
+        function updateSlide(newIndex) {
+          slides.forEach(slide => slide.classList.remove('active'));
+          slides[newIndex].classList.add('active');
+          if (currentSlideEl) currentSlideEl.textContent = (newIndex + 1).toString();
+          currentIndex = newIndex;
+        }
+
+        if (prevButton) {
+          prevButton.addEventListener('click', () => {
+            const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+            updateSlide(newIndex);
+          });
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener('click', () => {
+            const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+            updateSlide(newIndex);
+          });
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      const anchorLinks = document.querySelectorAll('a[href^="#"]');
+      anchorLinks.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Handle page load with hash
       const hash = window.location.hash;
-  
       if (hash) {
-        // Ensure we start from the top instantly
         window.scrollTo({ top: 0, behavior: "auto" });
-  
-        // Wait a moment, then scroll smoothly to the target section
         setTimeout(() => {
           const target = document.querySelector(hash);
           if (target) {
             target.scrollIntoView({ behavior: "smooth" });
           }
-        }, 300); // adjust delay if needed
+        }, 300);
       }
     });
   </script>
-  
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1000,
       once: true,
       offset: 300,
     });
-
-    window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  document.querySelectorAll('.scroll-container img').forEach((img, i) => {
-    img.style.transform = `translateY(${scrollY * 0.1 * (i % 2 === 0 ? 1 : -1)}px)`;
-  });
-});
   </script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all carousels on the page
-    const carousels = document.querySelectorAll('.carousel-container');
-    
-    carousels.forEach(carousel => {
-      const slides = carousel.querySelectorAll('.carousel-slide');
-      const prevButton = carousel.querySelector('.carousel-arrow-prev');
-      const nextButton = carousel.querySelector('.carousel-arrow-next');
-      const currentSlideEl = carousel.querySelector('.current-slide');
-      const totalSlidesEl = carousel.querySelector('.total-slides');
-      
-      let currentIndex = 0;
-      const totalSlides = slides.length;
-      
-      // Initialize counter
-      totalSlidesEl.textContent = totalSlides.toString();
-      
-      // Function to update current slide
-      function updateSlide(newIndex) {
-        // Remove active class from all slides
-        slides.forEach(slide => slide.classList.remove('active'));
-        
-        // Add active class to new current slide
-        slides[newIndex].classList.add('active');
-        
-        // Update counter
-        currentSlideEl.textContent = (newIndex + 1).toString();
-        
-        // Update current index
-        currentIndex = newIndex;
-      }
-      
-      // Previous button click handler
-      prevButton.addEventListener('click', function() {
-        const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-        updateSlide(newIndex);
-      });
-      
-      // Next button click handler
-      nextButton.addEventListener('click', function() {
-        const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-        updateSlide(newIndex);
-      });
-    });
-  });
-</script>
-
-
-
 </body>
 </html>
