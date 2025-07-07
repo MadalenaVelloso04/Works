@@ -653,24 +653,41 @@ html {
 
 
 
+/* === FOOTER === */
 .site-footer {
-  background: #ff00d4;
+  background: #0a0a0a;
   color: #eee;
-  padding: 2rem;
   text-align: center;
+  padding: 3rem 1rem;
+  border-top: 2px solid #ff00d4;
+  font-family: 'Inter', sans-serif;
 }
 
-.site-footer a {
-  color: #eee;
-  margin: 0 0.5rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  line-height: 2rem;
+.site-footer p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
 }
 
 .site-footer a:hover {
   color: #ff00d4;
 }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ff00d4;
+    }
 
   /* Scroll indicator */
     .scroll-indicator {
