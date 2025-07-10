@@ -307,117 +307,129 @@
     .grid-full {
       margin-bottom: 2rem;
     }
+/* Remove problematic hover effects */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(255, 0, 212, 0.1);
+  /* Removed hover transform and box-shadow transition */
+}
 
-    .image-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(255, 0, 212, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
 
-    .image-container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 60px rgba(255, 0, 212, 0.2);
-    }
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Removed hover transform transition */
+}
 
-    .image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
 
-    .image-container:hover img {
-      transform: scale(1.05);
-    }
+.carousel-container {
+  position: relative;
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+}
 
-    .tall {
-      aspect-ratio: 3/4;
-    }
+.carousel-slides {
+  width: 100%;
+}
 
-    .wide {
-      width: 100%;
-      height: auto;
-    }
+.carousel-slide {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
-    .square {
-      aspect-ratio: 1/1;
-    }
+.carousel-slide.active {
+  display: block;
+}
 
-    /* Carousel */
-    .carousel-container {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #1a1a1a;
-      aspect-ratio: 3/4;
-    }
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+  opacity: 0.7;
+}
 
-    .carousel-slides {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
+.carousel-arrow:hover {
+  background: rgba(255, 0, 212, 0.9);
+  opacity: 1;
+}
 
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
+.carousel-arrow-prev {
+  left: 15px;
+}
 
-    .carousel-slide.active {
-      opacity: 1;
-    }
+.carousel-arrow-next {
+  right: 15px;
+}
 
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 0, 212, 0.8);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-      z-index: 10;
-    }
+/* Slide counter */
+.carousel-counter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: 'minecraft';
+  z-index: 10;
+}
 
-    .carousel-arrow:hover {
-      background: rgba(255, 0, 212, 1);
-    }
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
 
-    .carousel-arrow-prev {
-      left: 15px;
-    }
+  .carousel-arrow-prev {
+    left: 10px;
+  }
 
-    .carousel-arrow-next {
-      right: 15px;
-    }
+  .carousel-arrow-next {
+    right: 10px;
+  }
 
-    .carousel-counter {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-family: 'minecraft';
-    }
+  .carousel-container {
+    border-radius: 8px;
+  }
+}
+
+/* Responsive aspect ratios that work better */
+.tall {
+  aspect-ratio: 3/4; /* Keep for non-carousel images */
+}
+
+.wide {
+  width: 100%;
+  height: auto;
+}
+
+.square {
+  aspect-ratio: 1/1;
+}
+
 
     /* Quote styling */
     .quote-section {
@@ -536,7 +548,9 @@
       .tall {
         width: 80%;
         margin: 0 auto;
+        height: 100%;
       }
+
     }
 
     /* Fade in animation */
@@ -556,76 +570,6 @@
     .fade-in:nth-child(3) { transition-delay: 0.3s; }
     .fade-in:nth-child(4) { transition-delay: 0.4s; }
 
-      .carousel-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-
-    .carousel-slides {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .carousel-slide.active {
-      opacity: 1;
-    }
-
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: background 0.3s ease;
-    }
-
-    .carousel-arrow:hover {
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .carousel-arrow-prev {
-      left: 10px;
-    }
-
-    .carousel-arrow-next {
-      right: 10px;
-    }
-
-    .carousel-counter {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 12px;
-      z-index: 10;
-    }
   /* Circle cursor styling */
   .circle-cursor {
       position: absolute;
@@ -680,21 +624,6 @@
       font-weight: 500;
     }
 
-    .parallax-banner {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(135deg, #ff00d4, #000);
-      color: white;
-      margin: 4rem 0;
-    }
-
-    .parallax-banner h2 {
-      font-size: clamp(3rem, 8vw, 8rem);
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      margin: 0;
-    }
-
     .project-quote {
       font-size: 1.3rem;
       font-style: italic;
@@ -718,96 +647,3 @@
     .project-description i {
       color: #ccc;
     }
-
-    /* ----- MOBILE FIXES FOR IMAGE GAPS & LAYOUT (iPhone size) ----- */
-@media (max-width: 480px) {
-  /* General layout padding adjustments */
-  .hero,
-  .main-content,
-  .section-content {
-    padding: 1rem !important;
-  }
-
-  .image-grid {
-    margin: 1.5rem 0 !important;
-  }
-
-  /* Force column layout instead of grid */
-  .grid-2x2,
-  .grid-full,
-  .image-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-
-  /* Reset fixed aspect ratios for mobile */
-  .tall,
-  .square,
-  .wide {
-    aspect-ratio: unset !important;
-  }
-
-  /* Ensure proper scaling and fit for images */
-  .image-container {
-    aspect-ratio: unset !important;
-    width: 100% !important;
-    height: auto !important;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-
-  .image-container img,
-  .image-container video {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
-  }
-
-  /* Make nav links cleaner on small screens */
-  .nav-links {
-    display: none !important;
-  }
-
-  .section-meta {
-    position: static !important;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem !important;
-    line-height: 1.2;
-  }
-
-  .hero-description {
-    font-size: 1rem !important;
-  }
-
-  .back-to-projects {
-    left: 1rem;
-    font-size: 0.8rem;
-    padding: 0.6rem 1.2rem;
-  }
-
-  .color-palette {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .quote {
-    font-size: 1.1rem !important;
-  }
-
-  .video-container {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-  }
-
-  iframe,
-  video {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-  }
-}

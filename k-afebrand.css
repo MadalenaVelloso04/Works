@@ -18,6 +18,7 @@ input,select{vertical-align:middle}
 
 /* BRUTALIST K-AFE CSS */
 
+
 @font-face {
   font-family: 'minecraft';
   src: url('fonts/Minecraft.ttf') format('truetype');
@@ -36,6 +37,8 @@ input,select{vertical-align:middle}
 
     body {
       font-family: 'Inter', sans-serif;
+      background-image: url(./images/INSTAGRAMK-AFE/PNG/bg.png);
+      background-attachment: fixed;
       background-color: #000000;
       color: #e0e0e0;
       line-height: 1.6;
@@ -98,7 +101,7 @@ input,select{vertical-align:middle}
       left: 0;
       right: 0;
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family:'minecraft';
       background-color: #0000005f;
       backdrop-filter: blur(10px);
       z-index: 1000;
@@ -113,13 +116,29 @@ input,select{vertical-align:middle}
       align-items: center;
     }
 
+      /* Circle cursor styling */
+  .circle-cursor {
+      position: absolute;
+      border-radius: 50%; /* This makes it a circle */
+      background-color: rgba(255, 255, 255, 0.673); /* Customize the color */
+      pointer-events: none; /* Allow interaction through the circle cursor */
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ff00d49f;
+      mix-blend-mode: difference; /* The key to the effect */
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
    
 
     /* Back to projects button */
     .back-to-projects {
       text-transform: uppercase;
       font-size: 1rem;
-      font-family: 'minecraft';
+      font-family:'minecraft';
       left: 2rem;
       padding: 1rem 0rem;
       text-decoration: none;
@@ -140,7 +159,6 @@ input,select{vertical-align:middle}
     }
 
     .nav-links {
-      font-family: 'minecraft';
       display: flex;
       gap: 2rem;
       list-style: none;
@@ -158,6 +176,9 @@ input,select{vertical-align:middle}
     .nav-links a:hover {
       color: #484848;
     }
+
+
+
 
     /* Hero section */
     .hero {
@@ -191,6 +212,68 @@ input,select{vertical-align:middle}
       max-width: 600px;
       margin: 0 auto;
     }
+
+.video-showcase {
+  width: 100%;
+  margin: 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container {
+  width: 90vw;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pdf {
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 2rem;
+  background-color: #ffffff90;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.pdf a.fbo-embed {
+  font-size: 1.2rem;
+  color: #2c2b2b;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #acd591;
+  border-radius: 8px;
+  background-color: #2c2b2b87;
+  transition: all 0.3s ease;
+}
+
+.pdf a.fbo-embed:hover {
+  background-color: #acd591;
+  color: white;
+  transform: scale(1.02);
+}
+
+.pdf h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c2b2b;
+}
+
+
+
 
     /* Main content layout */
     .main-content {
@@ -269,12 +352,25 @@ input,select{vertical-align:middle}
       transform: scale(1.02);
     }
 
+        .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .image-container:hover video {
+      transform: scale(1.02);
+    }
+
     .tall {
       aspect-ratio: 3/4;
     }
 
     .wide {
-      aspect-ratio: 16/9;
+      width: 100%;
+      height: auto; /* 🔥 This is the key! */
     }
 
     .square {
@@ -283,7 +379,7 @@ input,select{vertical-align:middle}
 
     /* Quote styling */
     .quote-section {
-      background: #f8f8f8;
+      background: #acd5919e;
       padding: 3rem;
       border-radius: 12px;
       margin: 4rem 0;
@@ -293,14 +389,14 @@ input,select{vertical-align:middle}
     .quote {
       font-size: 1.5rem;
       line-height: 1.4;
-      color: #ff00d4;
+      color: #000000;
       font-style: italic;
       margin-bottom: 1rem;
     }
 
     .quote-author {
       font-size: 1rem;
-      color: #aaaaaa;
+      color: #2c2b2b;
       font-weight: 500;
     }
 
@@ -346,12 +442,19 @@ input,select{vertical-align:middle}
       font-weight: 500;
     }
 
-    .color-black { background: #000; }
-    .color-white { background: #fff; color: #000; border: 1px solid #e0e0e0; }
-    .color-pink { background: #ff00d4; }
-
+.color-black { background: #2c2b2b; }
+.color-acidgreen {background: #ACD591}
+.color-white {background: #FFFFFF; color: #484848}
+.color-pink {background: #D53D96}
+.color-blue {background: #3372A9}
+.color-purple {background: #9379AB}
+          
     /* Responsive design */
     @media (max-width: 768px) {
+      body {
+        background-image: none;
+      }
+
       .nav-links {
         display: none;
       }
@@ -399,43 +502,10 @@ input,select{vertical-align:middle}
     }
 
 
-    /* Fade in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
-    /* Stagger animation delays */
-    .fade-in:nth-child(1) { transition-delay: 0.1s; }
-    .fade-in:nth-child(2) { transition-delay: 0.2s; }
-    .fade-in:nth-child(3) { transition-delay: 0.3s; }
-    .fade-in:nth-child(4) { transition-delay: 0.4s; }
 
-    /* Scroll indicator */
-    .scroll-indicator {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: #f0f0f0;
-      z-index: 1001;
-    }
-
-    .scroll-progress {
-      height: 100%;
-      background: linear-gradient(90deg, #ff00d4, #000);
-      width: 0%;
-      transition: width 0.1s ease;
-    }
-
-        /* --- iPad & Mobile Enhancements --- */
+    /* --- iPad & Mobile Enhancements --- */
 @media (max-width: 768px) {
   .grid-full {
     display: block;
@@ -512,88 +582,473 @@ input,select{vertical-align:middle}
 }
 
 
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger animation delays */
+    .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    .fade-in:nth-child(2) { transition-delay: 0.2s; }
+    .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .fade-in:nth-child(4) { transition-delay: 0.4s; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #f0f0f0;
+      z-index: 1001;
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #ff00d4, #000);
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+
+
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .hero-tags span {
+      background: #000;
+      color: white;
+      border: 1px solid white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
     /* ----- MOBILE FIXES FOR IMAGE GAPS & LAYOUT (iPhone size) ----- */
-@media (max-width: 480px) {
-  /* General layout padding adjustments */
-  .hero,
-  .main-content,
-  .section-content {
-    padding: 1rem !important;
+
+
+
+/* Base container improvements */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
-  .image-grid {
-    margin: 1.5rem 0 !important;
+  /* Reset all grid layouts to single column */
+  .article-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
   }
 
-  /* Force column layout instead of grid */
-  .grid-2x2,
-  .grid-full,
-  .image-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
+  .grid-2x2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  /* Reset fixed aspect ratios for mobile */
-  .tall,
-  .square,
-  .wide {
-    aspect-ratio: unset !important;
+  .grid-full {
+    display: block;
+    width: 100%;
   }
 
-  /* Ensure proper scaling and fit for images */
+  /* Image container fixes */
   .image-container {
-    aspect-ratio: unset !important;
-    width: 100% !important;
-    height: auto !important;
-    overflow: hidden;
+    width: 100%;
+    height: auto;
+    aspect-ratio: unset;
+    margin-bottom: 1rem;
     border-radius: 8px;
+    overflow: hidden;
   }
 
   .image-container img,
   .image-container video {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
   }
 
-  /* Make nav links cleaner on small screens */
-  .nav-links {
-    display: none !important;
+  /* Remove fixed aspect ratios on mobile */
+  .tall,
+  .wide,
+  .square {
+    aspect-ratio: unset;
   }
 
-  .section-meta {
-    position: static !important;
-    margin-bottom: 1.5rem;
+  .tall {
+    max-height: 400px;
   }
 
-  .hero h1 {
-    font-size: 2rem !important;
-    line-height: 1.2;
-  }
-
-  .hero-description {
-    font-size: 1rem !important;
-  }
-
-  .back-to-projects {
-    left: 1rem;
-    font-size: 0.8rem;
-    padding: 0.6rem 1.2rem;
-  }
-
-  .color-palette {
-    flex-direction: column;
+  .wide {
+    width: 100%;
     height: auto;
   }
 
-  .quote {
-    font-size: 1.1rem !important;
+  .square {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* --- EXTRA SMALL DEVICES (iPhone SE, etc.) --- */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .main-content {
+    padding: 0 0.75rem;
+  }
+
+  /* Hero section adjustments */
+  .hero {
+    padding: 1.5rem 0.75rem 3rem;
+    margin-top: 70px;
+  }
+
+  .hero-badge {
+    font-size: 12vw;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* Navigation improvements */
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .back-to-projects {
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+  }
+
+  /* Article sections */
+  .article-section {
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+  }
+
+  .section-meta {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .section-number {
+    font-size: 0.75rem;
+  }
+
+  /* Typography adjustments */
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  /* Image grid improvements */
+  .image-grid {
+    margin: 2rem 0;
+  }
+
+  .image-container {
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-container img,
+  .image-container video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  /* Force proper aspect ratios for mobile */
+  .image-container.tall img,
+  .image-container.tall video {
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+
+  .image-container.wide img,
+  .image-container.wide video {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  .image-container.square img,
+  .image-container.square video {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  /* Video showcase */
+  .video-showcase {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0 0.75rem;
   }
 
   .video-container {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Quote section */
+  .quote-section {
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .quote {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .quote-author {
+    font-size: 0.9rem;
+  }
+
+  /* Process grid */
+  .process-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .process-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .process-number {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Color palette */
+  .color-palette {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .color-swatch {
+    height: 60px;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  /* Hero tags */
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .hero-tags span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+  }
+
+  /* PDF section */
+  .pdf {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .pdf h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pdf a.fbo-embed {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+  }
+}
+
+/* --- ACCESSIBILITY AND PERFORMANCE IMPROVEMENTS --- */
+
+/* Ensure touch targets are large enough */
+@media (max-width: 768px) {
+  .nav-links a,
+  .back-to-projects,
+  .pdf a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Prevent horizontal scrolling */
+  body,
+  html {
+    overflow-x: hidden;
+  }
+
+  /* Improve tap targets */
+  .image-container {
+    cursor: pointer;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .image-container,
+    .image-container img,
+    .image-container video {
+      transition: none;
+    }
+  }
+}
+
+/* --- VERY SMALL DEVICES (iPhone SE 1st gen, etc.) --- */
+@media (max-width: 375px) {
+  .main-content {
+    padding: 0 0.5rem;
+  }
+
+  .hero {
+    padding: 1rem 0.5rem 2rem;
+  }
+
+  .hero-badge {
+    font-size: 10vw;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .article-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .image-container {
+    margin-bottom: 0.75rem;
+  }
+
+  .quote-section {
+    padding: 1rem;
+  }
+
+  .process-item {
+    padding: 1rem;
+  }
+}
+
+/* --- LANDSCAPE MOBILE FIXES --- */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .hero-badge {
+    font-size: 8vw;
+  }
+
+  .video-container {
+    aspect-ratio: 16/9;
+  }
+
+  .image-container.wide {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* --- ADDITIONAL CONTAINER IMPROVEMENTS --- */
+@media (max-width: 768px) {
+  /* Ensure all containers respect viewport width */
+  .image-grid,
+  .process-grid,
+  .color-palette {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Fix any remaining overflow issues */
+  .section-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Ensure proper spacing */
+  .fade-in {
+    margin-bottom: 1rem;
+  }
+
+  /* Improve readability */
+  .section-content p {
+    text-align: left;
+    hyphens: auto;
   }
 }

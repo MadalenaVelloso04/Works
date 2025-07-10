@@ -40,6 +40,7 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
         <li><a href="#nr7">NR_07</a></li>
         <li><a href="#nr8">NR_08</a></li>
         <li><a href="#nr9">NR_09</a></li>
+        <li><a href="#nr10">NR_10</a></li>
       </ul>
     </div>
   </nav>
@@ -215,9 +216,8 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
           <div class="image-grid fade-in">
             <div class="grid-2x2">
               <div class="image-container square">
-                <img src="images/newposters/bitmapmockup.png" alt="Bitmap Project mockup">
+                <img src="images/newposters/bitmap.jpeg" alt="Bitmap Project mockup">
               </div>
-              <div class="image-container tall">
                 <div class="carousel-container">
                   <div class="carousel-slides">
                     <img src="images/madalena_never2small.png" alt="Bitmap Project 1" class="carousel-slide active">
@@ -238,7 +238,6 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
                     <span class="current-slide">1</span> / <span class="total-slides">3</span>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -299,7 +298,6 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
               <div class="image-container square">
                 <img src="images/WebP/mononcle5.webp" alt="Mon Oncle design process">
               </div>
-              <div class="image-container tall">
                 <div class="carousel-container">
                   <div class="carousel-slides">
                     <img src="images/mo1.png" alt="Mon Oncle Poster 1" class="carousel-slide active">
@@ -323,7 +321,6 @@ src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
                     <span class="current-slide">1</span> / <span class="total-slides">6</span>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -439,38 +436,41 @@ For this edition, I designed a series of flyers focused on the daily schedule an
 
     fadeInElements.forEach(el => observer.observe(el));
 
-    // Carousel functionality
-    const carousels = document.querySelectorAll('.carousel-container');
-    carousels.forEach(carousel => {
-      const slides = carousel.querySelectorAll('.carousel-slide');
-      const prevButton = carousel.querySelector('.carousel-arrow-prev');
-      const nextButton = carousel.querySelector('.carousel-arrow-next');
-      const currentSlideEl = carousel.querySelector('.current-slide');
-      const totalSlidesEl = carousel.querySelector('.total-slides');
-      let currentIndex = 0;
-      const totalSlides = slides.length;
+   document.querySelectorAll('.carousel-container').forEach(carousel => {
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const prevBtn = carousel.querySelector('.carousel-arrow-prev');
+  const nextBtn = carousel.querySelector('.carousel-arrow-next');
+  const currentSlideEl = carousel.querySelector('.current-slide');
+  const totalSlideEl = carousel.querySelector('.total-slides');
 
-      if (totalSlidesEl) totalSlidesEl.textContent = totalSlides.toString();
+  let index = 0;
+  const total = slides.length;
+  if (totalSlideEl) totalSlideEl.textContent = total;
 
-      function updateSlide(newIndex) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[newIndex].classList.add('active');
-        if (currentSlideEl) currentSlideEl.textContent = (newIndex + 1).toString();
-        currentIndex = newIndex;
-      }
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[i].classList.add('active');
+    if (currentSlideEl) currentSlideEl.textContent = i + 1;
+  }
 
-      if (prevButton)
-        prevButton.addEventListener('click', () => {
-          const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-          updateSlide(newIndex);
-        });
-
-      if (nextButton)
-        nextButton.addEventListener('click', () => {
-          const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-          updateSlide(newIndex);
-        });
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + total) % total;
+      showSlide(index);
     });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % total;
+      showSlide(index);
+    });
+  }
+
+  // Show the first slide initially
+  showSlide(index);
+});
+
 
     // Smooth scrolling
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
