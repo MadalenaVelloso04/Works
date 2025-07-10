@@ -37,10 +37,8 @@ input,select{vertical-align:middle}
 
     body {
       font-family: 'Inter', sans-serif;
-      background-image: url(./images/INSTAGRAMK-AFE/PNG/bg.png);
-      background-attachment: fixed;
-      background-color: #000000;
-      color: #e0e0e0;
+      background-color: #fffcf2;
+      color: #000000;
       line-height: 1.6;
       font-size: 16px;
     }
@@ -53,7 +51,7 @@ input,select{vertical-align:middle}
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
-      color: white;
+      color: black;
     }
 
     h2 {
@@ -62,7 +60,7 @@ input,select{vertical-align:middle}
       font-weight: 400;
       line-height: 1.2;
       margin-bottom: 1rem;
-      color: #dddddd;
+      color: #2c2b2b;
     }
 
     h3 {
@@ -70,20 +68,20 @@ input,select{vertical-align:middle}
       font-size: 1.3rem;
       font-weight: 500;
       margin-bottom: 0.8rem;
-      color: #cccccc;
+      color: #676767;
     }
 
     p {
       font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 1.5rem;
-      color: #bbbbbb;
+      color: #7d7d7d;
     }
 
     .lead {
       font-size: 1.3rem;
       line-height: 1.6;
-      color: #e0e0e0;
+      color: #272727;
       font-weight: 400;
     }
 
@@ -125,7 +123,7 @@ input,select{vertical-align:middle}
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: #ff00d49f;
+      background-color: #ff00d4;
       mix-blend-mode: difference; /* The key to the effect */
       transform: translate(-50%, -50%);
       z-index: 1000;
@@ -198,7 +196,7 @@ input,select{vertical-align:middle}
   font-size: clamp(8vw, 10vw, 6vw); /* Responsive font size */
   font-weight: 700;
   line-height: 1;
-  color: #ffffff;
+  color: #dfd7be;
   text-align: left;
 }
     
@@ -212,68 +210,6 @@ input,select{vertical-align:middle}
       max-width: 600px;
       margin: 0 auto;
     }
-
-.video-showcase {
-  width: 100%;
-  margin: 4rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-container {
-  width: 90vw;
-  max-width: 1200px;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.pdf {
-  max-width: 1000px;
-  margin: 1rem auto;
-  padding: 2rem;
-  background-color: #ffffff90;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.pdf a.fbo-embed {
-  font-size: 1.2rem;
-  color: #2c2b2b;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: 2px solid #acd591;
-  border-radius: 8px;
-  background-color: #2c2b2b87;
-  transition: all 0.3s ease;
-}
-
-.pdf a.fbo-embed:hover {
-  background-color: #acd591;
-  color: white;
-  transform: scale(1.02);
-}
-
-.pdf h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #2c2b2b;
-}
-
-
-
 
     /* Main content layout */
     .main-content {
@@ -331,9 +267,10 @@ input,select{vertical-align:middle}
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+
 
     .image-container:hover {
       transform: translateY(-2px);
@@ -373,13 +310,22 @@ input,select{vertical-align:middle}
       height: auto; /* 🔥 This is the key! */
     }
 
+     .alone {
+      width: 100vw;
+      height: 90vh; /* 🔥 This is the key! */
+      margin: 0 auto;
+      object-fit: cover;
+      margin-bottom: 40px;
+      margin-left: 0;
+    }
+
     .square {
       aspect-ratio: 1/1;
     }
 
     /* Quote styling */
     .quote-section {
-      background: #acd5919e;
+      background: #cc0000eb;
       padding: 3rem;
       border-radius: 12px;
       margin: 4rem 0;
@@ -389,14 +335,14 @@ input,select{vertical-align:middle}
     .quote {
       font-size: 1.5rem;
       line-height: 1.4;
-      color: #000000;
+      color: #fffcf2;
       font-style: italic;
       margin-bottom: 1rem;
     }
 
     .quote-author {
       font-size: 1rem;
-      color: #2c2b2b;
+      color: #fffcf293;
       font-weight: 500;
     }
 
@@ -442,12 +388,9 @@ input,select{vertical-align:middle}
       font-weight: 500;
     }
 
-.color-black { background: #2c2b2b; }
-.color-acidgreen {background: #ACD591}
-.color-white {background: #FFFFFF; color: #484848}
-.color-pink {background: #D53D96}
-.color-blue {background: #3372A9}
-.color-purple {background: #9379AB}
+.color-red { background: #cc0000; }
+.color-beige {background: #fffcf2; border:#cc0000 solid 2px ; color: #cc0000;}
+
           
     /* Responsive design */
     @media (max-width: 768px) {
