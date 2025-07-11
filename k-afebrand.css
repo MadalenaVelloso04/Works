@@ -196,7 +196,7 @@ input,select{vertical-align:middle}
   font-size: clamp(8vw, 10vw, 6vw); /* Responsive font size */
   font-weight: 700;
   line-height: 1;
-  color: #dfd7be;
+  color: #000000;
   text-align: left;
 }
     
@@ -311,12 +311,11 @@ input,select{vertical-align:middle}
     }
 
      .alone {
-      width: 100vw;
+      width: 80vw;
       height: 90vh; /* 🔥 This is the key! */
       margin: 0 auto;
       object-fit: cover;
       margin-bottom: 40px;
-      margin-left: 0;
     }
 
     .square {
