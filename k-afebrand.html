@@ -49,11 +49,13 @@
     </section>
         
     <section>
+       <div class="image-grid fade-in">
         <div class="image-container alone">
-            <img src="images/INSTAGRAMK-AFE/cafe.png" alt="Coffee brewing process">
-        </div>       
+            <img src="images/INSTAGRAMK-AFE/cafe.png" class="zoomable" alt="Coffee brewing process">
+        </div>   
+        </div>    
     </section>
-    
+
     <div class="main-content">
 
       <article class="article-section fade-in" id="overview">
@@ -70,17 +72,17 @@
 
           <div class="image-grid fade-in">
                <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/bc.jpeg" alt="Coffee brewing process">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/bc.jpeg" class="zoomable" alt="Coffee brewing process">
               </div>
                 <div class="grid-2x2">
             <div class="image-container wide">
-                       <video src="images/INSTAGRAMK-AFE/PNG/sticker2 copy.mp4" alt="Korean typography inspiration"  autoplay 
+                       <video src="images/INSTAGRAMK-AFE/PNG/sticker2 copy.mp4" class="zoomable" alt="Korean typography inspiration"  autoplay 
       muted 
       loop 
       playsinline>
               </div>
                    <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/key.png" alt="Coffee brewing process">
+                <img src="images/INSTAGRAMK-AFE/key.png" class="zoomable" alt="Coffee brewing process">
               </div>
               </div>
           </div>
@@ -114,7 +116,7 @@
           <div class="image-grid fade-in">
             <div class="grid-full">
               <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/colorpallete copy.png" alt="K-AFE logo applications">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/colorpallete copy.png" class="zoomable" alt="K-AFE logo applications">
               </div>
             </div>
           </div>
@@ -138,7 +140,7 @@
           <div class="image-grid fade-in">
             <div class="grid-full">
               <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/card2.jpeg" alt="Café interior design">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/card2.jpeg" class="zoomable" alt="Café interior design">
               </div>
             </div>
               <div class="grid-2x2">
@@ -146,23 +148,23 @@
                 <img src="images/INSTAGRAMK-AFE/behancek-afe/tshirtmockup.jpeg" alt="Coffee cup mockup">
               </div>
               <div class="image-container square">
-                <img src="images/INSTAGRAMK-AFE/frontstore.png" alt="Menu design">
+                <img src="images/INSTAGRAMK-AFE/frontstore.png" class="zoomable" alt="Menu design">
               </div>
             </div>
             <div class="grid-2x2">
               <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/Bendito_Mockup-CMB-Free-Coffee_Holder.jpg" alt="Coffee cup mockup">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/Bendito_Mockup-CMB-Free-Coffee_Holder.jpg" class="zoomable" alt="Coffee cup mockup">
               </div>
               <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/banner.jpeg" alt="Menu design">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/banner.jpeg" class="zoomable" alt="Menu design">
               </div>
             </div>
                         <div class="grid-2x2">
                   <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/Mupimockup.jpeg" alt="Menu design">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/Mupimockup.jpeg" class="zoomable" alt="Menu design">
               </div>
                 <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/stickers1.jpeg" alt="Menu design">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/stickers1.jpeg" class="zoomable" alt="Menu design">
               </div>
 </div>
       
@@ -173,10 +175,10 @@
              <div class="image-grid fade-in">
           <div class="grid-2x2">
               <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/homepagered.jpeg" alt="Coffee cup mockup">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/homepagered.jpeg" class="zoomable" alt="Coffee cup mockup">
               </div>
               <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/menumockup.jpeg" alt="Menu design">
+                <img src="images/INSTAGRAMK-AFE/behancek-afe/menumockup.jpeg" class="zoomable" alt="Menu design">
               </div>
             </div>
             </div>
@@ -264,5 +266,81 @@
       });
     });
   </script>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mediaItems = document.querySelectorAll('.zoomable');
+    const overlay = document.createElement('div');
+    overlay.id = 'lightbox-overlay';
+    overlay.innerHTML = `
+      <button id="lightbox-close">×</button>
+      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
+      <div id="lightbox-content"></div>
+      <button class="lightbox-arrow" id="lightbox-next">›</button>
+    `;
+    document.body.appendChild(overlay);
+
+    const contentContainer = document.getElementById('lightbox-content');
+    const closeBtn = document.getElementById('lightbox-close');
+    const nextBtn = document.getElementById('lightbox-next');
+    const prevBtn = document.getElementById('lightbox-prev');
+
+    let currentIndex = 0;
+    const mediaArray = Array.from(mediaItems);
+
+    function showMedia(index) {
+      const media = mediaArray[index];
+      contentContainer.innerHTML = ''; // Clear previous content
+      currentIndex = index;
+      overlay.style.display = 'flex';
+
+      const isVideo = media.tagName.toLowerCase() === 'video';
+      if (isVideo) {
+        const video = document.createElement('video');
+        video.src = media.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.style.maxWidth = '90vw';
+        video.style.maxHeight = '90vh';
+        contentContainer.appendChild(video);
+      } else {
+        const img = document.createElement('img');
+        img.src = media.src;
+        img.alt = '';
+        img.style.maxWidth = '90vw';
+        img.style.maxHeight = '90vh';
+        contentContainer.appendChild(img);
+      }
+    }
+
+    mediaItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        showMedia(index);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      contentContainer.innerHTML = '';
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % mediaArray.length;
+      showMedia(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + mediaArray.length) % mediaArray.length;
+      showMedia(currentIndex);
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+        contentContainer.innerHTML = '';
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

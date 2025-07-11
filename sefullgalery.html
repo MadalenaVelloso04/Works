@@ -69,15 +69,15 @@
           <div class="image-grid fade-in">
             <div class="grid-full">
               <div class="image-container wide">
-                <img src="images/WebP/backgroundse.webp" alt="Sustainablearth brand overview">
+                <img src="images/WebP/backgroundse.webp" class="zoomable" alt="Sustainablearth brand overview">
               </div>
             </div>
             <div class="grid-2x2">
               <div class="image-container tall">
-                <img src="images/poster1se.png" alt="Brand poster design">
+                <img src="images/poster1se.png" class="zoomable" alt="Brand poster design">
               </div>
               <div class="image-container tall">
-                <img src="images/poster2se.png" alt="Logo design concept">
+                <img src="images/poster2se.png" class="zoomable" alt="Logo design concept">
               </div>
             </div>
           </div>
@@ -112,15 +112,15 @@
           <div class="image-grid fade-in">
             <div class="grid-full">
               <div class="image-container wide">
-                <img src="images/logo1se.png" alt="Sustainablearth logo variations">
+                <img src="images/logo1se.png" class="zoomable" alt="Sustainablearth logo variations">
               </div>
             </div>
             <div class="grid-2x2">
               <div class="image-container square">
-                <img src="images/WebP/signse.webp" alt="Brand signage application">
+                <img src="images/WebP/signse.webp" class="zoomable" alt="Brand signage application">
               </div>
               <div class="image-container square">
-                <img src="images/bookse.png" alt="Brand book design">
+                <img src="images/bookse.png" class="zoomable" alt="Brand book design">
               </div>
             </div>
           </div>
@@ -143,20 +143,20 @@
           <div class="image-grid fade-in">
             <div class="grid-2x2">
               <div class="image-container square">
-                <img src="images/bagse.png" alt="Branded bag design">
+                <img src="images/bagse.png" class="zoomable" alt="Branded bag design">
               </div>
               <div class="image-container square">
-                <img src="images/cardse1.jpeg" alt="Business card design">
-              </div>
-            </div>
-            <div class="grid-full">
-              <div class="image-container square">
-                <img src="images/WebP/keychane.webp" alt="Branded keychain merchandise">
+                <img src="images/cardse1.jpeg" class="zoomable" alt="Business card design">
               </div>
             </div>
             <div class="grid-full">
               <div class="image-container square">
-                <img src="images/PosterFramese.jpeg" alt="Framed poster application">
+                <img src="images/WebP/keychane.webp" class="zoomable" alt="Branded keychain merchandise">
+              </div>
+            </div>
+            <div class="grid-full">
+              <div class="image-container square">
+                <img src="images/PosterFramese.jpeg" class="zoomable" alt="Framed poster application">
               </div>
             </div>
           </div>
@@ -247,6 +247,63 @@
       });
     });
   </script>
+   <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.zoomable');
+    const overlay = document.createElement('div');
+    overlay.id = 'lightbox-overlay';
+    overlay.innerHTML = `
+      <button id="lightbox-close">×</button>
+      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
+      <img id="lightbox-img" src="" alt="">
+      <button class="lightbox-arrow" id="lightbox-next">›</button>
+    `;
+    document.body.appendChild(overlay);
+
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const nextBtn = document.getElementById('lightbox-next');
+    const prevBtn = document.getElementById('lightbox-prev');
+
+    let currentIndex = 0;
+    const imageArray = Array.from(images);
+
+    function showImage(index) {
+      const img = imageArray[index];
+      lightboxImg.src = img.src;
+      currentIndex = index;
+      overlay.style.display = 'flex';
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        showImage(index);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      lightboxImg.src = '';
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % imageArray.length;
+      showImage(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
+      showImage(currentIndex);
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+        lightboxImg.src = '';
+      }
+    });
+  });
+</script>
 
 <div class="circle-cursor"></div>
 
