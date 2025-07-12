@@ -859,24 +859,7 @@ input,select{vertical-align:middle}
     font-size: 0.8rem;
   }
 
-  /* PDF section */
-  .pdf {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    border-radius: 12px;
-  }
 
-  .pdf h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .pdf a.fbo-embed {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-  }
-}
 
 /* --- ACCESSIBILITY AND PERFORMANCE IMPROVEMENTS --- */
 
@@ -1041,4 +1024,5 @@ input,select{vertical-align:middle}
   z-index: 10000;
   background: none;
   border: none;
+}
 }
