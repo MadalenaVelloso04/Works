@@ -1,0 +1,564 @@
+   /* CSS Reset and Base Styles */
+    html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+    body{line-height:1}
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+    nav ul{list-style:none}
+    blockquote,q{quotes:none}
+    blockquote:before,blockquote:after,q:before,q:after{content:none}
+    a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+    ins{background-color:#ff9;color:#000;text-decoration:none}
+    mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+    del{text-decoration:line-through}
+    abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+    table{border-collapse:collapse;border-spacing:0}
+    hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+    input,select{vertical-align:middle}
+
+    .color-purple { background: #9d1d96; }
+    .color-blue { background: #004a98; }
+    .color-green{ background: #00a887; }
+    .color-yellow { background: #ffdd00; }
+    .color-orange { background: #ff5100; }
+    .color-red { background: #f5333f; }
+
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'minecraft';
+      src: url('fonts/Minecraft.ttf') format('truetype');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-image: url(./images/domino/PNG/bg.png);
+      background-attachment: fixed;
+      background-size: cover;
+      background-color: #000;
+      font-family: 'Inter', sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Typography hierarchy */
+    h1 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    h2 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #dddddd;
+    }
+
+    h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #cccccc;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: #bbbbbb;
+    }
+
+    .lead {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      font-weight: 400;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      color: #888888;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      font-family: 'minecraft';
+      background-color: #0000005f;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      max-width: 90vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-to-projects {
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-family: 'minecraft';
+      left: 2rem;
+      padding: 1rem 0rem;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-projects:hover {
+      color: #a7a7a7;
+      transform: translateX(5px);
+    }
+
+    .back-to-projects::before {
+      content: "←";
+      margin-right: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ff00d4;
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #484848;
+    }
+
+    /* Hero section */
+    .hero {
+      margin-top: 80px;
+      padding: 1rem 2rem 6rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      font-family: 'minecraft';
+      display: inline-block;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      font-size: clamp(8vw, 10vw, 6vw);
+      font-weight: 700;
+      line-height: 1;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .hero-title {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .hero-tags span {
+      color: #9d1d96;
+      border: #9d1d96 1px solid;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .video-showcase {
+      width: 100%;
+      height: auto;
+      margin: 4rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-container {
+      width: 90vw;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Main content layout */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Article sections */
+    .article-section {
+      scroll-margin-top: 150px;
+      margin-bottom: 8rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .section-meta {
+      position: sticky;
+      top: 120px;
+    }
+
+    .section-number {
+      font-family: 'minecraft';
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #f5333f;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      max-width: none;
+    }
+
+    /* Process grid */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .process-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .process-number {
+      font-family: 'minecraft';
+      font-size: 0.9rem;
+      color: #c1c4a6;
+      margin-bottom: 1rem;
+    }
+
+    .process-item h3 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .process-item p {
+      color: #bbbbbb;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Image layouts */
+    .image-grid {
+      margin: 3rem 0;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-full {
+      margin-bottom: 2rem;
+    }
+
+    .color-palette {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .color-swatch {
+      flex: 1;
+      height: 120px;
+      border-radius: 8px;
+      display: flex;
+      align-items: end;
+      padding: 1rem;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .color-white { background: #fff; color: #000; border: 1px solid #e0e0e0; }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(255, 0, 212, 0.1);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tall {
+      aspect-ratio: 2/4;
+    }
+
+    .wide {
+      width: fit-content;
+      height: auto;
+    }
+    
+    .square {
+      aspect-ratio: 1/1;
+    }
+
+    /* Quote styling */
+    .quote-section {
+      background: linear-gradient(135deg, #454b38, #000000);
+      padding: 4rem 3rem;
+      border-radius: 16px;
+      margin: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .quote {
+      font-size: 2rem;
+      line-height: 1.3;
+      color: #ffffff;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-author {
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #1a1a1a;
+      z-index: 1001;
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #ff00d4, #000);
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .article-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 6rem;
+      }
+
+      .section-meta {
+        position: static;
+      }
+
+      .grid-2x2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 2rem 1rem 4rem;
+      }
+
+      .main-content {
+        padding: 0 1rem;
+      }
+
+      .quote-section {
+        padding: 3rem 2rem;
+        margin: 4rem 0;
+      }
+
+      .quote {
+        font-size: 1.5rem;
+      }
+
+      .back-to-projects {
+        left: 1rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      .hero-tags {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-tags span {
+        background-color: #000;
+      }
+
+      .tall {
+        width: 80%;
+        margin: 0 auto;
+        height: 100%;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    .fade-in:nth-child(2) { transition-delay: 0.2s; }
+    .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .fade-in:nth-child(4) { transition-delay: 0.4s; }
+
+    /* Lightbox overlay */
+    #lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #lightbox-overlay img {
+      max-width: 80vw;
+      max-height: 80vh;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    #lightbox-prev { left: 2vw; }
+    #lightbox-next { right: 2vw; }
+
+    #lightbox-close {
+      position: fixed;
+      top: 3vh;
+      right: 3vw;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 10000;
+      background: none;
+      border: none;
+    }
