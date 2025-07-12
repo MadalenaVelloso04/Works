@@ -374,7 +374,7 @@
 
     /* Quote styling */
     .quote-section {
-      background: linear-gradient(135deg, #454b38, #000000);
+      background-color: #00a886a0;
       padding: 4rem 3rem;
       border-radius: 16px;
       margin: 6rem 0;
@@ -383,21 +383,6 @@
       overflow: hidden;
     }
 
-    .quote-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
-    }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
 
     .quote {
       font-size: 2rem;
