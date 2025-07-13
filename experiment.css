@@ -1,4 +1,30 @@
-* {
+   */
+    html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+    body{line-height:1}
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+    nav ul{list-style:none}
+    blockquote,q{quotes:none}
+    blockquote:before,blockquote:after,q:before,q:after{content:none}
+    a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+    ins{background-color:#ff9;color:#000;text-decoration:none}
+    mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+    del{text-decoration:line-through}
+    abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+    table{border-collapse:collapse;border-spacing:0}
+    hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+    input,select{vertical-align:middle}
+
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'minecraft';
+      src: url('fonts/Minecraft.ttf') format('truetype');
+    }
+
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -57,6 +83,13 @@
       line-height: 1.6;
       color: #e0e0e0;
       font-weight: 400;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      color: #888888;
+      font-style: italic;
+      margin-top: 0.5rem;
     }
 
     /* Navigation */
@@ -165,41 +198,63 @@
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 1rem;
       justify-content: center;
       margin-top: 2rem;
     }
 
     .hero-tags span {
-      background: rgba(255, 0, 212, 0.1);
-      color: #ff00d4;
+      background: #ff00d4;
+      color: #000;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
-    /* Main content layout - SIMPLIFIED */
+    /* Parallax banner */
+    .parallax-banner {
+      background: linear-gradient(135deg, #ff00d4, #000000);
+      padding: 8rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parallax-banner h2 {
+      font-family: 'minecraft';
+      font-size: clamp(4rem, 8vw, 8rem);
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Main content layout */
     .main-content {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* Clean article sections */
+    /* Article sections */
     .article-section {
       scroll-margin-top: 150px;
-      margin-bottom: 12rem;
-      text-align: center;
+      margin-bottom: 8rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
     }
 
-    .section-header {
-      margin-bottom: 4rem;
+    .section-meta {
+      position: sticky;
+      top: 120px;
     }
 
     .section-number {
       font-family: 'minecraft';
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: #ff00d4;
       text-transform: uppercase;
@@ -207,179 +262,234 @@
       margin-bottom: 1rem;
     }
 
+    .section-content {
+      max-width: none;
+    }
+
+    /* Project title styling */
     .project-title h1 {
       font-family: 'minecraft';
       font-size: 2.5rem;
-      color: #ffffff;
-      margin-bottom: 1.5rem;
+      color: #ff00d4;
+      margin-bottom: 1rem;
     }
 
     .project-quote {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #ff00d4;
-      margin-bottom: 2rem;
-      line-height: 1.4;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
     }
 
     .project-description {
       font-size: 1.1rem;
+      color: #bbbbbb;
       line-height: 1.7;
-      margin-bottom: 4rem;
-      color: #e0e0e0;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
     }
 
     .project-description b {
       color: #ff00d4;
-      font-weight: 600;
     }
 
-    .project-description i {
-      color: #ccc;
+    /* Image layouts */
+    .image-grid {
+      margin: 3rem 0;
     }
 
-    /* Simplified image layouts */
-    .image-showcase {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3rem;
-    }
-
-    .poster-focus {
-      max-width: 500px;
-      width: 100%;
-    }
-
-    .poster-focus img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(255, 0, 212, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .poster-focus img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 80px rgba(255, 0, 212, 0.25);
-    }
-
-    .mockup-support {
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .mockup-support img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .mockup-support img:hover {
-      transform: scale(1.02);
-    }
-
-    /* Clean carousel */
-    .carousel-container {
-      position: relative;
-      max-width: 400px;
-      background: #111111;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 0 auto;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .carousel-slides {
-      width: 100%;
-    }
-
-    .carousel-slide {
-      display: none;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .carousel-slide.active {
-      display: block;
-    }
-
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease, opacity 0.3s ease;
-      z-index: 10;
-      opacity: 0.7;
-    }
-
-    .carousel-arrow:hover {
-      background: rgba(255, 0, 212, 0.9);
-      opacity: 1;
-    }
-
-    .carousel-arrow-prev {
-      left: 15px;
-    }
-
-    .carousel-arrow-next {
-      right: 15px;
-    }
-
-    .carousel-counter {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-family: 'minecraft';
-      z-index: 10;
-    }
-
-    /* Multi-image grid for complex projects */
-    .multi-grid {
+    .grid-2x2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .grid-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+    .grid-full {
+      margin-bottom: 2rem;
+    }
+/* Remove problematic hover effects */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(255, 0, 212, 0.1);
+  /* Removed hover transform and box-shadow transition */
+}
+
+
+.image-container img,
+.carousel-slide img,
+.grid-2x2 img,
+.grid-full img,
+.zoomable {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 0, 212, 0.1); /* Consistent across all */
+  border-radius: 8px;
+}
+
+.image-container:hover img,
+.carousel-slide:hover img {
+  transform: scale(1.01);
+  box-shadow: 0 10px 40px rgba(255, 0, 212, 0.3);
+}
+
+
+.carousel-container {
+  position: relative;
+      width: 80%;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+
+
+.carousel-slides {
+  width: 100%;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 0, 212, 0.9);
+  opacity: 1;
+}
+
+.carousel-arrow-prev {
+  left: 15px;
+}
+
+.carousel-arrow-next {
+  right: 15px;
+}
+
+/* Slide counter */
+.carousel-counter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: 'minecraft';
+  z-index: 10;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow-prev {
+    left: 10px;
+  }
+
+  .carousel-arrow-next {
+    right: 10px;
+  }
+
+  .carousel-container {
+    border-radius: 8px;
+  }
+}
+
+/* Responsive aspect ratios that work better */
+.tall {
+   width: 100%;
+  height: auto;
+}
+
+.wide {
+  width: 100%;
+  height: auto;
+}
+
+.square {
+  aspect-ratio: 1/1;
+}
+
+
+    /* Quote styling */
+    .quote-section {
+      background: linear-gradient(135deg, #ff00d4, #000000);
+      padding: 4rem 3rem;
+      border-radius: 16px;
+      margin: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .grid-item img:hover {
-      transform: translateY(-3px);
+    .quote-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .quote {
+      font-size: 2rem;
+      line-height: 1.3;
+      color: #ffffff;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-author {
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
     }
 
     /* Scroll indicator */
@@ -395,67 +505,29 @@
 
     .scroll-progress {
       height: 100%;
-      background: #ff00d4;
+      background: linear-gradient(90deg, #ff00d4, #000);
       width: 0%;
       transition: width 0.1s ease;
-    }
-
-    /* Lightbox */
-    #lightbox-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.95);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    #lightbox-img {
-      max-width: 90vw;
-      max-height: 90vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .lightbox-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3rem;
-      color: #fff;
-      background: rgba(0,0,0,0.3);
-      border: none;
-      cursor: pointer;
-      z-index: 10000;
-    }
-
-    #lightbox-prev { left: 2vw; }
-    #lightbox-next { right: 2vw; }
-
-    #lightbox-close {
-      position: fixed;
-      top: 3vh;
-      right: 3vw;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      z-index: 10000;
-      background: none;
-      border: none;
     }
 
     /* Responsive design */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
+      }
+
+      .article-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 6rem;
+      }
+
+      .section-meta {
+        position: static;
+      }
+
+      .grid-2x2 {
+        grid-template-columns: 1fr;
       }
 
       .hero {
@@ -466,65 +538,37 @@
         padding: 0 1rem;
       }
 
-      .article-section {
-        margin-bottom: 8rem;
+      .quote-section {
+        padding: 3rem 2rem;
+        margin: 4rem 0;
       }
 
-      .project-title h1 {
-        font-size: 2rem;
+      .quote {
+        font-size: 1.5rem;
       }
 
-      .project-description {
-              text-align: center;
+      .back-to-projects {
+        left: 1rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
       }
 
-      .poster-focus {
-        max-width: 80%;
+      .parallax-banner {
+        padding: 6rem 1rem;
       }
 
-      .mockup-support {
-        max-width: 80%;
+      .hero-tags {
+        flex-direction: column;
+        align-items: center;
+      }
+      .tall {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+   
       }
 
-      .carousel-container {
-        max-width: 70%;
-      }
-
-
-      .carousel-arrow {
-        width: 40px;
-        height: 40px;
-      }
-
-      .carousel-arrow-prev {
-        left: 10px;
-      }
-
-      .carousel-arrow-next {
-        right: 10px;
-      }
-
-      .multi-grid {
-        grid-template-columns: 1fr;
-      }
     }
-
-    /* Fade in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .fade-in:nth-child(1) { transition-delay: 0.1s; }
-    .fade-in:nth-child(2) { transition-delay: 0.2s; }
-    .fade-in:nth-child(3) { transition-delay: 0.3s; }
-    .fade-in:nth-child(4) { transition-delay: 0.4s; }
 
     /* Fade in animation */
     .fade-in {
@@ -558,7 +602,69 @@
       z-index: 1000;
       transition: background-color 0.3s ease, transform 0.3s ease;
   }
- 
+    /* Scroll Row Styles */
+    .scroll-row {
+      width: 100%;
+      margin: 4rem 0;
+      overflow: hidden;
+    }
+
+    .scroll-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scroll-container img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .hero-tags span {
+      background: rgba(255, 0, 212, 0.1);
+      color: #ff00d4;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .project-quote {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #ff00d4;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      color: #e0e0e0;
+    }
+
+    .project-description b {
+      color: #ff00d4;
+      font-weight: 600;
+    }
+
+    .project-description i {
+      color: #ccc;
+    }
+
      /* Lightbox overlay */
 #lightbox-overlay {
   position: fixed;
