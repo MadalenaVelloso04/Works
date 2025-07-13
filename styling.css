@@ -405,8 +405,11 @@ justify-content: center;
 }
 
 #interactiveDrawing:hover {
-  transform: translateY(-10px) scale(1.05);
+  transform:  scale(1.1) rotate(-2deg);
+  filter: drop-shadow(0 0 10px #ff00d4aa);
 }
+
+
 
 @media (max-width: 768px) {
   #interactiveDrawing {
@@ -1554,3 +1557,83 @@ justify-content: center;
   opacity: 1;
   pointer-events: auto;
 }
+
+
+
+
+/* ==== Polaroid Popup ==== */
+#polaroid-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#polaroid-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-content {
+  background: #111;
+  padding: 40px;
+  border-radius: 15px;
+  border: 2px solid #ff00d4;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  animation: slideUpFade 0.4s ease;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff00d4;
+}
+
+.popup-close:hover {
+  color: white;
+}
+
+.popup-title {
+  font-family: "minecraft", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff00d4;
+}
+
+.popup-image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 30px rgba(255, 0, 212, 0.2);
+}
+
+.popup-text {
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* Optional hidden state */
+.popup-hidden {
+  display: none;
+}
+
+
+
