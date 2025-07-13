@@ -171,7 +171,7 @@
       display: inline-block;
       border-radius: 20px;
       margin-bottom: 2rem;
-      font-size: clamp(8vw, 10vw, 6vw);
+       font-size: clamp(5vw, 10vw, 6vw); /* Responsive font size */
       font-weight: 700;
       line-height: 1;
       color: #ffffff;
@@ -215,7 +215,6 @@
 
     /* Parallax banner */
     .parallax-banner {
-      background: linear-gradient(135deg, #ff00d4, #000000);
       padding: 8rem 2rem;
       text-align: center;
       position: relative;
@@ -312,8 +311,6 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(255, 0, 212, 0.1);
-  /* Removed hover transform and box-shadow transition */
 }
 
 
@@ -327,14 +324,13 @@
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 30px rgba(255, 0, 212, 0.1); /* Consistent across all */
   border-radius: 8px;
 }
 
 .image-container:hover img,
 .carousel-slide:hover img {
   transform: scale(1.01);
-  box-shadow: 0 10px 40px rgba(255, 0, 212, 0.3);
+  
 }
 
 
@@ -397,19 +393,7 @@
   right: 15px;
 }
 
-/* Slide counter */
-.carousel-counter {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-family: 'minecraft';
-  z-index: 10;
-}
+
 
 /* Mobile tweaks */
 @media (max-width: 768px) {
@@ -703,7 +687,6 @@
   transform: translateY(-50%);
   font-size: 3rem;
   color: #fff;
-  background: rgba(0,0,0,0.3);
   border: none;
   cursor: pointer;
   z-index: 10000;

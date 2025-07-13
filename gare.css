@@ -195,7 +195,7 @@ input,select{vertical-align:middle}
       display: inline-block;
       border-radius: 20px;
       margin-bottom: 2rem;
-  font-size: clamp(8vw, 10vw, 6vw); /* Responsive font size */
+   font-size: clamp(5vw, 10vw, 6vw); /* Responsive font size */
   font-weight: 700;
   line-height: 1;
   color: #ffffff;

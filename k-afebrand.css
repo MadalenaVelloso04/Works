@@ -196,7 +196,7 @@ input,select{vertical-align:middle}
   font-size: clamp(8vw, 10vw, 6vw); /* Responsive font size */
   font-weight: 700;
   line-height: 1;
-  color: #000000;
+  color: #2d2d2d;
   text-align: left;
 }
     
@@ -354,7 +354,7 @@ input,select{vertical-align:middle}
     }
 
     .process-item {
-      background: white;
+      background: #fffcf2;
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
