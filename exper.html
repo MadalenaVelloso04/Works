@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Archive - Responsive</title>
+  <style>
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'minecraft';
+      src: url('fonts/Minecraft.ttf') format('truetype');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000000;
+      color: #e0e0e0;
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      height: 100vh;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-family: 'minecraft';
+      background-color: #0000005f;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      max-width: 90vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-to-projects {
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-family: 'minecraft';
+      padding: 1rem 0rem;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-projects:hover {
+      color: #a7a7a7;
+      transform: translateX(5px);
+    }
+
+    .back-to-projects::before {
+      content: "←";
+      margin-right: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ff00d4;
+      font-size: 0.85rem;
+      font-weight: 400;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffffff;
+    }
+
+    /* Navigation arrows */
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 0, 212, 0.1);
+      border: 2px solid #ff00d4;
+      color: #ff00d4;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .nav-arrow:hover {
+      background: #ff00d4;
+      color: #000;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .nav-arrow-left {
+      left: 2rem;
+    }
+
+    .nav-arrow-right {
+      right: 2rem;
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .nav-arrow:disabled:hover {
+      background: rgba(255, 0, 212, 0.1);
+      color: #ff00d4;
+      transform: translateY(-50%) scale(1);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .project-card {
+      min-width: 100vw;
+      height: 100vh;
+      display: flex;
+      scroll-snap-align: start;
+      position: relative;
+    }
+
+    .project-content {
+      flex: 1;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 50%;
+    }
+
+    .project-number {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .project-images {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vertical-carousel {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-slide {
+      flex: none;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .carousel-slide img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-slide img:hover {
+      transform: scale(1.02);
+    }
+
+    .carousel-controls {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 10;
+    }
+
+    .carousel-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .carousel-btn:disabled:hover {
+      transform: none;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .carousel-indicator {
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .navigation {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 100;
+    }
+
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-dot.active {
+      background: #fff;
+      transform: scale(1.2);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* MOBILE MEDIA QUERIES */
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+      }
+
+      /* Hide desktop navigation */
+      .nav-links {
+        display: none;
+      }
+
+      .nav-arrow {
+        display: none;
+      }
+
+      .navigation {
+        display: none;
+      }
+
+      /* Mobile navigation */
+      nav {
+        padding: 0.5rem 0;
+      }
+
+      .nav-container {
+        max-width: 95%;
+        padding: 0 1rem;
+      }
+
+      .back-to-projects {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+      }
+
+      /* Container becomes vertical */
+      .container {
+        display: block;
+        height: auto;
+        overflow: visible;
+      }
+
+      .project-card {
+        min-width: 100%;
+        height: auto;
+        min-height: 100vh;
+        display: block;
+        scroll-snap-align: none;
+        margin-bottom: 0;
+        padding-top: 80px; /* Account for fixed nav */
+      }
+
+      /* Mobile layout: content stacked vertically */
+      .project-content {
+        max-width: 100%;
+        padding: 2rem 1rem;
+        flex: none;
+      }
+
+      .project-number {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-tags {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .project-tag {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      /* Mobile carousel */
+      .project-images {
+        flex: none;
+        height: 60vh;
+        min-height: 400px;
+      }
+
+      .vertical-carousel {
+        height: 100%;
+      }
+
+      .carousel-slide {
+        padding: 1rem;
+      }
+
+      .carousel-slide img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      /* Mobile carousel controls */
+      .carousel-controls {
+        right: 1rem;
+        gap: 0.5rem;
+      }
+
+      .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+      }
+
+      .carousel-indicator {
+        right: 1rem;
+        bottom: 1rem;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      /* Mobile lightbox */
+      .lightbox img {
+        max-width: 95%;
+        max-height: 95%;
+      }
+
+      .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Extra small phones */
+    @media (max-width: 480px) {
+      .project-content {
+        padding: 1.5rem 1rem;
+      }
+
+      .project-title {
+        font-size: 1.8rem;
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+      }
+
+      .project-images {
+        height: 50vh;
+        min-height: 350px;
+      }
+
+      .carousel-controls {
+        right: 0.5rem;
+      }
+
+      .carousel-indicator {
+        right: 0.5rem;
+        bottom: 0.5rem;
+      }
+
+      .back-to-projects {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Tablet portrait */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .project-content {
+        max-width: 60%;
+        padding: 3rem;
+      }
+
+      .project-title {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Landscape phones */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .project-card {
+        min-height: auto;
+        padding-top: 60px;
+      }
+
+      .project-content {
+        padding: 1rem;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-images {
+        height: 40vh;
+        min-height: 300px;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .carousel-slide img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+  </style>
+</head>
+
+<body>
+     <nav>
+    <div class="nav-container">
+      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
+      <ul class="nav-links">
+        <li><a href="#nr1" data-slide="1">NR_01</a></li>
+        <li><a href="#nr2" data-slide="2">NR_02</a></li>
+        <li><a href="#nr3" data-slide="3">NR_03</a></li>
+        <li><a href="#nr4" data-slide="4">NR_04</a></li>
+        <li><a href="#nr5" data-slide="5">NR_05</a></li>
+        <li><a href="#nr6" data-slide="6">NR_06</a></li>
+        <li><a href="#nr7" data-slide="7">NR_07</a></li>
+        <li><a href="#nr8" data-slide="8">NR_08</a></li>
+        <li><a href="#nr9" data-slide="9">NR_09</a></li>
+        <li><a href="#nr10" data-slide="10">NR_10</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Project 1: Timeless Morris -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr1">01 / NR_01</div>
+        <h1 class="project-title">Timeless Morris</h1>
+        <p class="project-description">
+          A tribute to authentic creation in the age of artificial intelligence. This magazine cover concept pays tribute to William Morris and the Arts and Crafts movement, highlighting the need to return to hands-on, authentic creation.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Adobe Illustrator</span>
+          <span class="project-tag">Adobe Photoshop</span>
+          <span class="project-tag">Print Design</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/mitcover.webp" alt="Timeless Morris poster">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/mockup_mit.jpg" alt="Timeless Morris mockup">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Machine Mirage -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr2" >02 / NR_02</div>
+        <h1 class="project-title">Machine Mirage</h1>
+        <p class="project-description">
+          The elusive infiltration of artificial intelligence into human creativity. A direct commentary on how AI is distorting our minds and creative processes, illustrated through multiple brains being infiltrated by an intangible force.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">3D Modeling</span>
+          <span class="project-tag">Blender</span>
+          <span class="project-tag">Concept Art</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/brains.jpg" alt="Machine Mirage poster">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/mockupmagazine (1).jpg" alt="Machine Mirage mockup">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Heritage -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr3">03 / NR_03</div>
+        <h1 class="project-title">Heritage</h1>
+        <p class="project-description">
+          Everyday objects that connect us to home. A three-poster project exploring everyday objects I can't live without, connected to my sense of home as an Erasmus student.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Personal Project</span>
+          <span class="project-tag">Cultural Identity</span>
+          <span class="project-tag">Poster Design</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Heritage poster">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/mockupheritage.png" alt="Heritage mockup">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Material Memories -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr4">04 / NR_04</div>
+        <h1 class="project-title">Material Memories</h1>
+        <p class="project-description">
+          A new visual perspective on familiar connections. The second poster in my three-part project exploring everyday elements that connect me to home, with a shifted graphic style and different objects.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Visual Identity</span>
+          <span class="project-tag">Experimental Graphics</span>
+          <span class="project-tag">Cultural Heritage</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Material Memories poster">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/memorismockup.png" alt="Material Memories mockup">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5: Encapsulate Culture -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr5">05 / NR_05</div>
+        <h1 class="project-title">Encapsulate Culture</h1>
+        <p class="project-description">
+          Preserving Portuguese culture through 3D metaphor. Created using mixed media including Blender 3D modeling, representing Portuguese coffee culture through a modeled moka pot enclosed in a plastic bag as a metaphor for protection and preservation.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">3D Modeling</span>
+          <span class="project-tag">Blender</span>
+          <span class="project-tag">Cultural Preservation</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Encapsulate Culture poster">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/Anagram_Magazine.png" alt="Encapsulate Culture mockup">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6: Bitmap Project -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr6">06 / NR_06</div>
+        <h1 class="project-title">Bitmap Project</h1>
+        <p class="project-description">
+          Climate change through bold, screen-printed visuals. A series of posters exploring overlays using only bitmap textures, designed with silkscreen printing in mind and approaching climate change through bold, graphic visuals.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Screen Printing</span>
+          <span class="project-tag">Bitmap Graphics</span>
+          <span class="project-tag">Climate Change</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/bitmap.jpeg" alt="Bitmap Project mockup">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/madalena_never2small.png" alt="Bitmap Project 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/madalena_araras.png" alt="Bitmap Project 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/DOWELOVE_01.png" alt="Bitmap Project 3">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 7: Primavera -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr7">07 / NR_07</div>
+        <h1 class="project-title">Primavera</h1>
+        <p class="project-description">
+          The spirit of Portuguese festivals captured in mixed media. An experimental poster mixing different hand-drawn sketches, inspired by favorite Portuguese festivals and the feelings they evoke.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Hand-drawn</span>
+          <span class="project-tag">Mixed Media</span>
+          <span class="project-tag">Portuguese Culture</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/PRIMAVERA_01.webp" alt="Primavera poster">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/primaveramockup.png" alt="Primavera mockup">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 8: Mon Oncle Project -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr8">08 / NR_08</div>
+        <h1 class="project-title">Mon Oncle Project</h1>
+        <p class="project-description">
+          Celebrating Hulot's quiet rebellion through minimalist design. Centered around Monsieur Hulot and his signature items, inspired by Bauhaus minimalism with clean compositions and warm textures.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Bauhaus</span>
+          <span class="project-tag">Minimalism</span>
+          <span class="project-tag">Film Poster</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/mononcle.webp" alt="Mon Oncle Project Overview">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/WebP/mononcle5.webp" alt="Mon Oncle design process">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mo1.png" alt="Mon Oncle Poster 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mo2.png" alt="Mon Oncle Poster 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mo3.png" alt="Mon Oncle Poster 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mo4.png" alt="Mon Oncle Poster 4">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mo5.png" alt="Mon Oncle Poster 5">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mo6.png" alt="Mon Oncle Poster 6">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 9: MONSTERS Zine -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr9">09 / NR_09</div>
+        <h1 class="project-title">MONSTERS Zine</h1>
+        <p class="project-description">
+          The giants of the design world. A unique view to honour and celebrate the work and legacy of design masters, created during Global Design professional intensive weeks as a real-world client project.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Editorial Design</span>
+          <span class="project-tag">Client Work</span>
+          <span class="project-tag">Print Design</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/mockup 11.jpg" alt="MONSTERS Zine mockup 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/Mockup3.jpg" alt="MONSTERS Zine mockup 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/zineblue.png" alt="MONSTERS Zine blue">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/mockup 6.jpg" alt="MONSTERS Zine mockup 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/capa.png" alt="MONSTERS Zine cover">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/pagina1.png" alt="MONSTERS Zine page 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/pagina2.png" alt="MONSTERS Zine page 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/pagina3.png" alt="MONSTERS Zine page 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/pagina4.png" alt="MONSTERS Zine page 4">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 10: Feira do Livro -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr10">10 / NR_10</div>
+        <h1 class="project-title">Feira do Livro</h1>
+        <p class="project-description">
+          Event flyers for Feira de Poesia, an annual poetry event. A series of flyers focused on daily schedules, balancing clarity with visual appeal using graphic elements that reference the venue location.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Event Design</span>
+          <span class="project-tag">Typography</span>
+          <span class="project-tag">Grid System</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/newposters/flyers_feiradolivro copy/final_png/OA200622_ORLANDOAMNEIDA00377-scaled.jpeg" alt="Feira do Livro venue">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_01@5x.jpeg" alt="Feira do Livro flyer 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_02@5x.jpeg" alt="Feira do Livro flyer 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/flyers_feiradolivro copy/final_png/flyer_03@5x copy.jpeg" alt="Feira do Livro flyer 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_04@5x.jpeg" alt="Feira do Livro flyer 4">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_5@5x.jpeg" alt="Feira do Livro flyer 5">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation dots -->
+  <div class="navigation">
+    <div class="nav-dot active" data-slide="0"></div>
+    <div class="nav-dot" data-slide="1"></div>
+    <div class="nav-dot" data-slide="2"></div>
+    <div class="nav-dot" data-slide="3"></div>
+    <div class="nav-dot" data-slide="4"></div>
+    <div class="nav-dot" data-slide="5"></div>
+    <div class="nav-dot" data-slide="6"></div>
+    <div class="nav-dot" data-slide="7"></div>
+    <div class="nav-dot" data-slide="8"></div>
+    <div class="nav-dot" data-slide="9"></div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close">×</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.querySelector('.container');
+      const navDots = document.querySelectorAll('.nav-dot');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.querySelector('.lightbox-close');
+
+      // Horizontal navigation
+      navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          container.scrollTo({
+            left: index * window.innerWidth,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Update active nav dot on scroll
+      container.addEventListener('scroll', () => {
+        const scrollLeft = container.scrollLeft;
+        const activeIndex = Math.round(scrollLeft / window.innerWidth);
+        
+        navDots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeIndex);
+        });
+      });
+
+      // Vertical carousel functionality
+      document.querySelectorAll('.vertical-carousel').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        const currentEl = carousel.querySelector('.current');
+        const totalEl = carousel.querySelector('.total');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        
+        totalEl.textContent = totalSlides;
+        
+        function updateCarousel() {
+          const translateY = -currentIndex * 100;
+          track.style.transform = `translateY(${translateY}%)`;
+          currentEl.textContent = currentIndex + 1;
+          
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex === totalSlides - 1;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+            updateCarousel();
+          }
+        });
+        
+        // Initialize
+        updateCarousel();
+        
+        // Mouse wheel support for vertical scrolling
+        carousel.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          
+          if (e.deltaY > 0 && currentIndex < totalSlides - 1) {
+            currentIndex++;
+            updateCarousel();
+          } else if (e.deltaY < 0 && currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          }
+        });
+      });
+
+      // Lightbox functionality
+      document.querySelectorAll('.carousel-slide img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.style.display = 'flex';
+        });
+      });
+
+      lightboxClose.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'flex') {
+          if (e.key === 'Escape') {
+            lightbox.style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
