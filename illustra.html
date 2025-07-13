@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Project Archive - Responsive</title>
+  <title>Illustrations - Project Archive</title>
   <style>
     @font-face {
       font-family: 'GW Bantley';
@@ -98,51 +98,6 @@
     .nav-links a:hover,
     .nav-links a.active {
       color: #ffffff;
-    }
-
-    /* Navigation arrows */
-    .nav-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 0, 212, 0.1);
-      border: 2px solid #ff00d4;
-      color: #ff00d4;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-      z-index: 999;
-    }
-
-    .nav-arrow:hover {
-      background: #ff00d4;
-      color: #000;
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .nav-arrow-left {
-      left: 2rem;
-    }
-
-    .nav-arrow-right {
-      right: 2rem;
-    }
-
-    .nav-arrow:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    .nav-arrow:disabled:hover {
-      background: rgba(255, 0, 212, 0.1);
-      color: #ff00d4;
-      transform: translateY(-50%) scale(1);
     }
 
     /* Lightbox */
@@ -410,10 +365,6 @@
         display: none;
       }
 
-      .nav-arrow {
-        display: none;
-      }
-
       .navigation {
         display: none;
       }
@@ -447,7 +398,7 @@
         display: block;
         scroll-snap-align: none;
         margin-bottom: 0;
-        padding-top: 80px; /* Account for fixed nav */
+        padding-top: 80px;
       }
 
       /* Mobile layout: content stacked vertically */
@@ -568,66 +519,11 @@
         font-size: 0.8rem;
       }
     }
-
-    /* Tablet portrait */
-    @media (max-width: 1024px) and (min-width: 769px) {
-      .project-content {
-        max-width: 60%;
-        padding: 3rem;
-      }
-
-      .project-title {
-        font-size: 2.5rem;
-      }
-
-      .nav-links {
-        gap: 1rem;
-      }
-
-      .nav-links a {
-        font-size: 0.8rem;
-      }
-    }
-
-    /* Landscape phones */
-    @media (max-width: 768px) and (orientation: landscape) {
-      .project-card {
-        min-height: auto;
-        padding-top: 60px;
-      }
-
-      .project-content {
-        padding: 1rem;
-      }
-
-      .project-title {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .project-description {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-      }
-
-      .project-images {
-        height: 40vh;
-        min-height: 300px;
-      }
-    }
-
-    /* High DPI displays */
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      .carousel-slide img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-    }
   </style>
 </head>
 
 <body>
-     <nav>
+  <nav>
     <div class="nav-container">
       <a href="./projects.html" class="back-to-projects">Back to Projects</a>
       <ul class="nav-links">
@@ -646,209 +542,34 @@
   </nav>
 
   <div class="container">
-    <!-- Project 1: Timeless Morris -->
+    <!-- Project 1: Candy Castle -->
     <div class="project-card">
       <div class="project-content">
-        <div class="project-number" id="nr1">01 / NR_01</div>
-        <h1 class="project-title">Timeless Morris</h1>
+        <div class="project-number" id="nr1">01 / Candy Castle</div>
+        <h1 class="project-title">Candy Castle Children Story</h1>
         <p class="project-description">
-          A tribute to authentic creation in the age of artificial intelligence. This magazine cover concept pays tribute to William Morris and the Arts and Crafts movement, highlighting the need to return to hands-on, authentic creation.
+          A sweet, imaginative world where fantasy meets everyday curiosity. This vibrant sequence tells a playful children's story set in a candy-colored town where a magical ice cream house appears. Each scene bursts with saturated colors, soft textures, and whimsical characters.
         </p>
         <div class="project-tags">
-          <span class="project-tag">Adobe Illustrator</span>
-          <span class="project-tag">Adobe Photoshop</span>
-          <span class="project-tag">Print Design</span>
+          <span class="project-tag">Children's Illustration</span>
+          <span class="project-tag">Storytelling</span>
+          <span class="project-tag">Digital Art</span>
         </div>
       </div>
       <div class="project-images">
         <div class="vertical-carousel">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <img src="images/newposters/mitcover.webp" alt="Timeless Morris poster">
+              <img src="images/illustra/story1.JPG" alt="Candy Castle Story 1">
             </div>
             <div class="carousel-slide">
-              <img src="images/newposters/mockup_mit.jpg" alt="Timeless Morris mockup">
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-prev">↑</button>
-            <button class="carousel-btn carousel-next">↓</button>
-          </div>
-          <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">2</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 2: Machine Mirage -->
-    <div class="project-card">
-      <div class="project-content">
-        <div class="project-number" id="nr2" >02 / NR_02</div>
-        <h1 class="project-title">Machine Mirage</h1>
-        <p class="project-description">
-          The elusive infiltration of artificial intelligence into human creativity. A direct commentary on how AI is distorting our minds and creative processes, illustrated through multiple brains being infiltrated by an intangible force.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">3D Modeling</span>
-          <span class="project-tag">Blender</span>
-          <span class="project-tag">Concept Art</span>
-        </div>
-      </div>
-      <div class="project-images">
-        <div class="vertical-carousel">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="images/newposters/brains.jpg" alt="Machine Mirage poster">
+              <img src="images/illustra/story2.JPG" alt="Candy Castle Story 2">
             </div>
             <div class="carousel-slide">
-              <img src="images/newposters/mockupmagazine (1).jpg" alt="Machine Mirage mockup">
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-prev">↑</button>
-            <button class="carousel-btn carousel-next">↓</button>
-          </div>
-          <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">2</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3: Heritage -->
-    <div class="project-card">
-      <div class="project-content">
-        <div class="project-number" id="nr3">03 / NR_03</div>
-        <h1 class="project-title">Heritage</h1>
-        <p class="project-description">
-          Everyday objects that connect us to home. A three-poster project exploring everyday objects I can't live without, connected to my sense of home as an Erasmus student.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Personal Project</span>
-          <span class="project-tag">Cultural Identity</span>
-          <span class="project-tag">Poster Design</span>
-        </div>
-      </div>
-      <div class="project-images">
-        <div class="vertical-carousel">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="images/newposters/EXPERIMENTALGRAPHICS2.webp" alt="Heritage poster">
+              <img src="images/illustra/story3.JPG" alt="Candy Castle Story 3">
             </div>
             <div class="carousel-slide">
-              <img src="images/newposters/mockupheritage.png" alt="Heritage mockup">
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-prev">↑</button>
-            <button class="carousel-btn carousel-next">↓</button>
-          </div>
-          <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">2</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 4: Material Memories -->
-    <div class="project-card">
-      <div class="project-content">
-        <div class="project-number" id="nr4">04 / NR_04</div>
-        <h1 class="project-title">Material Memories</h1>
-        <p class="project-description">
-          A new visual perspective on familiar connections. The second poster in my three-part project exploring everyday elements that connect me to home, with a shifted graphic style and different objects.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Visual Identity</span>
-          <span class="project-tag">Experimental Graphics</span>
-          <span class="project-tag">Cultural Heritage</span>
-        </div>
-      </div>
-      <div class="project-images">
-        <div class="vertical-carousel">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="images/newposters/Experimentalgraphicsfinal.webp" alt="Material Memories poster">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/memorismockup.png" alt="Material Memories mockup">
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-prev">↑</button>
-            <button class="carousel-btn carousel-next">↓</button>
-          </div>
-          <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">2</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 5: Encapsulate Culture -->
-    <div class="project-card">
-      <div class="project-content">
-        <div class="project-number" id="nr5">05 / NR_05</div>
-        <h1 class="project-title">Encapsulate Culture</h1>
-        <p class="project-description">
-          Preserving Portuguese culture through 3D metaphor. Created using mixed media including Blender 3D modeling, representing Portuguese coffee culture through a modeled moka pot enclosed in a plastic bag as a metaphor for protection and preservation.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">3D Modeling</span>
-          <span class="project-tag">Blender</span>
-          <span class="project-tag">Cultural Preservation</span>
-        </div>
-      </div>
-      <div class="project-images">
-        <div class="vertical-carousel">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="images/newposters/Encapsulate_culture@5x.webp" alt="Encapsulate Culture poster">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/Anagram_Magazine.png" alt="Encapsulate Culture mockup">
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-prev">↑</button>
-            <button class="carousel-btn carousel-next">↓</button>
-          </div>
-          <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">2</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 6: Bitmap Project -->
-    <div class="project-card">
-      <div class="project-content">
-        <div class="project-number" id="nr6">06 / NR_06</div>
-        <h1 class="project-title">Bitmap Project</h1>
-        <p class="project-description">
-          Climate change through bold, screen-printed visuals. A series of posters exploring overlays using only bitmap textures, designed with silkscreen printing in mind and approaching climate change through bold, graphic visuals.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Screen Printing</span>
-          <span class="project-tag">Bitmap Graphics</span>
-          <span class="project-tag">Climate Change</span>
-        </div>
-      </div>
-      <div class="project-images">
-        <div class="vertical-carousel">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="images/newposters/bitmap.jpeg" alt="Bitmap Project mockup">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/madalena_never2small.png" alt="Bitmap Project 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/madalena_araras.png" alt="Bitmap Project 2">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/DOWELOVE_01.png" alt="Bitmap Project 3">
+              <img src="images/illustra/story4.JPG" alt="Candy Castle Story 4">
             </div>
           </div>
           <div class="carousel-controls">
@@ -862,28 +583,28 @@
       </div>
     </div>
 
-    <!-- Project 7: Primavera -->
+    <!-- Project 2: Graphic Novel -->
     <div class="project-card">
       <div class="project-content">
-        <div class="project-number" id="nr7">07 / NR_07</div>
-        <h1 class="project-title">Primavera</h1>
+        <div class="project-number" id="nr2">02 / Graphic Novel</div>
+        <h1 class="project-title">Graphic Novel</h1>
         <p class="project-description">
-          The spirit of Portuguese festivals captured in mixed media. An experimental poster mixing different hand-drawn sketches, inspired by favorite Portuguese festivals and the feelings they evoke.
+          Urban solitude and the poetry of everyday spaces. A short graphic story about one determined dog, a closed door, and the urgent mystery of midnight needs. Armed with nothing but paws, persistence, and a bit of dramatic flair, our furry hero takes on the ultimate household challenge.
         </p>
         <div class="project-tags">
-          <span class="project-tag">Hand-drawn</span>
-          <span class="project-tag">Mixed Media</span>
-          <span class="project-tag">Portuguese Culture</span>
+          <span class="project-tag">Sequential Art</span>
+          <span class="project-tag">Narrative</span>
+          <span class="project-tag">Character Design</span>
         </div>
       </div>
       <div class="project-images">
         <div class="vertical-carousel">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <img src="images/newposters/PRIMAVERA_01.webp" alt="Primavera poster">
+              <img src="images/illustra/cronic.JPG" alt="Graphic Novel Page 1">
             </div>
             <div class="carousel-slide">
-              <img src="images/newposters/primaveramockup.png" alt="Primavera mockup">
+              <img src="images/illustra/IMG_0307 copy.JPG" alt="Graphic Novel Page 2">
             </div>
           </div>
           <div class="carousel-controls">
@@ -897,46 +618,57 @@
       </div>
     </div>
 
-    <!-- Project 8: Mon Oncle Project -->
+    <!-- Project 3: Matilde -->
     <div class="project-card">
       <div class="project-content">
-        <div class="project-number" id="nr8">08 / NR_08</div>
-        <h1 class="project-title">Mon Oncle Project</h1>
+        <div class="project-number" id="nr3">03 / Matilde</div>
+        <h1 class="project-title">Matilde</h1>
         <p class="project-description">
-          Celebrating Hulot's quiet rebellion through minimalist design. Centered around Monsieur Hulot and his signature items, inspired by Bauhaus minimalism with clean compositions and warm textures.
+          A portrait study in character and emotion. A symbolic portrait of my sister that blends abstract textures with narrative light. The golden beam cutting through the cloudy sky suggests clarity and purpose, illuminating a quiet field where a small golden house rests among stylized trees.
         </p>
         <div class="project-tags">
-          <span class="project-tag">Bauhaus</span>
+          <span class="project-tag">Portrait</span>
+          <span class="project-tag">Digital Painting</span>
+          <span class="project-tag">Symbolic Art</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/illustra/matildetexto2.5.jpg" alt="Matilde Portrait">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Beach -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr4">04 / Beach</div>
+        <h1 class="project-title">Beach</h1>
+        <p class="project-description">
+          Where ocean meets memory and dreams take flight. This beach scene uses a bold, minimalist style with clean vector shapes and vibrant color blocks. The composition is stripped down to essentials, creating a graphic, almost abstract feel with a playful twist on summer heat and stillness.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Vector Art</span>
           <span class="project-tag">Minimalism</span>
-          <span class="project-tag">Film Poster</span>
+          <span class="project-tag">Color Study</span>
         </div>
       </div>
       <div class="project-images">
         <div class="vertical-carousel">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <img src="images/mononcle.webp" alt="Mon Oncle Project Overview">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/WebP/mononcle5.webp" alt="Mon Oncle design process">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mo1.png" alt="Mon Oncle Poster 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mo2.png" alt="Mon Oncle Poster 2">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mo3.png" alt="Mon Oncle Poster 3">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mo4.png" alt="Mon Oncle Poster 4">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mo5.png" alt="Mon Oncle Poster 5">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mo6.png" alt="Mon Oncle Poster 6">
+              <img src="images/illustra/praia1 copy.png" alt="Beach Landscape">
             </div>
           </div>
           <div class="carousel-controls">
@@ -944,55 +676,31 @@
             <button class="carousel-btn carousel-next">↓</button>
           </div>
           <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">8</span>
+            <span class="current">1</span> / <span class="total">1</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Project 9: MONSTERS Zine -->
+    <!-- Project 5: Walk -->
     <div class="project-card">
       <div class="project-content">
-        <div class="project-number" id="nr9">09 / NR_09</div>
-        <h1 class="project-title">MONSTERS Zine</h1>
+        <div class="project-number" id="nr5">05 / Walk</div>
+        <h1 class="project-title">Walk</h1>
         <p class="project-description">
-          The giants of the design world. A unique view to honour and celebrate the work and legacy of design masters, created during Global Design professional intensive weeks as a real-world client project.
+          Journey through sun-drenched paths and golden moments. This piece captures a quiet moment of togetherness, as two figures walk barefoot under the warm sun. The painterly textures and layered brushstrokes give the landscape a soft, tactile quality.
         </p>
         <div class="project-tags">
-          <span class="project-tag">Editorial Design</span>
-          <span class="project-tag">Client Work</span>
-          <span class="project-tag">Print Design</span>
+          <span class="project-tag">Digital Painting</span>
+          <span class="project-tag">Landscape</span>
+          <span class="project-tag">Atmosphere</span>
         </div>
       </div>
       <div class="project-images">
         <div class="vertical-carousel">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <img src="images/mockup 11.jpg" alt="MONSTERS Zine mockup 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/Mockup3.jpg" alt="MONSTERS Zine mockup 2">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/zineblue.png" alt="MONSTERS Zine blue">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/mockup 6.jpg" alt="MONSTERS Zine mockup 3">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/capa.png" alt="MONSTERS Zine cover">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/pagina1.png" alt="MONSTERS Zine page 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/pagina2.png" alt="MONSTERS Zine page 2">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/pagina3.png" alt="MONSTERS Zine page 3">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/pagina4.png" alt="MONSTERS Zine page 4">
+              <img src="images/illustra/beach.jpg" alt="Walking by the Shore">
             </div>
           </div>
           <div class="carousel-controls">
@@ -1000,46 +708,34 @@
             <button class="carousel-btn carousel-next">↓</button>
           </div>
           <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">9</span>
+            <span class="current">1</span> / <span class="total">1</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Project 10: Feira do Livro -->
+    <!-- Project 6: Fashion Illustrations -->
     <div class="project-card">
       <div class="project-content">
-        <div class="project-number" id="nr10">10 / NR_10</div>
-        <h1 class="project-title">Feira do Livro</h1>
+        <div class="project-number" id="nr6">06 / Fashion Illustrations</div>
+        <h1 class="project-title">Fashion Illustrations</h1>
         <p class="project-description">
-          Event flyers for Feira de Poesia, an annual poetry event. A series of flyers focused on daily schedules, balancing clarity with visual appeal using graphic elements that reference the venue location.
+          Electric blue and intense red. These fashion illustrations emphasize bold color, elongated proportions, and expressive poses to capture both style and attitude. The textured digital brushwork adds depth to the flat color fields, creating a balance between graphic design and painterly detail.
         </p>
         <div class="project-tags">
-          <span class="project-tag">Event Design</span>
-          <span class="project-tag">Typography</span>
-          <span class="project-tag">Grid System</span>
+          <span class="project-tag">Fashion Design</span>
+          <span class="project-tag">Figure Drawing</span>
+          <span class="project-tag">Color Theory</span>
         </div>
       </div>
       <div class="project-images">
         <div class="vertical-carousel">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <img src="images/newposters/flyers_feiradolivro copy/final_png/OA200622_ORLANDOAMNEIDA00377-scaled.jpeg" alt="Feira do Livro venue">
+              <img src="images/illustra/bluegirl copy.png" alt="Fashion Illustration Blue">
             </div>
             <div class="carousel-slide">
-              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_01@5x.jpeg" alt="Feira do Livro flyer 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_02@5x.jpeg" alt="Feira do Livro flyer 2">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/flyers_feiradolivro copy/final_png/flyer_03@5x copy.jpeg" alt="Feira do Livro flyer 3">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_04@5x.jpeg" alt="Feira do Livro flyer 4">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/newposters/flyers_feiradolivro copy/final_png/Flyer_5@5x.jpeg" alt="Feira do Livro flyer 5">
+              <img src="images/illustra/fashion2.png" alt="Fashion Illustration Red">
             </div>
           </div>
           <div class="carousel-controls">
@@ -1047,7 +743,135 @@
             <button class="carousel-btn carousel-next">↓</button>
           </div>
           <div class="carousel-indicator">
-            <span class="current">1</span> / <span class="total">6</span>
+            <span class="current">1</span> / <span class="total">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 7: Jungle -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr7">07 / Jungle</div>
+        <h1 class="project-title">Jungle</h1>
+        <p class="project-description">
+          Lost in the embrace of wild, untamed nature. This piece immerses viewers in the dense, mysterious world of tropical wilderness, exploring the relationship between human presence and the overwhelming power of nature. The rich, layered composition celebrates the complexity of ecosystems.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Environment Art</span>
+          <span class="project-tag">Nature Study</span>
+          <span class="project-tag">Composition</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/illustra/jungle.jpg" alt="Jungle Exploration">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 8: Breakfast -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr8">08 / Breakfast</div>
+        <h1 class="project-title">Breakfast</h1>
+        <p class="project-description">
+          Tender moments shared over morning rituals. This piece captures the intimate warmth of shared morning moments between an elderly couple, exploring the quiet beauty of everyday rituals where simple acts of care create profound connections.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Character Study</span>
+          <span class="project-tag">Intimacy</span>
+          <span class="project-tag">Storytelling</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/illustra/oldcouple.jpg" alt="Breakfast Together">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 9: Sleeping -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr9">09 / Sleeping</div>
+        <h1 class="project-title">Sleeping</h1>
+        <p class="project-description">
+          Finding peace in moments of rest and solitude. A student sleeps at her desk, oblivious to the teacher and classmates behind her. The bold lines, comic-inspired halftones, and vibrant purples create a dramatic yet dreamy atmosphere that captures the tension between daydreaming and structure.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Comic Style</span>
+          <span class="project-tag">Narrative Art</span>
+          <span class="project-tag">Mixed Media</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/illustra/sleeping.jpg" alt="Sleeping Girl">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 10: Self-Portrait -->
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-number" id="nr10">10 / Self-Portrait</div>
+        <h1 class="project-title">Self-Portrait</h1>
+        <p class="project-description">
+          Flattened shapes and a limited red-black-white palette. This bold self-portrait uses flattened shapes and explores identity and duality. Overlapping features create tension and balance, suggesting multiple perspectives within a single expression through graphic and symbolic forms.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Self-Portrait</span>
+          <span class="project-tag">Vector Art</span>
+          <span class="project-tag">Identity</span>
+        </div>
+      </div>
+      <div class="project-images">
+        <div class="vertical-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/illustra/self_portrait copy.png" alt="Artist Self-Portrait">
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev">↑</button>
+            <button class="carousel-btn carousel-next">↓</button>
+          </div>
+          <div class="carousel-indicator">
+            <span class="current">1</span> / <span class="total">1</span>
           </div>
         </div>
       </div>
