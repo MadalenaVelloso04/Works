@@ -192,6 +192,14 @@ html {
   scroll-behavior: smooth;
 }
 
+
+
+[data-jelly] {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+
 body {
   background-color: #000000;
   margin: 0;
@@ -1025,23 +1033,23 @@ justify-content: center;
   75% { transform: translateY(40px) translateX(25px); }
 }
 
-/* Animation Classes */
 .fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .slide-right {
   opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateX(-40px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .animated {
   opacity: 1;
   transform: translate(0, 0);
 }
+
 
 /* Responsive Styles */
 @media (max-width: 1200px) {

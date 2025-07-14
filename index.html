@@ -111,7 +111,7 @@
   </script>
 
     
-  <section class="about-enhanced" id="about-me">
+  <section class="about-enhanced" id="about-me"  data-jelly>
   <div class="about-grid-container">
     <!-- Header Area -->
     <div class="about-header" data-animation="fade-up">
@@ -119,10 +119,10 @@
     </div>
     
     <!-- Profile Card -->
-    <div class="profile-card" data-animation="slide-right">
+    <div class="profile-card" data-animation="slide-right" >
       <div class="profile-border">
         <div class="profile-image-wrapper">
-          <img src="images/mephotos.png" alt="Mada Velloso" />
+          <img src="images/mephotos.png" alt="Mada Velloso"/>
           <div class="profile-glow"></div>
         </div>
       </div>
@@ -171,10 +171,10 @@
     </div>
     
     <!-- Skills Section -->
-    <div class="skills-section" data-animation="fade-up" data-delay="800">
+    <div class="skills-section" data-animation="fade-up" data-delay="800"  data-jelly>
       <h3 class="skills-header"><span class="first-letter1">My_</span>Skills</h3>
       
-      <div class="skills-wrapper">
+      <div class="skills-wrapper" >
         <div class="skill">
           <div class="skill-info">
             <div class="skill-icon">✿</div>
@@ -419,7 +419,7 @@ function createParticles() {
     </div>
   </section>
     
-<section class="contact-me" id="contact-section" >
+<section class="contact-me" id="contact-section" data-jelly >
   <!-- Floating particles background -->
   <div class="contact-particles">
     <div class="contact-particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
@@ -450,6 +450,7 @@ function createParticles() {
       <a href="https://www.instagram.com/naoseique.etal/" target="_blank">Instagram</a>
      <a href="https://www.behance.net/madalenavelloso3" target="_blank">Behance</a>
       <a href="https://www.linkedin.com/in/madalena-de-sep%C3%BAlveda-velloso-b5b4b5345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
+      <a href="images/Madalena_Velloso_CV.pdf" target="_blank">CV</a>
     </div>
   </div>
 </footer>
@@ -559,6 +560,43 @@ function clearSession() {
     location.reload();
 }
 </script>
+
+
+<script>
+  const jellyElements = document.querySelectorAll('[data-jelly]');
+  let lastScrollY = window.scrollY;
+  let jellyOffset = 0;
+  let velocity = 0;
+  let animationFrame;
+
+  function animate() {
+    velocity *= 0.75; // stronger damping
+    jellyOffset *= 0.75;
+
+    jellyElements.forEach(el => {
+      el.style.transform = `translateY(${jellyOffset}px)`;
+    });
+
+    if (Math.abs(jellyOffset) > 0.3 || Math.abs(velocity) > 0.3) {
+      animationFrame = requestAnimationFrame(animate);
+    } else {
+      jellyElements.forEach(el => el.style.transform = 'translateY(0)');
+      cancelAnimationFrame(animationFrame);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const delta = window.scrollY - lastScrollY;
+    lastScrollY = window.scrollY;
+
+    velocity = delta * 0.25; // LOWER intensity
+    jellyOffset += velocity;
+
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(animate);
+  });
+</script>
+
 
 
   </body>
