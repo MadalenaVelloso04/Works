@@ -1592,6 +1592,21 @@ justify-content: center;
         }
 
         @media (max-width: 480px) {
+              #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 70%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        
           #splashVideo {
             width: 50%;
             height: 50%;
