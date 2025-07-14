@@ -1600,3 +1600,39 @@ justify-content: center;
     opacity: 1;
   }
 
+          #constantName {
+            font-family: "GW Bantley", serif;
+            font-size: 4vw;
+            color: #ffffff;
+            text-align: center;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .name-word {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .name-first-letter {
+            color: #000000;
+            text-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4, 0 0 20px #ff00d4;
+            font-size: 1.2em;
+            position: relative;
+            display: inline-block;
+        }
+
+         @media (max-width: 768px) {
+            #constantName {
+                font-size: 6vw;
+            }
+            
+          }
+
+
+        @media (max-width: 480px) {
+            #constantName {
+                font-size: 7vw;
+            }
+          }
