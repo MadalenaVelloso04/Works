@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio</title>
+
     <link rel="stylesheet" href="styling.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,11 +15,13 @@
     <title>Portfolio</title>
   </head>
 
-  
+  <body>
 
-    <body>
-      <div id="splash">
-    <img src="images/logo.png" alt="Logo">
+<div id="splash">
+    <video id="splashVideo" autoplay muted playsinline>
+      <source src="images/logo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
     <div class="scroll-indicator">
@@ -30,7 +32,7 @@
 
 
 
-    <div class="main">
+    <div id="pageContent" class="main">
       <header>
         <div id="navbar">
           <!-- Logo -->
@@ -440,7 +442,7 @@ function createParticles() {
     <p>&copy; 2025 Madalena Velloso</p>
     <div class="social-links">
       <a href="https://www.instagram.com/naoseique.etal/" target="_blank">Instagram</a>
-      <a href="https://https://www.behance.net/madalenavelloso3" target="_blank">Behance</a>
+     <a href="https://www.behance.net/madalenavelloso3" target="_blank">Behance</a>
       <a href="https://www.linkedin.com/in/madalena-de-sep%C3%BAlveda-velloso-b5b4b5345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
     </div>
   </div>
@@ -490,10 +492,68 @@ function createParticles() {
     <script src="imageofme.js"></script>
     <script src="sliding.js"></script>
     <script src="aptidoes.js"></script>
-    <script>
+
+   
+<script>
+const splash = document.getElementById('splash');
+const splashVideo = document.getElementById('splashVideo');
+const pageContent = document.getElementById('pageContent');
+
+// Check if splash was already shown in this session
+const splashShown = sessionStorage.getItem('splashPlayed');
+
+function hideSplash() {
+    // Start fade out
+    splash.classList.add('fade-out');
+    
+    // Show page content
+    pageContent.classList.add('show');
+    
+    // Completely hide splash after fade completes
     setTimeout(() => {
-      document.getElementById('splash').style.display = 'none';
-    }, 4000); // remove splash after 4 seconds
-  </script>
+        splash.classList.add('hide');
+    }, 1000); // Match the CSS transition duration
+}
+
+function skipSplash() {
+    // Immediately hide splash without animation
+    splash.classList.add('hide');
+    pageContent.classList.add('show');
+}
+
+if (!splashShown) {
+    // First visit - play splash video
+    splashVideo.play();
+    
+    // Hide splash when video ends
+    splashVideo.addEventListener('ended', () => {
+        hideSplash();
+        sessionStorage.setItem('splashPlayed', 'true');
+    });
+    
+    // Fallback if video doesn't end or takes too long
+    setTimeout(() => {
+        hideSplash();
+        sessionStorage.setItem('splashPlayed', 'true');
+    }, 5000);
+    
+} else {
+    // Returning visit - skip splash immediately
+    skipSplash();
+}
+
+// Demo functions
+function simulateNavigation() {
+    // Simulate going to another page and coming back
+    document.body.innerHTML = '<div style="padding: 50px; text-align: center;"><h1>Another Page</h1><p>Click to go back to homepage</p><button onclick="location.reload()">Back to Homepage</button></div>';
+}
+
+function clearSession() {
+    sessionStorage.removeItem('splashPlayed');
+    location.reload();
+}
+</script>
+
+
   </body>
 </html>

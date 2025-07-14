@@ -193,6 +193,7 @@ html {
 }
 
 body {
+  background-color: #000000;
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
@@ -1560,26 +1561,42 @@ justify-content: center;
 
 
 
-#splash {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgb(0, 0, 0);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    #splash img {
-      width: 150px;
-      animation: fadeOut 2s forwards 3s;
-    }
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: scale(0.95);
-        visibility: hidden;
-      }
-    }
+        /* Splash styles with fade transition */
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        
+        #splash.fade-out {
+            opacity: 0;
+        }
+        
+        #splash.hide {
+            display: none;
+        }
+        
+        #splashVideo {
+            width: 30%;
+            height: 30%;
+            object-fit: cover;
+        }
+        
 
+  #pageContent {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  #pageContent.show {
+    opacity: 1;
+  }
 
