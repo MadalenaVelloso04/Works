@@ -1588,7 +1588,15 @@ justify-content: center;
         #splashVideo {
             width: 30%;
             height: 30%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 480px) {
+          #splashVideo {
+            width: 50%;
+            height: 50%;
             object-fit: cover;
+        }
         }
         
 
@@ -1601,8 +1609,8 @@ justify-content: center;
   }
 
           #constantName {
-            font-family: "GW Bantley", serif;
-            font-size: 4vw;
+            font-family: "minecraft", serif;
+            font-size: 3vw;
             color: #ffffff;
             text-align: center;
             letter-spacing: 2px;
@@ -1615,17 +1623,12 @@ justify-content: center;
             margin: 0 10px;
         }
 
-        .name-first-letter {
-            color: #000000;
-            text-shadow: 0 0 5px #ff00d4, 0 0 10px #ff00d4, 0 0 20px #ff00d4;
-            font-size: 1.2em;
-            position: relative;
-            display: inline-block;
-        }
+
+     
 
          @media (max-width: 768px) {
             #constantName {
-                font-size: 6vw;
+                font-size: 3vw;
             }
             
           }
