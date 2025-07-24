@@ -203,6 +203,8 @@ html {
 
 
 body {
+  width: 100%;
+  max-width: 100vw;
   background-color: #000000;
   margin: 0;
   padding: 0;
@@ -284,6 +286,14 @@ body {
 }
 
 @media (max-width: 768px) {
+
+       body {
+                /* Additional mobile-specific fixes */
+                position: relative;
+                min-height: 100vh;
+                width: 100vw;
+            }
+
   #changingText {
     font-size: 10vw;
     flex-direction: column;
@@ -1135,9 +1145,14 @@ justify-content: center;
 
 @media (max-width: 480px) {
 
-  body {
-    max-width: max-content;
-  }
+         body {
+                /* Force body to stay within viewport */
+                width: 100vw;
+                max-width: 100vw;
+                position: relative;
+                /* Ensure no horizontal scroll */
+                overflow-x: hidden;
+            }
 
   .about-enhanced {
     order: 0;
@@ -1176,8 +1191,9 @@ justify-content: center;
     height: 180px;
   }
 }
+
  .gallery-section {
-      height: 80vh;
+      height: 70vh;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -1307,6 +1323,7 @@ justify-content: center;
     }
     
     @media (max-width: 768px) {
+
       .scroll-content {
         gap: 20px;
       }
@@ -1320,7 +1337,7 @@ justify-content: center;
     
     @media (max-width: 480px) {
       .gallery-section {
-        height: 80vh;
+        height: 50vh;
       }
       .scroll-content {
         gap: 15px;
