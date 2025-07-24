@@ -540,8 +540,9 @@
   }
 
   .video-showcase {
-  width: 90%;
-  margin: 4rem 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -568,7 +569,6 @@
 
   .video-container {
     width: 100% !important;
-    aspect-ratio: 16 / 9;
   }
 
   iframe,
