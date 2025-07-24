@@ -506,25 +506,10 @@ input,select{vertical-align:middle}
   border-radius: 8px;
 }
 
-/* Mobile video handling */
-@media (max-width: 768px) {
-  .image-container video {
-    max-height: 300px; /* Prevent videos from being too tall */
-    object-fit: contain; /* Show full video on mobile */
-  }
-  
-  .image-container.square video {
-    aspect-ratio: 1/1;
-    object-fit: cover;
-  }
-}
 
 /* === Small Mobile Devices (up to 480px) === */
 @media (max-width: 480px) {
-  body {
-    font-size: 14px;
-    line-height: 1.5;
-  }
+
 
   .main-content,
   .hero {
@@ -539,10 +524,6 @@ input,select{vertical-align:middle}
     font-size: 1rem;
   }
 
-  .back-to-projects {
-    font-size: 0.75rem;
-    padding: 0.5rem 0;
-  }
 
   h1 {
     font-size: 1.8rem;
@@ -559,35 +540,6 @@ input,select{vertical-align:middle}
   p,
   .lead {
     font-size: 1rem;
-  }
-
-  .image-container {
-    border-radius: 6px;
-    margin-bottom: 0.75rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .image-container img,
-  .image-container video {
-    border-radius: 6px;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .image-container.tall img,
-  .image-container.tall video {
-    aspect-ratio: 3 / 4;
-  }
-
-  .image-container.wide img,
-  .image-container.wide video {
-    aspect-ratio: 16 / 9;
-  }
-
-  .image-container.square img,
-  .image-container.square video {
-    aspect-ratio: 1 / 1;
   }
 
   .quote-section {
@@ -763,14 +715,6 @@ input,select{vertical-align:middle}
     justify-content: center;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .fade-in,
-    .image-container,
-    .image-container img,
-    .image-container video {
-      transition: none;
-    }
-  }
 }
 
 /* === Extra Small Landscape Devices (like iPhone in landscape) === */
@@ -785,16 +729,5 @@ input,select{vertical-align:middle}
 
   .image-container.wide {
     aspect-ratio: 16 / 9;
-  }
-}
-
-/* === Extra Large Screens (optional) === */
-@media (min-width: 1200px) {
-  .main-content {
-    max-width: 1200px;
-  }
-
-  .hero {
-    padding: 4rem 2rem;
   }
 }
