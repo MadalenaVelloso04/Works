@@ -1033,18 +1033,21 @@ justify-content: center;
   75% { transform: translateY(40px) translateX(25px); }
 }
 
+/* Update existing fade-up to slide from left */
 .fade-up {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateX(-60px);
   transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Update existing slide-right to slide from right */
 .slide-right {
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateX(60px);
   transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Keep animated the same */
 .animated {
   opacity: 1;
   transform: translate(0, 0);
@@ -1565,6 +1568,68 @@ justify-content: center;
 #backToTop.show {
   opacity: 1;
   pointer-events: auto;
+}
+
+
+
+/* Enhanced scroll animations */
+[data-scroll] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-scroll].scroll-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect for multiple elements */
+[data-scroll-stagger] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-scroll-stagger].scroll-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale effect */
+[data-scroll-scale] {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-scroll-scale].scroll-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide from left */
+[data-scroll-left] {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-scroll-left].scroll-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+[data-scroll-right] {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-scroll-right].scroll-in {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 

@@ -72,7 +72,7 @@
 <div class="content">
   <h1 id="changingText">Welcome!</h1>
 </div>
-<h3 class="descript">
+<h3 class="descript" data-scroll-left>
   "You can't use up
   creativity.
   The more you use, 
@@ -80,7 +80,7 @@
   - Maya Angelou
 </h3>
 
-<a class="letstalk" href="mailto:madalenavelloso04@gmail.com"><span class="different-letter">Lets</span>_talk</a>
+<a class="letstalk" href="mailto:madalenavelloso04@gmail.com" data-scroll-right><span class="different-letter">Lets</span>_talk</a>
 </div>
 <script>
   const texts = [
@@ -114,7 +114,7 @@
   <section class="about-enhanced" id="about-me"  data-jelly>
   <div class="about-grid-container">
     <!-- Header Area -->
-    <div class="about-header" data-animation="fade-up">
+    <div class="about-header" data-animation="fade-up" data-scroll-right>
       <h2 class="glitch-text" data-text="About_Me">About_<span class="highlight-text">Me</span></h2>
     </div>
     
@@ -134,7 +134,7 @@
     </div>
     
     <!-- Feature Box 1 -->
-    <div class="feature-box feature-visual" data-animation="fade-up" data-delay="200">
+    <div class="feature-box feature-visual" data-animation="fade-up" data-delay="200" data-scroll-right>
       <div class="feature-number">01</div>
       <h3>Visual <span class="highlight-text">Designer</span></h3>
       <p>My name is Madalena Velloso, and I'm a Portuguese 21 year old design student with a deep-rooted passion for fine arts. Growing up immersed in a world of culture and visual communication, 
@@ -146,7 +146,7 @@
     </div>
     
     <!-- Feature Box 2 -->
-    <div class="feature-box feature-typography" data-animation="fade-up" data-delay="400">
+    <div class="feature-box feature-typography" data-animation="fade-up" data-delay="400" data-scroll-left>
       <div class="feature-number">02</div>
       <h3>Narrative & <span class="highlight-text">Values</span></h3>
       <p>The combination of my fine arts background with my design studies has pushed me to think beyond the conventional, 
@@ -158,7 +158,7 @@
     </div>
     
     <!-- Feature Box 3 -->
-    <div class="feature-box feature-interactive" data-animation="fade-up" data-delay="600">
+    <div class="feature-box feature-interactive" data-animation="fade-up" data-delay="600" data-scroll-right>
       <div class="feature-number">03</div>
       <h3>Merged <span class="highlight-text">Techniques</span></h3>
       <p>I believe that merging classical techniques with digital innovation leads to unique and impactful designs.
@@ -171,11 +171,11 @@
     </div>
     
     <!-- Skills Section -->
-    <div class="skills-section" data-animation="fade-up" data-delay="800"  data-jelly>
+    <div class="skills-section" data-animation="fade-up" data-delay="800"  data-jelly data-scroll-scale>
       <h3 class="skills-header"><span class="first-letter1">My_</span>Skills</h3>
       
-      <div class="skills-wrapper" >
-        <div class="skill">
+      <div class="skills-wrapper">
+        <div class="skill" data-scroll-stagger>
           <div class="skill-info">
             <div class="skill-icon">✿</div>
             <h4>Digital Design</h4>
@@ -188,7 +188,7 @@
           </div>
         </div>
         
-        <div class="skill">
+        <div class="skill" data-scroll-stagger>
           <div class="skill-info">
             <div class="skill-icon">↭</div>
             <h4>3D Modeling</h4>
@@ -201,7 +201,7 @@
           </div>
         </div>
         
-        <div class="skill">
+        <div class="skill" data-scroll-stagger>
           <div class="skill-info">
             <div class="skill-icon">⚘</div>
             <h4>Illustration</h4>
@@ -214,7 +214,7 @@
           </div>
         </div>
         
-        <div class="skill">
+        <div class="skill" data-scroll-stagger>
           <div class="skill-info">
             <div class="skill-icon">⚛</div>
             <h4>UI/UX Design</h4>
@@ -227,7 +227,7 @@
           </div>
         </div>
         
-        <div class="skill">
+        <div class="skill" data-scroll-stagger>
           <div class="skill-info">
             <div class="skill-icon">⚑</div>
             <h4>Motion Graphics</h4>
@@ -240,7 +240,7 @@
           </div>
         </div>
         
-        <div class="skill">
+        <div class="skill" data-scroll-stagger>
           <div class="skill-info">
             <div class="skill-icon">⟳</div>
             <h4>Web Design</h4>
@@ -389,7 +389,7 @@ function createParticles() {
 </script>
 
 
-    <section class="gallery-section" id="gallery">
+    <section class="gallery-section" id="gallery"  data-scroll-scale>
     <h2 class="gallery-title">PORTFOLIO GALLERY</h2>
     <div class="scroll-container">
       <div class="scroll-content">
@@ -419,7 +419,7 @@ function createParticles() {
     </div>
   </section>
     
-<section class="contact-me" id="contact-section" data-jelly >
+<section class="contact-me" id="contact-section" data-jelly  data-scroll>
   <!-- Floating particles background -->
   <div class="contact-particles">
     <div class="contact-particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
@@ -432,7 +432,7 @@ function createParticles() {
 
   <h2>Leave Me a Note</h2>
 
-  <form class="contact-form"
+  <form class="contact-form data-scroll data-scroll-delay="200""
   action="https://formspree.io/f/mnndyeez"
   method="POST"
 >
@@ -595,6 +595,80 @@ function clearSession() {
     cancelAnimationFrame(animationFrame);
     animationFrame = requestAnimationFrame(animate);
   });
+</script>
+<script>
+// Enhanced scroll animations
+class ScrollAnimations {
+  constructor() {
+    this.elements = document.querySelectorAll('[data-scroll], [data-scroll-stagger], [data-scroll-scale], [data-scroll-left], [data-scroll-right]');
+    this.init();
+  }
+
+  init() {
+    // Create intersection observer
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.animateElement(entry.target);
+        } else {
+          // Reset animation when out of view
+          entry.target.classList.remove('scroll-in');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all elements
+    this.elements.forEach(element => {
+      this.observer.observe(element);
+    });
+  }
+
+  animateElement(element) {
+    const delay = parseInt(element.getAttribute('data-scroll-delay')) || 0;
+    
+    setTimeout(() => {
+      element.classList.add('scroll-in');
+      
+      // If it's a stagger parent, animate children
+      if (element.hasAttribute('data-scroll-stagger')) {
+        this.staggerChildren(element);
+      }
+    }, delay);
+
+    // REMOVE THIS LINE - this prevents re-triggering:
+    // this.observer.unobserve(element);
+  }
+
+  staggerChildren(parent) {
+    const children = parent.children;
+    Array.from(children).forEach((child, index) => {
+      setTimeout(() => {
+        child.style.opacity = '1';
+        child.style.transform = 'translateY(0)';
+      }, index * 100);
+    });
+  }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new ScrollAnimations();
+});
+
+// Parallax effect for hero section
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  
+  parallaxElements.forEach(element => {
+    const speed = element.getAttribute('data-parallax') || 0.5;
+    const yPos = -(scrolled * speed);
+    element.style.transform = `translateY(${yPos}px)`;
+  });
+});
 </script>
 
 
