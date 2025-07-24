@@ -200,6 +200,12 @@ html {
 }
 
 
+*  {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #000000;
   margin: 0;
@@ -1132,6 +1138,10 @@ justify-content: center;
 }
 
 @media (max-width: 480px) {
+
+  body {
+    max-width: max-content;
+  }
 
   .about-enhanced {
     order: 0;
