@@ -576,6 +576,10 @@ html {
 
 /* Small screens: tablets and phones */
 @media (max-width: 768px) {
+  .circle-cursor {
+  display: none;
+}
+
   .folder-grid {
     gap: 1rem;
   }
@@ -611,6 +615,10 @@ html {
 
 /* Extra small screens: phones */
 @media (max-width: 480px) {
+  .circle-cursor {
+  display: none;
+}
+
   .section-title {
     font-size: 1.8rem;
   }
