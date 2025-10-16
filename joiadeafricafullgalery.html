@@ -3,252 +3,564 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K-AFE Brand Identity - A Contemporary Café Experience</title>
-     <link rel="stylesheet" href="joiadeafricafullgalery.css">
-      <style>
-      @font-face {
-  font-family: 'GW Bantley';
-  src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-}
-        .different-letter {
-            font-family: GW Bantley;
-            src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-            font-size: 16vw;
-            font-weight: lighter;
-            color: #ca4e29;
-        }
-    </style>
+  <title>Jóia de África - Product Design Project</title>
+  <style>
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000000;
+      color: #000000;
+      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* SPLIT SCREEN CONTAINER */
+    .split-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #ffffff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 60%;
+      margin-left: 40%;
+      background-color: #000;
+      min-height: 100vh;
+    }
+
+    /* LEFT PANEL TYPOGRAPHY */
+    .project-title {
+      padding-top: 40px;
+      font-size: clamp(2rem, 2vw, 3.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .project-subtitle {
+      font-size: 16px;
+      color: #000000;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 350px;
+      color: #2C251B;
+    }
+
+    /* PROJECT INFO */
+    .project-meta {
+      border-top: 1px solid #000000;
+      padding-top: 20px;
+    }
+
+    .meta-section {
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .meta-content {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #2C251B;
+    }
+
+    .meta-content.large {
+      font-size: 12px;
+      color: #2C251B;
+    }
+
+    /* NAVIGATION */
+      .back-link {
+      font-family: 'minecraft';
+      font-size: 10px;
+      position: fixed;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      margin-bottom: 30px;
+      color: #000;
+      z-index: 100;
+    }
+
+    .back-link:hover {
+      color: #CA4E29;
+    }
+
+    /* RIGHT PANEL - GALLERY */
+    .gallery {
+      padding: 0;
+    }
+
+    .image-section {
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+
+    .image-container:hover {
+      opacity: 0.9;
+    }
+
+    .image-container img,
+    .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* DIFFERENT IMAGE HEIGHTS */
+    .img-hero {
+      height: 80vh;
+    }
+
+    .img-large {
+      height: 80vh;
+    }
+
+    .img-medium {
+      height: 60vh;
+    }
+
+    .img-small {
+      height: 40vh;
+    }
+
+    /* DOUBLE IMAGES */
+    .double-row {
+      display: flex;
+    }
+
+    .double-row .image-container {
+      width: 50%;
+    }
+
+    /* IMAGE CAPTIONS */
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(202, 78, 41, 0.8);
+      padding: 6px 10px;
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* QUOTE SECTION */
+    .quote-section {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .quote {
+      font-size: 2.5rem;
+      color: #fff;
+      font-style: italic;
+      margin-bottom: 20px;
+      max-width: 600px;
+      line-height: 1.2;
+    }
+
+    .quote-author {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* COLOR SWATCHES */
+    .color-palette {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      font-size: 8px;
+      color: white;
+      padding: 4px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .left-panel {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 30px 20px;
+      }
+
+      .right-panel {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .project-title {
+        font-size: 2.5rem;
+      }
+
+      .img-hero,
+      .img-large,
+      .img-medium {
+        height: 50vh;
+      }
+
+      .img-small {
+        height: 35vh;
+      }
+
+      .double-row {
+        flex-direction: column;
+      }
+
+      .double-row .image-container {
+        width: 100%;
+      }
+
+      .quote {
+        font-size: 1.8rem;
+      }
+
+      .quote-section {
+        height: 50vh;
+        padding: 20px;
+      }
+    }
+
+    /* MOBILE PORTRAIT */
+    @media (max-width: 480px) {
+      .left-panel {
+        padding: 20px 15px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-description {
+        font-size: 11px;
+        max-width: none;
+      }
+
+      .img-hero,
+      .img-large,
+      .img-medium,
+      .img-small {
+        height: 40vh;
+      }
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CUSTOM SCROLLBAR FOR LEFT PANEL */
+    .left-panel::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .left-panel::-webkit-scrollbar-track {
+      background: #f8f6f0;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb {
+      background: #CA4E29;
+      border-radius: 1px;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb:hover {
+      background: #b43e1f;
+    }
+  </style>
 </head>
+
 <body>
-  
-  <div class="scroll-indicator">
-    <div class="scroll-progress"></div>
+  <div class="split-container">
+    <!-- LEFT PANEL - PROJECT INFO -->
+    <div class="left-panel">
+      <div class="content-top">
+        <a href="./projects.html" class="back-link">← Back to Projects</a>
+        
+        <h1 class="project-title">
+          Jóia de África
+        </h1>
+        
+        <div class="project-subtitle">Product Design for African Cuisine</div>
+        
+        <p class="project-description">
+          A university project in collaboration with the Aga Khan Foundation focused on strategic rebranding and product development for a Lisbon-based African restaurant. Creating a portable working station that celebrates authentic African culture and cuisine while supporting small business operations through thoughtful design and cultural authenticity.
+        </p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-section">
+          <div class="meta-label">Challenge</div>
+          <div class="meta-content large">
+            How do you create a functional product that embodies the spirit of African cuisine while supporting a small business? The challenge was designing for mobility, organization, and cultural authenticity while ensuring the product could serve as both a practical tool and a celebration of African heritage.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Solution</div>
+          <div class="meta-content large">
+            A complete brand identity system paired with a portable chef's station featuring three removable drawers for optimal organization. The hand-crafted prototype includes custom silk-screen fabric design that reflects African cultural patterns and colors, creating a mobile workspace that brings authentic cuisine anywhere.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Collaboration</div>
+          <div class="meta-content large">
+            Developed in partnership with the Aga Khan Foundation, ensuring cultural sensitivity and authentic representation of African culinary traditions in the design process.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Year</div>
+          <div class="meta-content">2nd Semester, 2022</div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Type</div>
+          <div class="meta-content">
+            Product Design<br>
+            Brand Identity<br>
+            Prototype Development<br>
+            Cultural Research<br>
+            Strategic Rebranding
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Process</div>
+          <div class="meta-content">
+            Cultural Research<br>
+            3D Modeling & Visualization<br>
+            Hand-crafted Prototyping<br>
+            Silk-screen Printing<br>
+            Laser Cutting & Assembly
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Tools</div>
+          <div class="meta-content">
+            Rhino 3D<br>
+            Blender<br>
+            Adobe Illustrator<br>
+            Laser Cutting Technology<br>
+            Silk-screen Printing Equipment
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Technical Specifications</div>
+          <div class="meta-content large">
+            The portable station measures 60cm x 40cm x 35cm when closed, optimized for easy transport while maximizing internal storage capacity. The modular drawer system features three distinct compartments: a spice drawer with 12 individual containers, a utensil drawer with custom-fitted organization, and a preparation drawer with removable cutting board and ingredient containers.
+            <br><br>
+            Construction utilizes sustainable birch plywood with precision laser-cut joints for durability and ease of assembly. The fabric elements are printed on organic cotton using traditional silk-screen techniques with custom-mixed heritage colors that reflect authentic African palette traditions.
+            <br><br>
+            All hardware components are selected for longevity and smooth operation, with soft-close drawer mechanisms and robust corner reinforcements. The design incorporates ventilation systems for spice storage and moisture management to maintain ingredient freshness during transport.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Impact & Applications</div>
+          <div class="meta-content large">
+            The design solution addresses multiple operational challenges faced by small African restaurants and food service operations. Primary applications include mobile food services, catering operations, cooking demonstrations, cultural events, and temporary restaurant setups.
+            <br><br>
+            Beyond immediate functional benefits, the project serves as a model for culturally sensitive design practices, demonstrating how traditional craftsmanship can be integrated with contemporary product design. The comprehensive brand system provides a foundation for expanding cultural food businesses while maintaining authentic identity.
+            <br><br>
+            The project has potential for adaptation to other cultural cuisines and mobile food service applications, with the modular design allowing customization for different culinary traditions and operational requirements.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Color Palette</div>
+          <div class="meta-content">
+            #CA4E29 Heritage Orange<br>
+            #2C251B Deep Earth<br>
+            #000000 Bold Black<br>
+            #FFFFFF Clean White
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL - IMAGE GALLERY -->
+    <div class="right-panel">
+      <div class="gallery">
+        <!-- Hero Image -->
+        <div class="image-section">
+          <div class="image-container img-hero">
+            <img src="images/joiadeafrica/JOIA.webp" alt="Jóia de África portable station">
+            <div class="image-caption">Complete Product Overview</div>
+          </div>
+        </div>
+
+        <!-- Brand Identity System -->
+        <div class="image-section double-row">
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/artboard2.webp" alt="Brand identity system">
+            <div class="image-caption">Visual Identity Development</div>
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/JA1.webp" alt="Logo applications">
+            <div class="image-caption">Logo System & Applications</div>
+          </div>
+        </div>
+
+        <!-- Product Design Details -->
+        <div class="image-section">
+          <div class="image-container img-large">
+            <img src="images/joiadeafrica/frontangle4.webp" alt="Product front angle view">
+            <div class="image-caption">Front View Design Detail</div>
+          </div>
+        </div>
+
+        <!-- Construction & Craftsmanship -->
+        <div class="image-section double-row">
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/back1.webp" alt="Back view construction">
+            <div class="image-caption">Back Panel Construction</div>
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/detailnotpro.webp" alt="Detail construction work">
+            <div class="image-caption">Craftsmanship Details</div>
+          </div>
+        </div>
+
+        <!-- Internal Organization System -->
+        <div class="image-section">
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/gavetasnpro.webp" alt="Modular drawer system">
+            <div class="image-caption">Three-Drawer Modular System</div>
+          </div>
+        </div>
+
+        <!-- Storage Solutions -->
+        <div class="image-section">
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/topnopro.webp" alt="Top view organization">
+            <div class="image-caption">Storage Organization Layout</div>
+          </div>
+        </div>
+
+        <!-- Working Process -->
+        <div class="image-section">
+          <div class="image-container img-medium">
+            <img src="images/joiadeafrica/workja7.webp" alt="Working process">
+            <div class="image-caption">Development Process</div>
+          </div>
+        </div>
+
+        <!-- Brand Applications -->
+        <div class="image-section double-row">
+          <div class="image-container img-small">
+            <img src="images/joiadeafrica/caixa.jpg" alt="Packaging design system">
+            <div class="image-caption">Packaging Design</div>
+          </div>
+          <div class="image-container img-small">
+            <img src="images/joiadeafrica/sign.jpg" alt="Signage system">
+            <div class="image-caption">Signage System</div>
+          </div>
+        </div>
+
+        <!-- Business Collateral -->
+        <div class="image-section">
+          <div class="image-container img-small">
+            <img src="images/joiadeafrica/Free_Round_Business_Card_Mockup_1.jpg" alt="Business card design">
+            <div class="image-caption">Business Card Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <nav>
-    <div class="nav-container">
-      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
-      <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#identity">Identity</a></li>
-        <li><a href="#applications">Applications</a></li>
-        <li><a href="#process">Process</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-       <section class="hero fade-in">
-      <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
-      <h1 class="hero-title fade-in">Jóia de África: Product Design Project</h1>
-      <p class="hero-description lead fade-in">
-        A university project in collaboration with the Aga Khan Foundation focused on strategic rebranding and product development for a Lisbon-based African restaurant.
-        <br>
-        <i>Second semester of university, 2022</i>
-      </p>
-         <div class="hero-tags fade-in">
-        <span>Rhino 3D</span>
-        <span>Blender</span>
-        <span>Adobe Illustrator</span>
-      </div>
-    </section>
-
-    <div class="main-content">
-      <article class="article-section fade-in" id="overview">
-        <aside class="section-meta fade-in">
-          <div class="section-number">01 / Overview</div>
-          <h2>The Challenge</h2>
-        </aside>
-                <div class="section-content fade-in">
-          <p class="lead">This project, in partnership with the Aga Khan Foundation, aimed to bolster small business growth through strategic rebranding and improved market visibility.</p>
-
-          <p>Our team collaborated with Jóia de África, a lively African restaurant based in Lisbon, to enhance its brand identity and expand its business reach. We developed an in-depth brand book outlining cohesive guidelines—from logos and color schemes to typography and visual style.</p>
-
-          <p>The rebranding sought to capture the authentic essence of Jóia de África, a space celebrating African culture and cuisine, and to make it more inviting to a wider audience.</p>
-     
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/joiadeafrica/artboard2.webp" class="zoomable" alt="Coffee brewing process">
-              </div>
-              <div class="image-container square">
-                <img src="images/joiadeafrica/sign.jpg" class="zoomable" alt="Korean typography inspiration">
-              </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/joiadeafrica/caixa.jpg" class="zoomable" alt="Coffee brewing process">
-              </div>
-              <div class="image-container square">
-                <img src="images/joiadeafrica/mockup2joia.webp" class="zoomable" alt="Korean typography inspiration">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/joiadeafrica/mockup1joia.webp" class="zoomable" alt="Coffee brewing process">
-              </div>
-              <div class="image-container square">
-                <img src="images/joiadeafrica/Free_Round_Business_Card_Mockup_1.jpg" class="zoomable" alt="Korean typography inspiration">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <div class="quote-section fade-in">
-        <blockquote class="quote">"Two cultures, two lands. One link to connect them."</blockquote>
-        <cite class="quote-author">Joía de Afríca Philosophy</cite>
-      </div>
-
-      <article class="article-section fade-in" id="identity">
-        <aside class="section-meta fade-in">
-      <div class="section-number">02 / Visual Identity</div>
-          <h2>Concept and Creation of the Brand</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">Our design process embraced co-creation, testing, and iteration. By grounding decisions in real needs—organization, mobility, security—we created something not just beautiful, but transformative.</p>
-
-          <h3>Typography System</h3>
-          <p>Our typography reflects the cultural complexity and handmade ethos of Jóia de África. For headlines, we selected bold and expressive fonts that echo the energy of African visual traditions—strong, rhythmic, and geometric. These are paired with clean sans-serif body texts for clarity and balance.
-
-A standout element is the use of the custom “A” shared between Jóia and África, both in logotype and signage, which gives the brand a memorable personality. The typography system was designed to remain legible and dynamic across a range of applications—from food packaging to mobile menus—capturing both elegance and practicality.</p>
-
-          <h3>Color Philosophy</h3>
-          <p>The palette blends cultural symbolism and contemporary aesthetic. We relied on two main tones:
-<br>
-#CA4E29, a vibrant orange, symbolizes warmth, spice, and vitality—evoking both food and fire.
-<br>
-#2C251B, a deep earthy brown, grounds the design in authenticity and natural textures, drawing inspiration from traditional African materials and tones.
-<br>
-These primary colors are supported by complementary reds, greens, and yellows used in physical applications like textiles and signage. Together, the palette evokes heritage, celebration, and craft, avoiding stereotypes while staying emotionally resonant.</p>
-
-          <div class="color-palette fade-in">
-            <div class="color-swatch color-black">#000000</div>
-            <div class="color-swatch color-white">#FFFFFF</div>
-            <div class="color-swatch color-orange">#CA4E29</div>
-          </div>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/joiadeafrica/JA1.webp"class="zoomable"  alt="logo applications">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="applications">
-        <aside class="section-meta fade-in">
-              <div class="section-number">03 / Applications</div>
-          <h2>Concept and Creation of the Prototype</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">
-            We created a functional, portable bag for a working station, featuring three removable drawers, each designed for different storage needs, such as compartments for spices.
-          </p>
-
-          <p>To bring this concept to life, we built a high-fidelity prototype at a 1:2 scale, utilizing laser-cut MDF and cardboard for the structure. For a smooth curve at the corners, we applied a custom cutting pattern to bend the wood effectively.</p>
-
-          <p>The fabric was decorated with a custom design using the silk-screen technique, and the entire bag received a hand-painted finish with acrylics, adding a unique, artisanal touch.</p>
-
-          <p>This station is both practical and portable, allowing chefs to carry essential tools and ingredients with ease, and it captures the distinctive aesthetic of the Jóia de África brand.</p>
-  
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container tall">
-                <img src="images/joiadeafrica/frontangle4.png" class="zoomable" alt="Coffee cup mockup">
-              </div>
-              <div class="image-container tall">
-                <img src="images/joiadeafrica/back1.webp" class="zoomable" alt="Menu design">
-              </div>
-            </div>
-             <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/joiadeafrica/JOIA.webp" class="zoomable" alt="Café interior design">
-              </div>
-            </div>
-        
-              <div class="grid-2x2">
-              <div class="image-container tall">
-                <img src="images/joiadeafrica/detailnotpro.webp" class="zoomable" alt="Coffee cup mockup">
-              </div>
-              <div class="image-container tall">
-                <img src="images/joiadeafrica/topnopro.webp" class="zoomable" alt="Menu design">
-              </div>
-            </div>
-            
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/joiadeafrica/gavetasnpro.webp" class="zoomable" alt="Café interior design">
-              </div>
-            </div>
-          </div>
-          
-
-          <h3>Digital Presence</h3>
-          <p>We also envisioned a digital platform to support Georgette’s new role as a private chef. While developing the brand, we considered how a website and social media could extend the project—allowing her to take bookings, share menus, and showcase her work as she travels and cooks in different homes..</p>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="process">
-        <aside class="section-meta fade-in">
-          <div class="section-number">04 / Process</div>
-          <h2>Design Journey</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">
-            As our first product design project, our team felt a strong sense of accomplishment. Every detail—from measurements to painting techniques—was carefully considered and executed.
-          </p>
-
-          <p>It was an intense process that challenged us, but we're proud of the results we achieved.</p>
-   
-          <div class="process-grid fade-in">
-            <div class="process-item">
-              <div class="process-number">01</div>
-              <h3>Research & Discovery</h3>
-              <p>We started by understanding the story of Jóia de África and its founder, Georgette. This included interviews, cultural research, and analysis of the Lisbon food scene to identify how the brand could evolve beyond its physical space.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">02</div>
-              <h3>Concept Development</h3>
-              <p>Exploration of brutalist design principles, testing bold typography combinations, and developing the core brand philosophy.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">03</div>
-              <h3>Visual System</h3>
-              <p>Creation of comprehensive brand guidelines, asset libraries, and application standards across all touchpoints.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">04</div>
-              <h3>Implementation</h3>
-              <p>Rollout across physical and digital platforms, with ongoing refinement based on real-world application feedback.</p>
-            </div>
-          </div>
-
-          <p>The iterative process involved constant testing and refinement. Early concepts were too aggressive and risked alienating potential customers, while later iterations found the right balance between bold and approachable.</p>
-
-          <p>Client collaboration was crucial throughout the process. Regular feedback sessions ensured the final identity aligned with business objectives while pushing creative boundaries.</p>
-        </div>
-      </article>
-    </div>
-
-    
-  </main>
-
   <script>
-    // Scroll progress indicator
-    window.addEventListener('scroll', () => {
-      const scrollProgress = document.querySelector('.scroll-progress');
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-      scrollProgress.style.width = scrollPercent + '%';
-    });
-
-    // Fade in animation on scroll
+    // Fade in animation for visible elements
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -259,82 +571,20 @@ These primary colors are supported by complementary reds, greens, and yellows us
       });
     }, observerOptions);
 
-    // Observe all fade-in elements
     document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
   </script>
-   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('.zoomable');
-    const overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <button id="lightbox-close">×</button>
-      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
-      <img id="lightbox-img" src="" alt="">
-      <button class="lightbox-arrow" id="lightbox-next">›</button>
-    `;
-    document.body.appendChild(overlay);
-
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const nextBtn = document.getElementById('lightbox-next');
-    const prevBtn = document.getElementById('lightbox-prev');
-
-    let currentIndex = 0;
-    const imageArray = Array.from(images);
-
-    function showImage(index) {
-      const img = imageArray[index];
-      lightboxImg.src = img.src;
-      currentIndex = index;
-      overlay.style.display = 'flex';
-    }
-
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        showImage(index);
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      lightboxImg.src = '';
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % imageArray.length;
-      showImage(currentIndex);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-      showImage(currentIndex);
-    });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = 'none';
-        lightboxImg.src = '';
-      }
-    });
-  });
-</script>
 </body>
 </html>
-

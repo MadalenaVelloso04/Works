@@ -3,229 +3,479 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sustainablearth - Environmental Consultancy Brand Identity</title>
-  <link rel="stylesheet" href="domino.css">
+  <title>Jóia de África - Product Design Project</title>
   <style>
-    @font-face {
-      font-family: 'GW Bantley';
-      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+
+/* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .different-letter {
-      font-family: GW Bantley;
-      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-      font-size: 16vw;
-      font-weight: lighter;
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000000;
+      color: #000000;
+      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* SPLIT SCREEN CONTAINER */
+    .split-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #ffffff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 60%;
+      margin-left: 40%;
+      background-color: #000;
+      min-height: 100vh;
+    }
+
+    /* LEFT PANEL TYPOGRAPHY */
+    .project-title {
+      padding-top: 40px;
+      font-size: clamp(2rem, 2vw, 3.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .project-subtitle {
+      font-size: 16px;
+      color: #000000;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 350px;
+      color: #2C251B;
+    }
+
+    /* PROJECT INFO */
+    .project-meta {
+      border-top: 1px solid #000000;
+      padding-top: 20px;
+    }
+
+    .meta-section {
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .meta-content {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #2C251B;
+    }
+
+    .meta-content.large {
+      font-size: 12px;
+      color: #2C251B;
+    }
+
+    /* NAVIGATION */
+      .back-link {
+      font-family: 'minecraft';
+      font-size: 10px;
+      position: fixed;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      margin-bottom: 30px;
+      color: #000;
+      z-index: 100;
+    }
+
+
+    .back-link:hover {
       color: #f5333f;
     }
+
+    /* RIGHT PANEL - GALLERY */
+    .gallery {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .image-section {
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+
+    .image-container:hover {
+      opacity: 0.9;
+    }
+
+    .image-container img,
+    .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* DIFFERENT IMAGE HEIGHTS */
+    .img-hero {
+      height: 80vh;
+    }
+
+    .img-large {
+      height: 80vh;
+    }
+
+    .img-medium {
+      height: 60vh;
+    }
+
+    .img-small {
+      height: 40vh;
+    }
+
+    /* DOUBLE IMAGES */
+    .double-row {
+      display: flex;
+    }
+
+    .double-row .image-container {
+      width: 50%;
+    }
+
+    /* IMAGE CAPTIONS */
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 10px;
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* COLOR SWATCHES */
+    .color-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .color-swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      border: 1px solid #ddd;
+    }
+
     .color-purple { background: #9d1d96; }
     .color-blue { background: #004a98; }
-    .color-green{ background: #00a887; }
+    .color-green { background: #00a887; }
     .color-yellow { background: #ffdd00; }
     .color-orange { background: #ff5100; }
     .color-red { background: #f5333f; }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .left-panel {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 30px 20px;
+      }
+
+      .right-panel {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .project-title {
+        font-size: 2.5rem;
+      }
+
+      .img-hero,
+      .img-large,
+      .img-medium {
+        height: 50vh;
+      }
+
+      .img-small {
+        height: 35vh;
+      }
+
+      .double-row {
+        flex-direction: column;
+      }
+
+      .double-row .image-container {
+        width: 100%;
+      }
+    }
+
+    /* MOBILE PORTRAIT */
+    @media (max-width: 480px) {
+      .left-panel {
+        padding: 20px 15px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-description {
+        font-size: 11px;
+        max-width: none;
+      }
+
+      .img-hero,
+      .img-large,
+      .img-medium,
+      .img-small {
+        height: 40vh;
+      }
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CUSTOM SCROLLBAR FOR LEFT PANEL */
+    .left-panel::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .left-panel::-webkit-scrollbar-track {
+      background: #eceaea;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 1px;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb:hover {
+      background: #f5333f;
+    }
   </style>
 </head>
+
 <body>
-  
-  <div class="scroll-indicator">
-    <div class="scroll-progress"></div>
+  <div class="split-container">
+    <!-- LEFT PANEL - PROJECT INFO -->
+    <div class="left-panel">
+      <div class="content-top">
+        <a href="./projects.html" class="back-link">← Back to Projects</a>
+        
+        <h1 class="project-title">
+          ColorADD Domino
+        </h1>
+        
+        <div class="project-subtitle">Inclusive Game Design for Color Blind Players</div>
+        
+        <p class="project-description">
+          A professional collaboration with ColorADD to reinvent the classic domino game, making it accessible for color blind players through innovative visual symbols and inclusive design principles. Working directly with founder Miguel Neiva brought invaluable insights to our design process.
+        </p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-section">
+          <div class="meta-label">Challenge</div>
+          <div class="meta-content large">
+            350 million people worldwide experience color blindness, yet most color-coded games remain inaccessible. How do you maintain classic gameplay while creating universal accessibility?
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Solution</div>
+          <div class="meta-content large">
+            Integration of the ColorADD symbol system into traditional domino design, creating a dual approach that serves both color blind and non-color blind players seamlessly.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Year</div>
+          <div class="meta-content">3rd Semester, 2023</div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Type</div>
+          <div class="meta-content">
+            Game Design<br>
+            Accessibility Design<br>
+            ColorADD Integration<br>
+            Inclusive Design
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Collaboration</div>
+          <div class="meta-content">
+            Miguel Neiva<br>
+            ColorADD Founder<br>
+            Direct Partnership<br>
+            Professional Project
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Colors</div>
+          <div class="meta-content">
+            ColorADD System Palette
+            <div class="color-swatches">
+              <div class="color-swatch color-purple"></div>
+              <div class="color-swatch color-blue"></div>
+              <div class="color-swatch color-green"></div>
+              <div class="color-swatch color-yellow"></div>
+              <div class="color-swatch color-orange"></div>
+              <div class="color-swatch color-red"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Impact</div>
+          <div class="meta-content large">
+            "Color is for Everyone!" - Miguel Neiva's vision brought to life through inclusive game design that opens traditional dominoes to all players.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL - IMAGE GALLERY -->
+    <div class="right-panel">
+      <div class="gallery">
+        <!-- Hero Video -->
+        <div class="image-section">
+          <div class="image-container img-hero">
+            <video src="images/domino/Artboard 3_3.mp4" autoplay muted loop playsinline></video>
+            <div class="image-caption">ColorADD Domino System</div>
+          </div>
+        </div>
+
+
+            <!-- Logo System -->
+        <div class="image-section">
+          <div class="image-container">
+            <video style="padding:40px;" src="images/domino/Ativo 4.mp4" autoplay muted loop playsinline></video> 
+            <div class="image-caption">Brand Identity</div>
+          </div>
+          </div>
+
+        <!-- Game Design Large -->
+        <div class="image-section">
+          <div class="image-container img-medium">
+            <img src="images/domino/mockup.png" alt="ColorADD domino game mockup">
+            <div class="image-caption">Complete Game Set</div>
+          </div>
+        </div>
+
+        <!-- Package Design -->
+        <div class="image-section double-row">
+          <div class="image-container img-tall">
+            <img src="images/domino/PNG/front.png" alt="Domino game front design">
+            <div class="image-caption">Package Front</div>
+          </div>
+          <div class="image-container img-tall">
+            <img src="images/domino/PNG/back.png" alt="Domino game back design">
+            <div class="image-caption">Package Back</div>
+          </div>
+        </div>
+
+        <!-- Prototype Development -->
+        <div class="image-section">
+          <div class="image-container img-medium">
+            <img src="images/domino/WhatsApp Image 2023-10-25 at 15.57.37.jpeg" alt="Domino game prototype">
+            <div class="image-caption">Prototype Development</div>
+          </div>
+        </div>
+
+        <!-- Game Components -->
+        <div class="image-section double-row">
+          <div class="image-container img-small">
+            <img src="images/domino/WhatsApp Image 2023-10-25 at 19.58.00.jpeg" alt="Domino pieces with ColorADD symbols">
+            <div class="image-caption">Symbol Integration</div>
+          </div>
+          <div class="image-container img-small">
+            <img src="images/domino/WhatsApp Image 2023-10-25 at 19.58.00 (1).jpeg" alt="Game packaging design">
+            <div class="image-caption">Packaging Details</div>
+          </div>
+        </div>
+
+        <!-- Final Product -->
+        <div class="image-section">
+          <div class="image-container img-large">
+            <img src="images/domino/mockup2.png" alt="Complete domino game set">
+            <div class="image-caption">Final Product Showcase</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <nav>
-    <div class="nav-container">
-      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
-      <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#design-system">Design System</a></li>
-        <li><a href="#applications">Applications</a></li>
-        <li><a href="#process">Process</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <section class="hero fade-in">
-      <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
-      <h1 class="hero-title fade-in">ColorADD Domino: Inclusive Game Design for Color Blind Players</h1>
-      <p class="hero-description lead fade-in">
-        A professional collaboration with ColorADD to reinvent the classic domino game, making it accessible for color blind players through innovative visual symbols and inclusive design principles.
-         <br>
-        <i>third semester of university, 2023</i>
-      </p>
-      <div class="hero-tags fade-in">
-        <span>Game Design</span>
-        <span>Accessibility</span>
-        <span>ColorADD System</span>
-        <span>Inclusive Design</span>
-      </div>
-    </section>
-
-    <section class="video-showcase fade-in">
-      <div class="video-container">
-        <video 
-          src="images/domino/Artboard 3_3.mp4" 
-          autoplay 
-          muted 
-          loop 
-          playsinline>
-        </video>
-      </div>
-    </section>
-
-    <div class="main-content">
-      <article class="article-section fade-in" id="overview">
-        <aside class="section-meta fade-in">
-          <div class="section-number">01 / Overview</div>
-          <h2>The Challenge</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">ColorADD is a revolutionary company that developed a colorblind alphabet system to make the world more accessible. After successfully implementing their system in games like UNO, they partnered with us to reinvent the classic domino game for color blind players.</p>
-
-          <p>This professional project gave us the incredible opportunity to work directly with Miguel Neiva, the founder of ColorADD who is also colorblind himself. His personal experience and vision guided our design process as we reimagined how dominoes could be played by everyone, regardless of color vision.</p>
-
-          <p>The ColorADD system uses simple, intuitive symbols that represent colors, creating a universal language that makes color-coded games accessible to the 350 million people worldwide who experience color blindness. Our challenge was to integrate this system seamlessly into the domino game while maintaining the classic gameplay experience.</p>
-     
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container wide">
-                <img src="images/domino/PNG/logo.png" class="zoomable" alt="ColorADD domino logo design">
-              </div>
-              <div class="image-container wide">
-                <img src="images/domino/coloradd logo.png" class="zoomable" alt="ColorADD symbol system">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container tall">
-                <img src="images/domino/PNG/front.png" class="zoomable" alt="Domino game front design">
-              </div>
-              <div class="image-container tall">
-                <img src="images/domino/PNG/back.png" class="zoomable" alt="Domino game back design">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <div class="quote-section fade-in">
-        <blockquote class="quote">"Color is for Everyone!"</blockquote>
-        <cite class="quote-author">Miguel Neiva, ColorADD Founder</cite>
-      </div>
-
-      <article class="article-section fade-in" id="design-system">
-        <aside class="section-meta fade-in">
-          <div class="section-number">02 / Design System</div>
-          <h2>ColorADD Implementation</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">The ColorADD system transforms traditional color-based games into inclusive experiences through a carefully designed symbol alphabet that represents different colors and their combinations.</p>
-
-          <h3>Symbol System</h3>
-          <p>Each domino piece features both the traditional colored dots and the corresponding ColorADD symbols. This dual approach allows color blind players to participate fully while maintaining the familiar visual experience for all players. The symbols are strategically placed to be easily readable without disrupting the classic domino aesthetic.</p>
-
-          <h3>Game Mechanics</h3>
-          <p>The game maintains all traditional domino rules while adding the ColorADD symbols as the primary identification method. Players can now match pieces based on symbols rather than relying solely on color recognition, opening up the game to a much wider audience.</p>
-
-          <div class="color-palette fade-in">
-            <div class="color-swatch color-purple">#9d1d96</div>
-            <div class="color-swatch color-blue">#004a98</div>
-            <div class="color-swatch color-green">#00a887</div>
-            <div class="color-swatch color-yellow">#ffdd00</div>
-            <div class="color-swatch color-orange">#ff5100</div>
-            <div class="color-swatch color-red">#f5333f</div>
-          </div>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/domino/mockup.png" class="zoomable" alt="ColorADD domino game mockup">
-              </div>
-            </div>
-
-
-                 <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/domino/WhatsApp Image 2023-10-25 at 15.57.37.jpeg" class="zoomable" alt="Domino game prototype">
-              </div>
-             </div>
-      
-
-   <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/domino/WhatsApp Image 2023-10-25 at 19.58.00 (1).jpeg" class="zoomable" alt="Game packaging design">
-              </div>
-                    </div>
-                       <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/domino/WhatsApp Image 2023-10-25 at 19.58.00.jpeg" class="zoomable" alt="Domino pieces with ColorADD symbols">
-              </div>
-            </div>
-
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/domino/mockup2.png" class="zoomable" alt="Complete domino game set">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="process">
-        <aside class="section-meta fade-in">
-          <div class="section-number">03 / Process</div>
-          <h2>Design Journey</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">Working directly with Miguel Neiva, the founder of ColorADD, was an incredible experience. Having the opportunity to collaborate with someone who not only created this revolutionary system but also experiences color blindness firsthand brought invaluable insights to our design process.</p>
-
-          <p>This professional project challenged us to think beyond traditional game design and consider accessibility as a core design principle rather than an afterthought. Miguel's guidance helped us understand the real-world impact of inclusive design and how small changes can open up entire experiences to new audiences.</p>
-
-          <p>The project deepened our understanding of universal design principles and showed us how innovation can come from addressing real human needs. Seeing the ColorADD system in action and working to implement it in dominoes was both educational and inspiring.</p>
-
-          <div class="process-grid fade-in">
-            <div class="process-item">
-              <div class="process-number">01</div>
-              <h3>Research & Understanding</h3>
-              <p>Learning about color blindness and the ColorADD system through direct collaboration with Miguel Neiva. Understanding the challenges faced by color blind players and how the symbol system addresses these barriers.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">02</div>
-              <h3>Symbol Integration</h3>
-              <p>Developing methods to seamlessly integrate ColorADD symbols into traditional domino design. Testing various placement options and sizes to ensure readability while maintaining aesthetic appeal.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">03</div>
-              <h3>Game Testing</h3>
-              <p>Prototyping and testing the new domino design with both color blind and non-color blind players. Iterating based on feedback to ensure the game remained intuitive and enjoyable for all players.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">04</div>
-              <h3>Final Implementation</h3>
-              <p>Refining the final design and creating comprehensive game instructions that incorporate both traditional color-based and symbol-based gameplay explanations.</p>
-            </div>
-          </div>
-
-          <p>The project taught us that inclusive design isn't just about accommodation—it's about creating better experiences for everyone. The ColorADD symbols actually made the game easier to play in low-light conditions and helped all players identify pieces more quickly.</p>
-
-          <p>This collaboration with ColorADD and Miguel Neiva opened our eyes to the power of design to create meaningful change. It reinforced our belief that good design should be accessible to everyone, not just a privileged few.</p>
-        </div>
-      </article>
-    </div>
-  </main>
-
   <script>
-    // Scroll progress indicator
-    window.addEventListener('scroll', () => {
-      const scrollProgress = document.querySelector('.scroll-progress');
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-      scrollProgress.style.width = scrollPercent + '%';
-    });
-
-    // Fade in animation on scroll
+    // Fade in animation for visible elements
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -236,89 +486,32 @@
       });
     }, observerOptions);
 
-    // Observe all fade-in elements
     document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
-  </script>
-   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('.zoomable');
-    const overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <button id="lightbox-close">×</button>
-      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
-      <img id="lightbox-img" src="" alt="">
-      <button class="lightbox-arrow" id="lightbox-next">›</button>
-    `;
-    document.body.appendChild(overlay);
 
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const nextBtn = document.getElementById('lightbox-next');
-    const prevBtn = document.getElementById('lightbox-prev');
-
-    let currentIndex = 0;
-    const imageArray = Array.from(images);
-
-    function showImage(index) {
-      const img = imageArray[index];
-      lightboxImg.src = img.src;
-      currentIndex = index;
-      overlay.style.display = 'flex';
-    }
-
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        showImage(index);
+    // Image hover effects
+    document.querySelectorAll('.image-container').forEach(container => {
+      container.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'transform 0.3s ease';
+      });
+      
+      container.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
       });
     });
-
-    closeBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      lightboxImg.src = '';
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % imageArray.length;
-      showImage(currentIndex);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-      showImage(currentIndex);
-    });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = 'none';
-        lightboxImg.src = '';
-      }
-    });
-  });
-</script>
-
-<div class="circle-cursor"></div>
-
-<script src="script.js"></script>  
-<script src="fullgallery.js"></script>
-
-
+  </script>
 </body>
 </html>
-

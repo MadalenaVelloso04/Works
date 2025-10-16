@@ -3,586 +3,747 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descarrilados Animation</title>
-     <link rel="stylesheet" href="descarrilados.css">
-      <style>
-      @font-face {
-  font-family: 'GW Bantley';
-  src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-}
-        .different-letter {
-            font-family: GW Bantley;
-            src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-            font-size: 16vw;
-            font-weight: lighter;
-            color: #ca2929;
-        }
-    </style>
-</head>
-<body>
+  <title>Descarrilados</title>
+  <style>
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* SPLIT SCREEN CONTAINER */
+    .split-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 60%;
+      margin-left: 40%;
+      background-color: #000;
+      min-height: 100vh;
+    }
+
   
-  <div class="scroll-indicator">
-    <div class="scroll-progress"></div>
-  </div>
 
-  <nav>
-    <div class="nav-container">
-      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
-      <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#synopsis">Synopsis</a></li>
-        <li><a href="#environments">Environments</a></li>
-        <li><a href="#characters">Characters</a></li>
-        <li><a href="#merchandise">Merchandise</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-      </ul>
-    </div>
-  </nav>
+    .project-title {
+      padding-top: 40px;
+      font-size: clamp(1.8rem, 2vw, 3rem);
+      font-weight: 400;
+      line-height: 0.9;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
 
-  <main>
-       <section class="hero fade-in">
-      <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
-      <h1 class="hero-title fade-in">Descarrilados: A Historical Animation</h1>
-      <p class="hero-description lead fade-in">
-       Descarrilados, meaning "derailed," is a fantasy grounded in historical reality—a story for us, 
-       but a lived experience for those who endured these dark times. 
-       This animation serves as both an illustrative and educational work about Portugal's oppressive dictatorship 
-       under António de Oliveira Salazar.
-        <br>
-        <i>Fifth semester of university, 2024</i>
-      </p>
-          <div class="hero-tags fade-in">
-        <span>Blender</span>
-        <span>Adobe Illustrator</span>
-        <span>Adobe Premiere</span>
-        <span>Adobe After Effects</span>
+    .project-subtitle {
+      font-size: 12px;
+      color: #ca2929;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 11px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 350px;
+      color: #cccccc;
+    }
+
+    .project-description strong {
+      color: #ffffff;
+    }
+
+    /* NAVIGATION */
+      .back-link {
+      font-family: 'minecraft';
+      font-size: 10px;
+      position: fixed;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      margin-bottom: 30px;
+      color: #ffffff;
+      z-index: 100;
+    }
+
+    .back-link:hover {
+      color: #ca2929;
+    }
+
+    /* SECTIONS LIST */
+    .sections-list {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .section-link {
+      font-size: 11px;
+      text-decoration: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      display: block;
+      font-weight: 400;
+    }
+
+    .section-link:hover {
+      color: #ca2929;
+    }
+
+    .section-link.active {
+      color: #ca2929;
+      font-weight: 600;
+    }
+
+    /* TECHNICAL INFO PANEL */
+    .tech-info {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: rgba(202, 41, 41, 0.1);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    .tech-info.active {
+      max-height: 300px;
+      padding: 10px;
+    }
+
+    .tech-label {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #ca2929;
+    }
+
+    .tech-content {
+      font-size: 10px;
+      line-height: 1.4;
+      color: #cccccc;
+    }
+
+    .tech-section {
+      margin-bottom: 8px;
+    }
+
+    /* PROJECT META */
+    .project-meta {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+    }
+
+    .meta-section {
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #ca2929;
+    }
+
+    .meta-content {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #cccccc;
+    }
+
+    .meta-content a {
+      color: #ca2929;
+      text-decoration: none;
+    }
+
+    .meta-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* RIGHT PANEL - GALLERY */
+    .gallery {
+      padding: 0;
+    }
+
+    .image-section {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .video-container,
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .video-container:hover,
+    .image-container:hover {
+      opacity: 0.9;
+    }
+
+    .video-container video,
+    .image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background-color: #000;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 56.25vw; /* 16:9 aspect ratio for 60% width panel */
+      max-height: 70vh;
+      border: 0;
+    }
+
+    /* Remove all grid layouts - everything stacks */
+    .double-row,
+    .grid-row,
+    .grid-3,
+    .grid-4 {
+      display: block;
+    }
+
+    .double-row .video-container,
+    .double-row .image-container,
+    .grid-row .video-container,
+    .grid-row .image-container,
+    .grid-3 .video-container,
+    .grid-3 .image-container,
+    .grid-4 .video-container,
+    .grid-4 .image-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    /* Remove height classes - let content determine height */
+    .img-hero,
+    .img-tall,
+    .img-large,
+    .img-medium,
+    .img-small,
+    .img-wide {
+      height: auto;
+    }
+
+    /* Special case for iframe containers */
+    .video-container.img-hero iframe {
+      height: 70vh;
+    }
+
+    /* CAPTIONS */
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 6px 10px;
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+    }
+
+    .image-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(202, 41, 41, 0.8);
+      padding: 4px 8px;
+      border-radius: 2px;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .left-panel {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 30px 20px;
+      }
+
+      .right-panel {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .img-hero,
+      .img-tall,
+      .img-large,
+      .img-medium {
+        height: 50vh;
+      }
+
+      .img-small,
+      .img-wide {
+        height: 40vh;
+      }
+
+      .double-row,
+      .grid-row,
+      .grid-3,
+      .grid-4 {
+        display: block;
+      }
+
+      .double-row .video-container,
+      .double-row .image-container {
+        width: 100%;
+      }
+    }
+
+    /* CUSTOM SCROLLBAR */
+    .left-panel::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .left-panel::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb {
+      background: #ca2929;
+      border-radius: 1px;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb:hover {
+      background: #ff4444;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="split-container">
+    <!-- LEFT PANEL - PROJECT INFO -->
+    <div class="left-panel">
+      <div class="content-top">
+        <a href="./projects.html" class="back-link">← Back to Projects</a>
+        
+        
+        <h1 class="project-title">
+          Descarrilados
+        </h1>
+        
+        <div class="project-subtitle">A Historical Animation</div>
+        
+        <p class="project-description">
+          <strong>Descarrilados</strong>, meaning "derailed," is a fantasy grounded in historical reality—a story for us, but a lived experience for those who endured these dark times. This animation serves as both an illustrative and educational work about Portugal's oppressive dictatorship under António de Oliveira Salazar.
+          <br><br>
+          <em>Fifth semester of university, 2024</em>
+        </p>
+
+        <!-- SECTIONS LIST -->
+        <div class="sections-list">
+          <div class="section-item">
+            <a href="#video" class="section-link" data-target="video">01. Film Showcase</a>
+            <div class="tech-info" id="tech-video">
+              <div class="tech-section">
+                <div class="tech-label">Duration</div>
+                <div class="tech-content">5 minutes short film</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">3D Animation with 2D cartoon shaders</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <a href="#overview" class="section-link" data-target="overview">02. Overview</a>
+            <div class="tech-info" id="tech-overview">
+              <div class="tech-section">
+                <div class="tech-label">Theme</div>
+                <div class="tech-content">Historical Education, Salazar Dictatorship</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Approach</div>
+                <div class="tech-content">Fantasy narrative with historical grounding</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <a href="#synopsis" class="section-link" data-target="synopsis">03. Synopsis</a>
+            <div class="tech-info" id="tech-synopsis">
+              <div class="tech-section">
+                <div class="tech-label">Setting</div>
+                <div class="tech-content">Cold November night, 1950s Portugal</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Theme</div>
+                <div class="tech-content">Freedom, Surveillance, Resistance</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <a href="#environments" class="section-link" data-target="environments">04. Environments</a>
+            <div class="tech-info" id="tech-environments">
+              <div class="tech-section">
+                <div class="tech-label">Locations</div>
+                <div class="tech-content">Santa Apolónia Station, Foguete Train, Vibrant Bar, The Maze</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Era</div>
+                <div class="tech-content">1950s Lisbon Architecture</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <a href="#characters" class="section-link" data-target="characters">05. Characters</a>
+            <div class="tech-info" id="tech-characters">
+              <div class="tech-section">
+                <div class="tech-label">Design</div>
+                <div class="tech-content">Faceless characters, Card symbolism</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Main Cast</div>
+                <div class="tech-content">King of Spades, Queen of Hearts, Jack of Clubs, PIDE Agents</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <a href="#merchandise" class="section-link" data-target="merchandise">06. Merchandise</a>
+            <div class="tech-info" id="tech-merchandise">
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Saul Bass-inspired minimalism</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Colors</div>
+                <div class="tech-content">Red (revolution) & Dark Blue (uncertainty)</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
 
-<section class="video-showcase fade-in">
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/nYgMkVOu4sQ?si=mXMUUYudpHGsw3IJ" 
-      title="Descarrilados - Short Film"
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-
-
-
-    <div class="main-content">
-      <article class="article-section fade-in" id="overview">
-        <aside class="section-meta fade-in">
-          <div class="section-number">01 / Overview</div>
-          <h2>Project Overview</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">The piece reflects on the decades in which Portugal was subjected to the oppressive dictatorship of António de Oliveira Salazar, under which freedom of speech and action were stifled.</p>
-
-          <p>This animation serves as both an illustrative and educational work, aiming to capture the absurdity and suffocating nature of such repression through a fantastical lens. In this short film, we sought to convey the weight of these restrictions and the absurdity of life under authoritarian rule, creating a narrative that is impactful and accessible to new generations.</p>
-
-          <p><strong>Tools Used:</strong> Blender, Adobe Premiere Pro, Adobe After Effects, Adobe Illustrator, Procreate</p>
-          <p><strong>Project Duration:</strong> University 4th semester 2024</p>
-          
-          <p><a href="https://youtu.be/nYgMkVOu4sQ" target="_blank">Watch the Video</a><br>
-            <a href="https://youtu.be/4AEKNLgsZKQ" target="_blank">Watch the Trailer</a></p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <video src="images/squaredfrontview.mp4" class="zoomable" alt="hero video" autoplay muted loop></video>
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-               <video src="images/staticpide copy.mp4" class="zoomable" alt="shadows" autoplay muted loop></video>
-              </div>
-              <div class="image-container square">
-              <video src="images/estacao2 copy.mp4" class="zoomable" alt="estação2" autoplay muted loop></video>
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <video src="images/ani12 copy.mp4" class="zoomable" alt="ani12" autoplay muted loop></video>
-              </div>
-              <div class="image-container square">
-                <video src="images/animation1.1.mp4" class="zoomable" alt="animation" autoplay muted loop></video>
-              </div>
-            </div>
+      <div class="project-meta">
+        <div class="meta-section">
+          <div class="meta-label">Links</div>
+          <div class="meta-content">
+            <a href="https://youtu.be/nYgMkVOu4sQ" target="_blank">Watch Film</a><br>
+            <a href="https://youtu.be/4AEKNLgsZKQ" target="_blank">Watch Trailer</a>
           </div>
         </div>
-      </article>
 
-      <article class="article-section fade-in" id="synopsis">
-        <aside class="section-meta fade-in">
-          <div class="section-number">02 / Synopsis</div>
-          <h2>Short Movie Synopsis</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">It's a cold November night, and the city lies still. Few people are out, few lights remain—but Salazar's eyes and ears are everywhere, alert for anyone who dares to cross the line, to speak forbidden thoughts.</p>
-
-          <p>On this winter night, two friends risk everything. Memories resurface, emotions stir, and a shared longing to break free takes hold. They sit down to play a simple game of cards, but each hand dealt and every word spoken carries weight. In this game, they discover just how dangerous a conversation can be, how it has the power to spark change—and why Salazar fights so hard to silence it. But where can they go now? Is there any place left to hide?</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <video src="images/coupleleft copy.mp4" class="zoomable" alt="couple scene" autoplay muted loop></video>
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <video src="images/0001-0090_001 copy.mp4" class="zoomable"  alt="scene 1" autoplay muted loop></video>
-              </div>
-              <div class="image-container square">
-                <video src="images/0001-0200 copy.mp4" class="zoomable" alt="scene 2" autoplay muted loop></video>
-              </div>
-            </div>
+        <div class="meta-section">
+          <div class="meta-label">Tools</div>
+          <div class="meta-content">
+            Blender<br>
+            Adobe Premiere Pro<br>
+            Adobe After Effects<br>
+            Adobe Illustrator<br>
+            Procreate
           </div>
         </div>
-      </article>
 
-      <article class="article-section fade-in" id="environments">
-        <aside class="section-meta fade-in">
-          <div class="section-number">03 / Environments</div>
-          <h2>Concept and Creation of the Sets</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">I'll introduce the three main environments that set the stage for our story, each carefully crafted to reflect the historical essence of the era we're representing. Modeled entirely in Blender, these spaces capture the details and atmosphere of 1950s Lisbon with precision.</p>
-
-          <h3>Santa Apolónia Train Station</h3>
-          <p>First, there's the Santa Apolónia train station in Lisbon, carefully modeled to embody its 1950s architecture. This is where the journey begins, as the characters board the "Foguete," a train inspired by the historic 1953 Lisbon-to-Porto express.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <video src="images/estacao 4.1 copy.mp4" class="zoomable" alt="train station" autoplay muted loop></video>
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/station renders/render_1.2.webp" class="zoomable" alt="station render 1">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/station renders/render_1.png" class="zoomable" alt="station render 2">
-              </div>
-            </div>
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/station renders/wireframe/wireframe_1.webp" class="zoomable" alt="station wireframe">
-              </div>
-            </div>
-          </div>
-
-          <h3>The Foguete Train</h3>
-          <p>In addition you can see here the replica of the "Foguete" in full display.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/rendercomboio2.webp" class="zoomable" alt="train render 1">
-              </div>
-              <div class="image-container square">
-                <img src="images/rendercomboio3.webp" class="zoomable" alt="train render 2">
-              </div>
-            </div>
-          </div>
-
-          <h3>The Vibrant Bar</h3>
-          <p>The journey then shifts to a lively, vibrant bar—a gateway into the surreal card world. With a colorful, vintage cartoon aesthetic, this setting contrasts sharply with the grounded realism of the train station, adding a playful, nostalgic layer to the story.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_render_1-png_2024-11-05_2342/render_1.png" class="zoomable" alt="bar render 1">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_render_1-png_2024-11-05_2342/render_2.png" class="zoomable" alt="bar render 2">
-              </div>
-            </div>
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_render_1-png_2024-11-05_2342/wireframe_2.png" class="zoomable" alt="bar wireframe">
-              </div>
-            </div>
-          </div>
-
-          <h3>The Maze</h3>
-          <p>Finally, the narrative reaches a maze that bridges reality with the card world. Both the bar and the maze are rendered with shaders to maintain a whimsical, animated style, turning the characters into the King, Queen, and Jack, and casting a fantastical glow over their journey. Through these environments, the chapter seamlessly merges grounded historical elements with imaginative storytelling, drawing readers into a captivating world.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/maze renders/render_1.webp" class="zoomable" alt="maze render 1">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/maze renders/render_2.webp" class="zoomable" alt="maze render 2">
-              </div>
-            </div>
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/maze renders/wireframes/wireframe_2.webp" class="zoomable" alt="maze wireframe">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="characters">
-        <aside class="section-meta fade-in">
-          <div class="section-number">04 / Characters</div>
-          <h2>Character Design</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">The animation features six faceless characters, each designed to represent broader themes. Their lack of faces symbolizes the universality of their roles, helping the audience connect with the story.</p>
-
-          <p>For example, the King, Queen, and two men on the train represent the Portuguese people's fight for freedom, while the Jack and the PIDE agents embody the oppressive regime. In the final render, the main characters—King of Spades, Queen of Hearts, and Jack of Clubs—are enhanced with 2D cartoon-like shaders, giving the animation a unique, stylized look.</p>
-
-          <h3>Jack of Clubs</h3>
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_king_ca-png_2024-10-25_1630/jack_ca.png" class="zoomable" alt="Jack character art">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/jack (pide) renders/colours_edited.webp" class="zoomable" alt="Jack colors">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/jack (pide) renders/jack_shaders_renders.webp" class="zoomable" alt="Jack shaders">
-              </div>
-            </div>
-          </div>
-
-          <h3>King of Spades</h3>
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_king_ca-png_2024-10-25_1630/king_ca.png" class="zoomable" alt="King character art">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/king renders/colors.webp" class="zoomable" alt="King colors">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/king renders/shaders.webp" class="zoomable" alt="King shaders">
-              </div>
-            </div>
-          </div>
-
-          <h3>Queen of Hearts</h3>
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_king_ca-png_2024-10-25_1630/queen_ca.png" class="zoomable" alt="Queen character art">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/queen_renders/colors_edited.webp" class="zoomable" alt="Queen colors">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/queen_renders/queen_shaders.webp" class="zoomable" alt="Queen shaders">
-              </div>
-            </div>
-          </div>
-
-          <h3>PIDE Agent</h3>
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/wetransfer_king_ca-png_2024-10-25_1630/pide_ca.png" class="zoomable" alt="PIDE character art">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/pide gorda renders/mesh_edited.webp" class="zoomable" alt="PIDE mesh">
-              </div>
-              <div class="image-container square">
-                <img src="images/wetransfer_queen_renders_2024-10-10_1123/pide gorda renders/textures_colours.webp" class="zoomable" alt="PIDE textures">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="merchandise">
-        <aside class="section-meta fade-in">
-          <div class="section-number">05 / Merchandise</div>
-          <h2>Merch Overview</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">To promote our video, we created a visually striking A3 poster and an A4 flyer, inspired by the minimalist aesthetic of Saul Bass.</p>
-
-          <p>The poster incorporates elements from the animation, with a bold color scheme of red and dark blue. Red represents the revolution, while dark blue evokes the uncertainty of the 1950s. The design is clean and geometric, with sharp contrasts and simplified visuals reminiscent of Bass's iconic style.</p>
-
-          <p>It includes key details like the title, event location (Escola Secundária Marquês de Pombal), date (coming in July), and the producer (Entrelinhas). The A4 flyer, which folds into A5, mirrors the poster's color scheme and design language. It uses light grey for text, maintaining a minimalist feel. The flyer offers more detailed information, with an added eye symbol—drawing from Bass's symbolic imagery—representing the regime's constant surveillance.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/posterdescarrilados.webp" class="zoomable" alt="Main poster">
-              </div>
-            </div>
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/frontrightflyer.webp" class="zoomable" alt="Flyer design">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/frontclosedflyers.webp" class="zoomable" alt="Closed flyers">
-              </div>
-              <div class="image-container square">
-                <img src="images/openflyer.webp" class="zoomable" alt="Open flyer">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/backflyer@33.33x Large.webp" class="zoomable" alt="Back flyer">
-              </div>
-              <div class="image-container square">
-                <img src="images/Cropped_T-Shirt_Mockup.webp" class="zoomable" alt="T-shirt front">
-              </div>
-            </div>
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/T-Shirt Mock-Up Back.webp" class="zoomable" alt="T-shirt back">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="gallery">
-        <aside class="section-meta fade-in">
-          <div class="section-number">06 / Gallery</div>
-          <h2>Photo Gallery</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">Behind the scenes moments and additional imagery from the production process.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/DF1.webp" class="zoomable" alt="Behind the scenes 1">
-              </div>
-              <div class="image-container square">
-                <img src="images/DF3.webp" class="zoomable" alt="Behind the scenes 2">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/DF4.webp" class="zoomable" alt="Behind the scenes 3">
-              </div>
-              <div class="image-container square">
-                <img src="images/DF5.webp" class="zoomable" alt="Behind the scenes 4">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/WebP/DM1.webp" class="zoomable" alt="Process 1">
-              </div>
-              <div class="image-container square">
-                <img src="images/WebP/DM2.webp" class="zoomable" alt="Process 2">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/WebP/DM3.webp" class="zoomable" alt="Process 3">
-              </div>
-              <div class="image-container square">
-                <img src="images/WebP/DM4.webp" class="zoomable" alt="Process 4">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/WebP/DM5.webp" class="zoomable" alt="Process 5">
-              </div>
-              <div class="image-container square">
-                <img src="images/WebP/DM6.webp" class="zoomable" alt="Process 6">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/WebP/DM7.webp" class="zoomable" alt="Process 7">
-              </div>
-              <div class="image-container square">
-                <img src="images/WebP/DM8.webp" class="zoomable" alt="Process 8">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="article-section fade-in" id="credits">
-        <aside class="section-meta fade-in">
-          <div class="section-number">07 / Credits</div>
-          <h2>Credits</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">A collaborative effort by a talented team of students and creators.</p>
-
+        <div class="meta-section">
+          <div class="meta-label">Team</div>
+          <div class="meta-content">
+            Collaborative university project<br>
+            5 students, multiple disciplines<br>
+            Character design, Environment modeling,<br>
+            Animation, Sound design
+<br>
+<br>
           <p><strong>Storytelling</strong> - Everyone<br>
-          <strong>Character Sketching</strong> - Madalena Velloso & Mariana Anastácio<br>
-          <strong>Environment Sketching</strong> - Mariana Anastácio & Madalena Velloso<br>
-          <strong>Concept art</strong> - Mariana Anastácio<br>
-          <strong>Trailer</strong> - Mariana Anastácio<br>
+          <strong>Character Sketching</strong> - Madalena Velloso & Mariana Anastá¡cio<br>
+          <strong>Environment Sketching</strong> - Mariana Anastá¡cio & Madalena Velloso<br>
+          <strong>Concept art</strong> - Mariana Anastá¡cio<br>
+          <strong>Trailer</strong> - Mariana Anastá¡cio<br>
           <strong>King of Spades Modelling</strong> - Leonor Pinto<br>
           <strong>Queen of Hearts Modelling</strong> - Carolina Figueiredo<br>
           <strong>Jack of Clubs Modelling</strong> - Madalena Velloso<br>
           <strong>PIDE Modelling</strong> - Carolina Figueiredo & Madalena Velloso<br>
-          <strong>Men on the Station Modelling</strong> - Mariana Anastácio & Mariana Maciel<br>
-          <strong>Men on the Train Modelling</strong> - Mariana Anastácio & Mariana Maciel<br>
-          <strong>Train Station Modelling</strong> - Mariana Anastácio<br>
-          <strong>Train Modelling</strong> - Mariana Maciel & Mariana Anastácio<br>
+          <strong>Men on the Station Modelling</strong> - Mariana Anastá¡cio & Mariana Maciel<br>
+          <strong>Men on the Train Modelling</strong> - Mariana Anastá¡cio & Mariana Maciel<br>
+          <strong>Train Station Modelling</strong> - Mariana Anastá¡cio<br>
+          <strong>Train Modelling</strong> - Mariana Maciel & Mariana Anastá¡cio<br>
           <strong>Bar Modelling</strong> - Madalena Velloso<br>
           <strong>Maze Modelling</strong> - Leonor Pinto<br>
-          <strong>3D Animation</strong> - Mariana Anastácio, Carolina Figueiredo, Madalena Velloso, Leonor Pinto & Mariana Maciel<br>
+          <strong>3D Animation</strong> - Mariana Anastá¡cio, Carolina Figueiredo, Madalena Velloso, Leonor Pinto & Mariana Maciel<br>
           <strong>Sound Design</strong> - Mariana Maciel & Madalena Velloso<br>
-          <strong>Soundtrack Selection</strong> - Mariana Anastácio<br>
-          <strong>Title Design</strong> - Mariana Anastácio<br>
+          <strong>Soundtrack Selection</strong> - Mariana Anastá¡cio<br>
+          <strong>Title Design</strong> - Mariana Anastá¡cio<br>
           <strong>Poster Design</strong> - Madalena Velloso<br>
           <strong>Flyer Design</strong> - Madalena Velloso<br>
           <strong>T-shirt Design</strong> - Carolina Figueiredo & Mariana Maciel<br>
           <strong>Flyer & T-shirt Mockups</strong> - Carolina Figueiredo<br>
-          <strong>Renders for Project Showcase</strong> - Mariana Anastácio<br>
+          <strong>Renders for Project Showcase</strong> - Mariana Anastá¡cio<br>
           <strong>**Creative Tech Students developed a parallel Interactive experience with our 3d Models.</strong></p>
+          </div>
         </div>
-      </article>
+      </div>
     </div>
-  </main>
 
-  <footer>
-    <div class="main-content">
-      <p>Thank you for your time reading</p>
+    <!-- RIGHT PANEL - MEDIA GALLERY -->
+    <div class="right-panel">
+      <div class="gallery">
+        
+        <!-- Film Showcase -->
+        <div class="image-section" id="video">
+          <div class="video-container img-hero">
+            <iframe 
+              src="https://www.youtube.com/embed/nYgMkVOu4sQ?si=mXMUUYudpHGsw3IJ" 
+              title="Descarrilados - Short Film"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+            <div class="image-caption">Descarrilados - Historical Animation</div>
+            <div class="image-number">01/06</div>
+          </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div class="image-section" id="overview">
+          <div class="video-container img-large">
+            <video src="images/squaredfrontview.mp4" autoplay muted loop></video>
+            <div class="image-caption">Project Overview</div>
+            <div class="image-number">02/06</div>
+          </div>
+        </div>
+
+        <div class="image-section grid-row">
+          <div class="video-container img-medium">
+            <video src="images/staticpide copy.mp4" autoplay muted loop></video>
+          </div>
+          <div class="video-container img-medium">
+            <video src="images/estacao2 copy.mp4" autoplay muted loop></video>
+          </div>
+        </div>
+
+        <!-- Synopsis -->
+        <div class="image-section" id="synopsis">
+          <div class="video-container img-large">
+            <video src="images/coupleleft copy.mp4" autoplay muted loop></video>
+            <div class="image-caption">Story Synopsis - Two Friends Risk Everything</div>
+            <div class="image-number">03/06</div>
+          </div>
+        </div>
+
+        <div class="image-section grid-row">
+          <div class="video-container img-medium">
+            <video src="images/0001-0090_001 copy.mp4" autoplay muted loop></video>
+          </div>
+          <div class="video-container img-medium">
+            <video src="images/0001-0200 copy.mp4" autoplay muted loop></video>
+          </div>
+        </div>
+
+        <!-- Environments -->
+        <div class="image-section" id="environments">
+          <div class="video-container img-large">
+            <video src="images/estacao 4.1 copy.mp4" autoplay muted loop></video>
+            <div class="image-caption">Santa Apolónia Train Station - 1950s Architecture</div>
+            <div class="image-number">04/06</div>
+          </div>
+        </div>
+
+        <div class="image-section grid-row">
+          <div class="image-container img-medium">
+            <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/station renders/render_1.2.webp" alt="Station Render">
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/rendercomboio2.webp" alt="Foguete Train">
+          </div>
+        </div>
+
+        <div class="image-section grid-row">
+          <div class="image-container img-medium">
+            <img src="images/wetransfer_render_1-png_2024-11-05_2342/render_1.png" alt="Vibrant Bar">
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/wetransfer_queen_renders_2024-10-10_1123/environment/maze renders/render_1.webp" alt="The Maze">
+          </div>
+        </div>
+
+        <!-- Characters -->
+        <div class="image-section" id="characters">
+          <div class="image-container img-tall">
+            <img src="images/wetransfer_king_ca-png_2024-10-25_1630/king_ca.png" alt="King of Spades">
+            <div class="image-caption">Character Design - King of Spades</div>
+            <div class="image-number">05/06</div>
+          </div>
+        </div>
+
+        <div class="image-section grid-3">
+          <div class="image-container img-medium">
+            <img src="images/wetransfer_king_ca-png_2024-10-25_1630/queen_ca.png" alt="Queen of Hearts">
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/wetransfer_king_ca-png_2024-10-25_1630/jack_ca.png" alt="Jack of Clubs">
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/wetransfer_king_ca-png_2024-10-25_1630/pide_ca.png" alt="PIDE Agent">
+          </div>
+        </div>
+
+        <div class="image-section grid-row">
+          <div class="video-container img-medium">
+            <video src="images/ani12 copy.mp4" autoplay muted loop></video>
+          </div>
+          <div class="video-container img-medium">
+            <video src="images/animation1.1.mp4" autoplay muted loop></video>
+          </div>
+        </div>
+
+        <!-- Merchandise -->
+        <div class="image-section" id="merchandise">
+          <div class="image-container img">
+            <img src="images/posterdescarrilados.webp" alt="Main Poster">
+            <div class="image-caption">Merchandise - Saul Bass Inspired Design</div>
+            <div class="image-number">06/06</div>
+          </div>
+        </div>
+
+        <div class="image-section grid-row">
+          <div class="image-container img-medium">
+            <img src="images/frontrightflyer.webp" alt="Flyer Design">
+          </div>
+          <div class="image-container img">
+            <img src="images/Cropped_T-Shirt_Mockup.webp" alt="T-shirt Design">
+          </div>
+        </div>
+
+        <div class="image-section">
+          <div class="image-container img-wide">
+            <img src="images/T-Shirt Mock-Up Back.webp" alt="T-shirt Back">
+          </div>
+        </div>
+
+      </div>
     </div>
-  </footer>
+  </div>
 
   <script>
-    // Scroll progress indicator
-    window.addEventListener('scroll', () => {
-      const scrollProgress = document.querySelector('.scroll-progress');
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-      scrollProgress.style.width = scrollPercent + '%';
-    });
+    // Section navigation functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const sectionLinks = document.querySelectorAll('.section-link');
+      const techInfos = document.querySelectorAll('.tech-info');
 
-    // Fade in animation on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+      sectionLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active class from all links
+          sectionLinks.forEach(l => l.classList.remove('active'));
+          
+          // Close all tech info panels
+          techInfos.forEach(info => info.classList.remove('active'));
+          
+          // Add active class to clicked link
+          this.classList.add('active');
+          
+          // Open corresponding tech info
+          const target = this.getAttribute('data-target');
+          const techPanel = document.getElementById(`tech-${target}`);
+          if (techPanel) {
+            techPanel.classList.add('active');
+          }
+          
+          // Scroll to target section
+          const targetSection = document.getElementById(target);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
       });
-    }, observerOptions);
 
-    // Observe all fade-in elements
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
+      // Auto-highlight active section on scroll
+      const sections = document.querySelectorAll('[id]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const correspondingLink = document.querySelector(`[data-target="${id}"]`);
+            if (correspondingLink) {
+              sectionLinks.forEach(l => l.classList.remove('active'));
+              correspondingLink.classList.add('active');
+            }
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50% 0px'
+      });
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+      sections.forEach(section => {
+        observer.observe(section);
       });
     });
   </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mediaItems = document.querySelectorAll('.zoomable');
-    const overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <button id="lightbox-close">×</button>
-      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
-      <div id="lightbox-content"></div>
-      <button class="lightbox-arrow" id="lightbox-next">›</button>
-    `;
-    document.body.appendChild(overlay);
-
-    const contentContainer = document.getElementById('lightbox-content');
-    const closeBtn = document.getElementById('lightbox-close');
-    const nextBtn = document.getElementById('lightbox-next');
-    const prevBtn = document.getElementById('lightbox-prev');
-
-    let currentIndex = 0;
-    const mediaArray = Array.from(mediaItems);
-
-    function showMedia(index) {
-      const media = mediaArray[index];
-      contentContainer.innerHTML = ''; // Clear previous content
-      currentIndex = index;
-      overlay.style.display = 'flex';
-
-      const isVideo = media.tagName.toLowerCase() === 'video';
-      if (isVideo) {
-        const video = document.createElement('video');
-        video.src = media.src;
-        video.controls = true;
-        video.autoplay = true;
-        video.style.maxWidth = '90vw';
-        video.style.maxHeight = '90vh';
-        contentContainer.appendChild(video);
-      } else {
-        const img = document.createElement('img');
-        img.src = media.src;
-        img.alt = '';
-        img.style.maxWidth = '90vw';
-        img.style.maxHeight = '90vh';
-        contentContainer.appendChild(img);
-      }
-    }
-
-    mediaItems.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        showMedia(index);
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      contentContainer.innerHTML = '';
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % mediaArray.length;
-      showMedia(currentIndex);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + mediaArray.length) % mediaArray.length;
-      showMedia(currentIndex);
-    });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = 'none';
-        contentContainer.innerHTML = '';
-      }
-    });
-  });
-</script>
-
 </body>
 </html>

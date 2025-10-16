@@ -3,254 +3,464 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K-AFE Brand Identity - A Contemporary Café Experience</title>
-     <link rel="stylesheet" href="k-afebrand.css">
-      <style>
-      @font-face {
-  font-family: 'GW Bantley';
-  src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-}
-        .different-letter {
-            font-family: GW Bantley;
-            src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-            font-size: 16vw;
-            font-weight: lighter;
-            color: #cc0000;
-        }
-    </style>
+  <title>Jóia de África - Product Design Project</title>
+  <style>
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000000;
+      color: #000000;
+      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* SPLIT SCREEN CONTAINER */
+    .split-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #ffffff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 60%;
+      margin-left: 40%;
+      background-color: #000;
+      min-height: 100vh;
+    }
+
+    /* LEFT PANEL TYPOGRAPHY */
+    .project-title {
+      padding-top: 40px;
+      font-size: clamp(2rem, 2vw, 3.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .project-subtitle {
+      font-size: 16px;
+      color: #000000;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 350px;
+      color: #2C251B;
+    }
+
+    /* PROJECT INFO */
+    .project-meta {
+      border-top: 1px solid #000000;
+      padding-top: 20px;
+    }
+
+    .meta-section {
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .meta-content {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #2C251B;
+    }
+
+    .meta-content.large {
+      font-size: 12px;
+      color: #2C251B;
+    }
+
+    /* NAVIGATION */
+     .back-link {
+      font-family: 'minecraft';
+      font-size: 10px;
+      position: fixed;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      margin-bottom: 30px;
+      color: #000;
+      z-index: 100;
+    }
+
+    .back-link:hover {
+      color: #cc0000;
+    }
+
+    /* RIGHT PANEL - GALLERY */
+    .gallery {
+      padding: 0;
+    }
+
+    .image-section {
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+
+    .image-container:hover {
+      opacity: 0.9;
+    }
+
+    .image-container img,
+    .image-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* DIFFERENT IMAGE HEIGHTS */
+    .img-hero {
+      height: 80vh;
+    }
+
+    .img-large {
+      height: 80vh;
+    }
+
+    .img-medium {
+      height: 60vh;
+    }
+
+    .img-small {
+      height: 40vh;
+    }
+
+    /* DOUBLE IMAGES */
+    .double-row {
+      display: flex;
+    }
+
+    .double-row .image-container {
+      width: 50%;
+    }
+
+    /* IMAGE CAPTIONS */
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 10px;
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .left-panel {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 30px 20px;
+      }
+
+      .right-panel {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .project-title {
+        font-size: 2.5rem;
+      }
+
+      .img-hero,
+      .img-large,
+      .img-medium {
+        height: 50vh;
+      }
+
+      .img-small {
+        height: 35vh;
+      }
+
+      .double-row {
+        flex-direction: column;
+      }
+
+      .double-row .image-container {
+        width: 100%;
+      }
+    }
+
+    /* MOBILE PORTRAIT */
+    @media (max-width: 480px) {
+      .left-panel {
+        padding: 20px 15px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-description {
+        font-size: 11px;
+        max-width: none;
+      }
+
+      .img-hero,
+      .img-large,
+      .img-medium,
+      .img-small {
+        height: 40vh;
+      }
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CUSTOM SCROLLBAR FOR LEFT PANEL */
+    .left-panel::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .left-panel::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 1px;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
 </head>
+
 <body>
-   
-  <div class="scroll-indicator">
-    <div class="scroll-progress"></div>
+  <div class="split-container">
+    <!-- LEFT PANEL - PROJECT INFO -->
+    <div class="left-panel">
+      <div class="content-top">
+        <a href="./projects.html" class="back-link">← Back to Projects</a>
+        
+        <h1 class="project-title">
+          K-AFE
+        </h1>
+        
+        <div class="project-subtitle">A Contemporary Café Experience</div>
+        
+        <p class="project-description">
+          A warm, minimalistic brand identity inspired by Korean café culture, featuring hand-drawn mascot coffee cups that embody comfort, coziness, and personal connection through thoughtful design and authentic storytelling.
+        </p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-section">
+          <div class="meta-label">Challenge</div>
+          <div class="meta-content large">
+            Creating a brand identity rooted in Korean café culture, emphasizing warmth and personal connection while maintaining a contemporary, minimalist aesthetic that feels both authentic and universally welcoming.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Solution</div>
+          <div class="meta-content large">
+            Hand-drawn mascot system with minimalist design principles. Three distinct coffee cup characters create emotional connection while clean layouts and warm colors ensure sophisticated approachability.
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Year</div>
+          <div class="meta-content">Personal Project, 2023</div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Type</div>
+          <div class="meta-content">
+            Brand Identity<br>
+            Visual System<br>
+            Mascot Design<br>
+            Product Applications
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Tools</div>
+          <div class="meta-content">
+            Adobe Photoshop<br>
+            Adobe Illustrator<br>
+            Hand Drawing<br>
+            Brand Strategy
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Colors</div>
+          <div class="meta-content">
+            #cc0000 Warm Red<br>
+            #fffcf2 Cream Beige<br>
+            #000000 Deep Black<br>
+            Minimalist Palette
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL - IMAGE GALLERY -->
+    <div class="right-panel">
+      <div class="gallery">
+        <!-- Hero Image -->
+        <div class="image-section">
+          <div class="image-container img-hero">
+            <img src="images/INSTAGRAMK-AFE/cafe.png" alt="K-AFE brand overview">
+            <div class="image-caption">Brand Identity</div>
+          </div>
+        </div>
+
+        <!-- Brand System -->
+        <div class="image-section">
+          <div class="image-container img-large">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/bc.jpeg" alt="Brand foundation">
+            <div class="image-caption">Visual System</div>
+          </div>
+        </div>
+
+        <!-- Mascot & Key Elements -->
+        <div class="image-section double-row">
+          <div class="image-container img-medium">
+            <video src="images/INSTAGRAMK-AFE/PNG/sticker2 copy.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/INSTAGRAMK-AFE/key.png" alt="Key brand elements">
+          </div>
+        </div>
+
+        <!-- Color Palette -->
+        <div class="image-section">
+          <div class="image-container img-medium">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/colorpallete copy.png" alt="Color system">
+            <div class="image-caption">Color Philosophy</div>
+          </div>
+        </div>
+
+        <!-- Business Cards -->
+        <div class="image-section">
+          <div class="image-container img-small">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/card2.jpeg" alt="Business card design">
+          </div>
+        </div>
+
+        <!-- Merchandise Applications -->
+        <div class="image-section double-row">
+          <div class="image-container img-small">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/tshirtmockup.jpeg" alt="T-shirt design">
+          </div>
+          <div class="image-container img-small">
+            <img src="images/INSTAGRAMK-AFE/frontstore.png" alt="Store front">
+          </div>
+        </div>
+
+        <!-- Product Applications -->
+        <div class="image-section double-row">
+          <div class="image-container img-medium">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/Bendito_Mockup-CMB-Free-Coffee_Holder.jpg" alt="Coffee holder">
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/banner.jpeg" alt="Banner design">
+          </div>
+        </div>
+
+        <!-- Promotional Materials -->
+        <div class="image-section double-row">
+          <div class="image-container img-small">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/Mupimockup.jpeg" alt="Poster design">
+          </div>
+          <div class="image-container img-small">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/stickers1.jpeg" alt="Sticker collection">
+          </div>
+        </div>
+
+        <!-- Digital Applications -->
+        <div class="image-section double-row">
+          <div class="image-container img-medium">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/homepagered.jpeg" alt="Homepage design">
+          </div>
+          <div class="image-container img-medium">
+            <img src="images/INSTAGRAMK-AFE/behancek-afe/menumockup.jpeg" alt="Menu design">
+            <div class="image-caption">Digital Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <nav>
-    <div class="nav-container">
-      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
-      <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#identity">Identity</a></li>
-        <li><a href="#applications">Applications</a></li>
-        <li><a href="#process">Process</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-
-    <section class="hero fade-in">
-      <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
-      <h1 class="hero-title fade-in">K-AFE: Embracing Korean Café Comfort</h1>
-      <p class="hero-description lead fade-in">A warm, minimalistic brand identity inspired by Korean café culture, featuring hand-drawn mascot coffee cups that embody comfort, coziness, and personal connection.
-         <br>
-        <i>Personal Project, 2023</i>
-      </p>
-         <div class="hero-tags fade-in">
-        <span>Adobe Photoshop</span>
-        <span>Adobe Illustrator</span>
-      </div>
-    </section>
-        
-    <section>
-            <div class="grid-full">
-       <div class="image-grid fade-in">
-        <div class="image-container alone">
-            <img src="images/INSTAGRAMK-AFE/cafe.png" class="zoomable" alt="Coffee brewing process">
-        </div>   
-        </div>    
-        </div>
-    </section>
-
-    <div class="main-content">
-
-      <article class="article-section fade-in" id="overview">
-        <aside class="section-meta fade-in">
-          <div class="section-number">01 / Overview</div>
-          <h2>The Challenge</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">This creative exercise explored developing a brand identity rooted in Korean café culture, emphasizing the warm, personal, and comforting aspects that make these spaces so beloved.</p>
-          
-          <p>The challenge was to create a visual system that captures the essence of Korean café culture—known for its cozy atmosphere, attention to detail, and emphasis on creating a "third place" between home and work. The goal was to develop something that feels both authentically Korean and universally welcoming.</p>
-
-          <p>Our approach centered on minimalism and warmth, drawing inspiration from the clean, uncluttered aesthetic of Korean design while introducing playful elements that make the brand feel personal and approachable. The focus was on creating an identity that would make customers feel cared for and comfortable.</p>
-
-          <div class="image-grid fade-in">
-               <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/bc.jpeg" class="zoomable" alt="Coffee brewing process">
-              </div>
-
-                <div class="grid-2x2">
-            <div class="image-container square">
-                      <video src="images/INSTAGRAMK-AFE/PNG/sticker2 copy.mp4" 
-       class="zoomable" 
-       autoplay 
-       muted 
-       loop 
-       playsinline
-       preload="metadata">
-  <!-- Add fallback for unsupported browsers -->
-</video>
-              </div>
-                   <div class="image-container square">
-                <img src="images/INSTAGRAMK-AFE/key.png" class="zoomable" alt="Coffee brewing process">
-              </div>
-              </div>
-          </div>
-        </div>
-      </article>
-
-      <div class="quote-section fade-in">
-        <blockquote class="quote">"Comfort is found in the simple moments—a warm cup, a gentle smile, a space that feels like home."</blockquote>
-        <cite class="quote-author">K-AFE Brand Philosophy</cite>
-      </div>
-
-      <article class="article-section fade-in" id="identity">
-        <aside class="section-meta fade-in">
-          <div class="section-number">02 / Visual Identity</div>
-          <h2>Brand DNA</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">The visual identity embraces minimalism and warmth, creating a gentle and approachable aesthetic that reflects the comforting nature of Korean café culture.</p>
-
-          <h3>Hand-Drawn Mascot System</h3>
-          <p>The heart of the brand is a trio of hand-drawn coffee cup mascots, each with distinct personality traits that represent different aspects of the café experience. These characters bring humanity and playfulness to the brand, creating an emotional connection with customers. The hand-drawn quality adds authenticity and warmth, making the brand feel personal and caring rather than corporate.</p>
-
-          <h3>Typography & Logo</h3>
-          <p>The K-AFE logo is hand-drawn to maintain the wonky, human feel that runs throughout the brand. This intentional imperfection creates authenticity and makes the brand feel approachable and genuine. The typography system balances clean, readable fonts with the playful hand-drawn elements.</p>
-
-          <h3>Color Philosophy</h3>
-          <p>The palette centers on creamy and sweet tones—a soft red and light beige that evoke comfort and coziness. These colors are reminiscent of warm milk, gentle sunlight, and the inviting atmosphere of a perfect café morning. The restrained palette ensures the brand feels sophisticated while remaining approachable.</p>
-
-          <div class="color-palette fade-in">
-            <div class="color-swatch color-red">#cc0000</div>
-            <div class="color-swatch color-beige">#fffcf2</div>
-          </div>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/PNG/colorpallete copy.png" class="zoomable" alt="K-AFE logo applications">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-       
-      <article class="article-section fade-in" id="applications">
-        <aside class="section-meta fade-in">
-          <div class="section-number">03 / Applications</div>
-          <h2>Brand In Action</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">The brand identity creates a cohesive experience across various touchpoints, from merchandise and packaging to digital applications, all unified by the warm, minimalist aesthetic and charming mascot system.</p>
-
-          <h3>Physical Applications</h3>
-          <p>The mascot coffee cups appear across merchandise including t-shirts, coffee mugs, and stickers, creating collectible items that customers want to own and share. Each application maintains the hand-drawn quality and warm color palette, ensuring brand consistency while allowing for playful variations.</p>
-
-          <p>The packaging design uses clean layouts with the mascot characters as focal points, creating an unboxing experience that feels like receiving a gift from a caring friend. The minimalist approach ensures the products feel premium while the mascots add personality and warmth.</p>
-
-          <div class="image-grid fade-in">
-            <div class="grid-full">
-              <div class="image-container wide">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/card2.jpeg" class="zoomable" alt="Café interior design">
-              </div>
-            </div>
-              <div class="grid-2x2">
-              <div class="image-container square">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/tshirtmockup.jpeg" alt="Coffee cup mockup">
-              </div>
-              <div class="image-container square">
-                <img src="images/INSTAGRAMK-AFE/frontstore.png" class="zoomable" alt="Menu design">
-              </div>
-            </div>
-            <div class="grid-2x2">
-              <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/Bendito_Mockup-CMB-Free-Coffee_Holder.jpg" class="zoomable" alt="Coffee cup mockup">
-              </div>
-              <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/banner.jpeg" class="zoomable" alt="Menu design">
-              </div>
-            </div>
-                        <div class="grid-2x2">
-                  <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/Mupimockup.jpeg" class="zoomable" alt="Menu design">
-              </div>
-                <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/stickers1.jpeg" class="zoomable" alt="Menu design">
-              </div>
-</div>
-      
-
-          <h3>Digital Presence</h3>
-          <p>The digital applications maintain the same warm, minimalist aesthetic while showcasing the mascot characters in interactive ways. The clean layouts and soft color palette create a calming digital experience that mirrors the comfort of the physical café space.</p>
-        </div>
-             <div class="image-grid fade-in">
-          <div class="grid-2x2">
-              <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/homepagered.jpeg" class="zoomable" alt="Coffee cup mockup">
-              </div>
-              <div class="image-container tall">
-                <img src="images/INSTAGRAMK-AFE/behancek-afe/menumockup.jpeg" class="zoomable" alt="Menu design">
-              </div>
-            </div>
-            </div>
-      </article>
-
-      <article class="article-section fade-in" id="process">
-        <aside class="section-meta fade-in">
-          <div class="section-number">04 / Process</div>
-          <h2>Design Journey</h2>
-        </aside>
-        <div class="section-content fade-in">
-          <p class="lead">This project was developed as a creative exercise to explore brand design principles while diving deep into Korean café culture and its unique aesthetic values.</p>
-
-          <div class="process-grid fade-in">
-            <div class="process-item">
-              <div class="process-number">01</div>
-              <h3>Cultural Research</h3>
-              <p>Extensive study of Korean café culture, understanding the emphasis on comfort, community, and attention to detail that makes these spaces special.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">02</div>
-              <h3>Concept & Mascot Development</h3>
-              <p>Creating the three coffee cup mascots with distinct personalities, hand-drawing each character to maintain authenticity and warmth.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">03</div>
-              <h3>Visual System Design</h3>
-              <p>Developing the minimalist aesthetic, color palette, and hand-drawn logo that would work across all brand touchpoints.</p>
-            </div>
-            <div class="process-item">
-              <div class="process-number">04</div>
-              <h3>Application & Testing</h3>
-              <p>Applying the brand to various products and materials, ensuring the system works effectively across different scales and contexts.</p>
-            </div>
-          </div>
-
-          <p>The design process focused on balancing minimalism with personality, ensuring the brand felt both sophisticated and approachable. The hand-drawn elements required multiple iterations to achieve the right level of "wonkiness" that felt intentional rather than sloppy.</p>
-
-          <p>This project served as an excellent exercise in developing a comprehensive brand system from cultural research through final application, strengthening creative problem-solving skills and understanding of brand consistency across multiple touchpoints.</p>
-        </div>
-      </article>
-  </main>
-
   <script>
-    // Scroll progress indicator
-    window.addEventListener('scroll', () => {
-      const scrollProgress = document.querySelector('.scroll-progress');
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-      scrollProgress.style.width = scrollPercent + '%';
-    });
-
-    // Fade in animation on scroll
+    // Fade in animation for visible elements
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -261,100 +471,20 @@
       });
     }, observerOptions);
 
-    // Observe all fade-in elements
     document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
   </script>
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mediaItems = document.querySelectorAll('.zoomable');
-    const overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <button id="lightbox-close">×</button>
-      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
-      <div id="lightbox-content"></div>
-      <button class="lightbox-arrow" id="lightbox-next">›</button>
-    `;
-    document.body.appendChild(overlay);
-
-    const contentContainer = document.getElementById('lightbox-content');
-    const closeBtn = document.getElementById('lightbox-close');
-    const nextBtn = document.getElementById('lightbox-next');
-    const prevBtn = document.getElementById('lightbox-prev');
-
-    let currentIndex = 0;
-    const mediaArray = Array.from(mediaItems);
-
-    function showMedia(index) {
-      const media = mediaArray[index];
-      contentContainer.innerHTML = ''; // Clear previous content
-      currentIndex = index;
-      overlay.style.display = 'flex';
-
-      const isVideo = media.tagName.toLowerCase() === 'video';
-      if (isVideo) {
-        const video = document.createElement('video');
-        video.src = media.src;
-        video.controls = true;
-        video.autoplay = true;
-        video.style.maxWidth = '90vw';
-        video.style.maxHeight = '90vh';
-        contentContainer.appendChild(video);
-      } else {
-        const img = document.createElement('img');
-        img.src = media.src;
-        img.alt = '';
-        img.style.maxWidth = '90vw';
-        img.style.maxHeight = '90vh';
-        contentContainer.appendChild(img);
-      }
-    }
-
-    mediaItems.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        showMedia(index);
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      contentContainer.innerHTML = '';
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % mediaArray.length;
-      showMedia(currentIndex);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + mediaArray.length) % mediaArray.length;
-      showMedia(currentIndex);
-    });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = 'none';
-        contentContainer.innerHTML = '';
-      }
-    });
-  });
-</script>
-
 </body>
 </html>

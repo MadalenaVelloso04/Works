@@ -1,501 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Project Name</title>
-  <link rel="stylesheet" href="illustration.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jóia de África - Product Design Project</title>
   <style>
-     @font-face {
-font-family: 'GW Bantley';
-src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-}
-      .different-letter {
-          font-family: GW Bantley;
-          src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
-          font-size: 16vw;
-          font-weight: lighter;
-          color: #ff00d4;
+    @font-face {
+      font-family: 'GW Bantley';
+      src: url('fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    }
+
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000000;
+      color: #000000;
+      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* SPLIT SCREEN CONTAINER */
+    .split-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #ffffff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 60%;
+      margin-left: 40%;
+      background-color: #000;
+      min-height: 100vh;
+    }
+
+    /* LEFT PANEL TYPOGRAPHY */
+    .project-title {
+      padding-top: 40px;
+      font-size: clamp(2rem, 2vw, 3.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .project-subtitle {
+      font-size: 16px;
+      color: #000000;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 350px;
+      color: #2C251B;
+    }
+
+    /* PROJECT INFO */
+    .project-meta {
+      border-top: 1px solid #000000;
+      padding-top: 20px;
+    }
+
+    .meta-section {
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .meta-content {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #2C251B;
+    }
+
+    .meta-content.large {
+      font-size: 12px;
+      color: #2C251B;
+    }
+
+    /* NAVIGATION */
+      .back-link {
+      font-family: 'minecraft';
+      font-size: 10px;
+      position: fixed;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      margin-bottom: 30px;
+      color: #000;
+      z-index: 100;
+    }
+
+
+    .back-link:hover {
+      color: #ff00d4;
+    }
+
+    /* COLLECTION LIST */
+    .collections-list {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .collection-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .collection-link {
+      font-size: 11px;
+      text-decoration: none;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      display: block;
+      font-weight: 400;
+    }
+
+    .collection-link:hover {
+      color: #ff00d4;
+    }
+
+    .collection-link.active {
+      color: #ff00d4;
+      font-weight: 600;
+    }
+
+    /* TECHNICAL INFO PANEL */
+    .tech-info {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: rgba(255, 0, 212, 0.05);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    .tech-info.active {
+      max-height: 200px;
+      padding: 10px;
+    }
+
+    .tech-label {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #ff00d4;
+    }
+
+    .tech-content {
+      font-size: 10px;
+      line-height: 1.4;
+      color: #666;
+    }
+
+    .tech-section {
+      margin-bottom: 8px;
+    }
+
+    /* PROJECT META */
+    .project-meta {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+    }
+
+    .meta-section {
+      margin-bottom: 20px;
+    }
+
+    .meta-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .meta-content {
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .meta-content.large {
+      font-size: 12px;
+      color: #5c5c5c;
+    }
+
+    /* RIGHT PANEL - GALLERY */
+    .gallery {
+      padding: 0;
+    }
+
+    .image-section {
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+
+    .image-container:hover {
+      opacity: 0.9;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 20px;
+    }
+
+    /* DIFFERENT IMAGE HEIGHTS - Respecting illustration proportions */
+    .img-hero {
+      height: 100vh;
+    }
+
+    .img-tall {
+      height: 120vh; /* For portrait illustrations */
+    }
+
+    .img-large {
+      height: 80vh;
+    }
+
+    .img-medium {
+      height: 60vh;
+    }
+
+    .img-small {
+      height: 40vh;
+    }
+
+    .img-wide {
+      height: 50vh; /* For landscape illustrations */
+    }
+
+    .img-square {
+      height: 60vh; /* For square format illustrations */
+    }
+
+    /* DOUBLE AND GRID LAYOUTS */
+    .double-row {
+      display: flex;
+    }
+
+    .double-row .image-container {
+      width: 50%;
+    }
+
+    .grid-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    /* IMAGE CAPTIONS */
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 10px;
+      border-radius: 2px;
+      backdrop-filter: blur(10px);
+    }
+
+    .image-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 8px;
+      border-radius: 2px;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
       }
+
+      .left-panel {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 30px 20px;
+      }
+
+      .right-panel {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .project-title {
+        font-size: 2.5rem;
+      }
+
+      .img-hero,
+      .img-tall,
+      .img-large,
+      .img-medium {
+        height: 50vh;
+      }
+
+      .img-small,
+      .img-wide,
+      .img-square {
+        height: 40vh;
+      }
+
+      .double-row,
+      .grid-row,
+      .grid-3,
+      .grid-4 {
+        display: block;
+      }
+
+      .double-row .image-container {
+        width: 100%;
+      }
+    }
+
+    /* MOBILE PORTRAIT */
+    @media (max-width: 480px) {
+      .left-panel {
+        padding: 20px 15px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-description {
+        font-size: 11px;
+        max-width: none;
+      }
+
+      .img-hero,
+      .img-tall,
+      .img-large,
+      .img-medium,
+      .img-small,
+      .img-wide,
+      .img-square {
+        height: 40vh;
+      }
+    }
+
+    /* CUSTOM SCROLLBAR FOR LEFT PANEL */
+    .left-panel::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    .left-panel::-webkit-scrollbar-track {
+      background: #eceaea;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 1px;
+    }
+
+    .left-panel::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
   </style>
 </head>
 
 <body>
-  <div class="scroll-indicator">
-    <div class="scroll-progress"></div>
-  </div>
-
-  <nav>
-    <div class="nav-container">
-      <a href="./projects.html" class="back-to-projects">Back to Projects</a>
-      <ul class="nav-links">
-        <li><a href="#nr1">NR_01</a></li>
-        <li><a href="#nr2">NR_02</a></li>
-        <li><a href="#nr3">NR_03</a></li>
-        <li><a href="#nr4">NR_04</a></li>
-        <li><a href="#nr5">NR_05</a></li>
-        <li><a href="#nr6">NR_06</a></li>
-        <li><a href="#nr7">NR_07</a></li>
-        <li><a href="#nr8">NR_08</a></li>
-        <li><a href="#nr9">NR_09</a></li>
-        <li><a href="#nr10">NR_10</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <section class="hero fade-in">
-      <div class="hero-badge fade-in">@<span class="different-letter">My</span>_Project</div>
-      <h1 class="hero-title fade-in">Illustration Universe</h1>
-      <p class="hero-description lead fade-in">
-        An experimental illustration archive showcasing digital art and creative exploration through various techniques and mediums.
-         <br>
-        <i>Sixth semester of university, 2025</i>
-      </p>
-      <div class="hero-tags fade-in">
-        <span>Adobe Photoshop</span>
-        <span>Adobe Illustrator</span>
-        <span>Procreate</span>
-      </div>
-    </section>
-<div class="main-content">
-         <article class="article-section fade-in" id="nr1">
-            <aside class="section-meta fade-in">
-                <div class="section-number">01 / Candy Castle</div>
-                <div class="project-title">
-                    <h1>Candy Castle Children Story</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">A sweet, imaginative world where fantasy meets everyday 
-                    curiosity</p>
-                <p class="project-description">
-                    <b>Candy Castle</b> This vibrant sequence tells a playful children's story set in a candy-colored 
-                    town where a magical ice cream house appears. 
-                    Each scene bursts with saturated colors, soft textures, 
-                    and whimsical characters. The narrative unfolds with excited 
-                    townspeople — from curious kids to surprised adults — 
-                    interacting with the edible structure. The illustrations 
-                    blend humor and exaggeration in a stylized, almost theatrical 
-                    way, using a consistent pink-toned palette and dynamic 
-                    compositions to guide the viewer through the joyful chaos. 
-                    It's a sweet, imaginative world where fantasy meets everyday 
-                    curiosity.      </p>
-                  <div class="image-grid grid-2x2">
-  <div class="image-container square">
-    <img src="images/illustra/story1.JPG" class="zoomable" alt="Mon Oncle Poster 1">
-  </div>
-  <div class="image-container square">
-    <img src="images/illustra/story2.JPG" class="zoomable" alt="Mon Oncle Poster 2">
-  </div>
-  <div class="image-container square">
-    <img src="images/illustra/story3.JPG" class="zoomable" alt="Mon Oncle Poster 3">
-  </div>
-  <div class="image-container square">
-    <img src="images/illustra/story4.JPG" class="zoomable" alt="Mon Oncle Poster 4">
-  </div>
-</div>
-            </div>
-        </article>
-
-         <article class="article-section fade-in" id="nr2">
-            <aside class="section-meta fade-in">
-                <div class="section-number">02 / Graphic Novel</div>
-                <div class="project-title">
-                    <h1>Graphic Novel</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Urban solitude and the poetry of everyday spaces.</p>
-                <p class="project-description">
-                    <b>Graphic Novel</b> A short graphic story about one determined dog, a closed door, and the urgent mystery of midnight needs.
-                    Armed with nothing but paws, persistence, and a bit of dramatic flair, our furry hero takes on the ultimate household challenge: waking a human.
-                    Will the mission succeed?
-                    Let's just say… no door stands a chance when nature calls.
-
-     </p>
-                 <div class="image-grid grid-2x2">
-  <div class="image-container tall">
-    <img src="images/illustra/cronic.JPG" class="zoomable" alt="Mon Oncle Poster 1">
-  </div>
-  <div class="image-container tall">
-    <img src="images/illustra/IMG_0307 copy.JPG" class="zoomable" alt="Mon Oncle Poster 2">
-  </div>
-</div>
-            </div>
-        </article>
-
-
+  <div class="split-container">
+    <!-- LEFT PANEL - PROJECT INFO -->
+    <div class="left-panel">
+      <div class="content-top">
+        <a href="./projects.html" class="back-link">← Back to Projects</a>
         
+        <h1 class="project-title">
+          Illustration Universe
+        </h1>
+        
+        <div class="project-subtitle">Digital Art & Creative Exploration</div>
+        
+        <p class="project-description">
+          An experimental illustration archive showcasing digital art and creative exploration through various techniques and mediums. From whimsical children's stories to introspective portraits, each piece explores different narratives and visual languages.
+        </p>
 
-        <article class="article-section fade-in" id="nr3">
-            <aside class="section-meta fade-in">
-                <div class="section-number">03 / Matilde</div>
-                <div class="project-title">
-                    <h1>Matilde</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">A portrait study in character and emotion.</p>
-                <p class="project-description">
-                    <b>Matilde</b> A symbolic portrait of my sister. 
-                    This piece blends abstract textures with narrative light. 
-                    The golden beam cutting through the cloudy sky suggests 
-                    clarity and purpose, illuminating a quiet field where a 
-                    small golden house rests among stylized trees. 
-                    It reflects her introspective strength. 
-                    A contemporary polymath who, despite her vast ambitions, 
-                    sometimes dreams only of a simple garden. The layered digital 
-                    brushwork and grainy overlays create a tactile and atmospheric 
-                    landscape that feels both cosmic and deeply person
-                </p>
-                <div class="image-container tall">
-                    <img src="images/illustra/matildetexto2.5.jpg" class="zoomable" alt="Matilde Portrait">
-                </div>
+        <!-- COLLECTIONS LIST -->
+        <div class="collections-list">
+          <div class="collection-item">
+            <a href="#candy" class="collection-link" data-target="candy">01. Candy Castle</a>
+            <div class="tech-info" id="tech-candy">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Digital Illustration</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Children's Book Illustration</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Technique</div>
+                <div class="tech-content">Saturated Colors, Soft Textures</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-        <article class="article-section fade-in" id="nr4">
-            <aside class="section-meta fade-in">
-                <div class="section-number">04 / Beach</div>
-                <div class="project-title">
-                    <h1>Beach</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Where ocean meets memory and dreams take flight.</p>
-                <p class="project-description">
-                    <b>Beach</b> This beach scene uses a bold, 
-                    minimalist style with clean vector shapes and vibrant color blocks. 
-                    The composition is stripped down to essentials, creating a graphic, 
-                    almost abstract feel. The flat tones, exaggerated shadows, 
-                    and geometric forms give the illustration a retro yet modern aesthetic, 
-                    while the figure's relaxed pose and melting ground suggest a playful 
-                    twist on summer heat and stillness. It's a visual study in simplicity, 
-                    contrast, and stylized form.
-
-     </p>
-                <div class="image-container tall">
-                    <img src="images/illustra/praia1 copy.png" class="zoomable" alt="Beach Landscape">
-                </div>
+          <div class="collection-item">
+                 <a href="#farol" class="collection-link" data-target="walk">02. Farol</a>
+            <div class="tech-info" id="tech-walk">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Digital Painting</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Painterly Textures</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Mood</div>
+                <div class="tech-content">Peaceful, Intimate</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-        <article class="article-section fade-in" id="nr5">
-            <aside class="section-meta fade-in">
-                <div class="section-number">05 / Walk</div>
-                <div class="project-title">
-                    <h1>Walk</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Journey through sun-drenched paths and golden moments.</p>
-                <p class="project-description">
-                    <b>Walk</b> This piece captures a quiet moment of togetherness, 
-                    as two figures walk barefoot under the warm sun. 
-                    The painterly textures and layered brushstrokes give the 
-                    landscape a soft, tactile quality, blending digital techniques 
-                    with a natural, almost hand-printed feel. Bold color blocks 
-                    and visible marks evoke movement in the trees and ground, 
-                    while the lighting guides the eye gently into the horizon. 
-                    It's a peaceful and intimate scene that balances detail with 
-                    abstraction.
-                </p>
-                <div class="image-container wide">
-                    <img src="images/illustra/beach.jpg" class="zoomable" alt="Walking by the Shore">
-                </div>
+          <div class="collection-item">
+            <a href="#matilde" class="collection-link" data-target="matilde">03. Matilde</a>
+            <div class="tech-info" id="tech-matilde">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Digital Portrait</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Symbolic Landscape</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Technique</div>
+                <div class="tech-content">Layered Brushwork, Grainy Overlays</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-  
-        <article class="article-section fade-in" id="nr6">
-            <aside class="section-meta fade-in">
-                <div class="section-number">06 / Fashion illustrations</div>
-                <div class="project-title">
-                    <h1>Fashion illustrations</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote"> Electric blue and intense red</p>
-                <p class="project-description">
-                    <b>Fashion illustrations</b>
-                  These fashion illustrations emphasize bold color, elongated proportions, 
-                  and expressive poses to capture both style and attitude. 
-                  The textured digital brushwork adds depth to the flat color 
-                  fields, creating a balance between graphic design 
-                  and painterly detail. The use of saturated backgrounds 
-                  — electric blue and intense red — frames each figure with 
-                  striking contrast, enhancing the drama and elegance of their 
-                  silhouettes. It's a contemporary, stylized approach that 
-                  celebrates both the body and the garment with visual confidence.
-                </p>
-               <div class="image-grid grid-2x2">
-  <div class="image-container tall">
-    <img src="images/illustra/bluegirl copy.png" class="zoomable" alt="Mon Oncle Poster 1">
-  </div>
-  <div class="image-container tall">
-    <img src="images/illustra/fashion2.png" class="zoomable" alt="Mon Oncle Poster 2">
-  </div>
-</div>
+          <div class="collection-item">
+            <a href="#beach" class="collection-link" data-target="beach">04. Beach</a>
+            <div class="tech-info" id="tech-beach">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Vector Illustration</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Minimalist, Geometric</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Palette</div>
+                <div class="tech-content">Bold Color Blocks</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-        <article class="article-section fade-in" id="nr7">
-            <aside class="section-meta fade-in">
-                <div class="section-number">07 / Jungle</div>
-                <div class="project-title">
-                    <h1>Jungle</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Lost in the embrace of wild, untamed nature.</p>
-                <p class="project-description">
-                    <b>Jungle</b> immerses viewers in the dense, mysterious world of tropical wilderness. 
-                    This piece explores the relationship between human presence and the overwhelming power 
-                    of nature. The rich, layered composition and deep greens create an atmosphere of both 
-                    wonder and reverence for the natural world, celebrating the complexity and beauty of 
-                    ecosystems beyond human control.
-                </p>
-                <div class="image-container wide">
-                    <img src="images/illustra/jungle.jpg" class="zoomable" alt="Jungle Exploration">
-                </div>
+          <div class="collection-item">
+     <a href="#graphic" class="collection-link" data-target="graphic">05. Graphic Novel</a>
+            <div class="tech-info" id="tech-graphic">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Sequential Art</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Comic Strip Narrative</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Theme</div>
+                <div class="tech-content">Humor, Pet Behavior</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-         <article class="article-section fade-in" id="nr8">
-            <aside class="section-meta fade-in">
-                <div class="section-number">08 / Breakfast</div>
-                <div class="project-title">
-                    <h1>Breakfast</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Tender moments shared over morning rituals.</p>
-                <p class="project-description">
-                    <b>Breakfast</b> captures the intimate warmth of shared morning moments between an elderly couple. 
-                    This piece explores the quiet beauty of everyday rituals, where simple acts of care and companionship 
-                    create profound connections. The soft lighting and gentle composition reflect the peaceful contentment 
-                    found in life's simple pleasures and enduring love.
-                </p>
-                <div class="image-container tall">
-                    <img src="images/illustra/oldcouple.jpg" class="zoomable" alt="Breakfast Together">
-                </div>
+          <div class="collection-item">
+            <a href="#fashion" class="collection-link" data-target="fashion">06. Fashion</a>
+            <div class="tech-info" id="tech-fashion">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Fashion Illustration</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Bold Color, Elongated Forms</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Focus</div>
+                <div class="tech-content">Silhouette & Attitude</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-        <article class="article-section fade-in" id="nr9">
-            <aside class="section-meta fade-in">
-                <div class="section-number">09 / Sleeping</div>
-                <div class="project-title">
-                    <h1>Sleeping</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Finding peace in moments of rest and solitude.</p>
-                <p class="project-description">
-                    <b>Sleeping</b> A student sleeps at her desk, oblivious to the teacher 
-                    and classmates behind her. The bold lines, comic-inspired halftones, 
-                    and vibrant purples create a dramatic yet dreamy atmosphere. 
-                    The mix of hand-drawn textures with digital shading gives the 
-                    piece a dynamic, layered feel, capturing the tension between daydreaming 
-                    and the structured world of the classroom.    </p>
-                <div class="image-container tall">
-                    <img src="images/illustra/sleeping.jpg" class="zoomable" alt="Sleeping Girl">
-                </div>
+          <div class="collection-item">
+            <a href="#jungle" class="collection-link" data-target="jungle">07. Jungle</a>
+            <div class="tech-info" id="tech-jungle">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Environment Illustration</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Rich, Layered Composition</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Theme</div>
+                <div class="tech-content">Nature & Human Presence</div>
+              </div>
             </div>
-        </article>
+          </div>
 
-        <article class="article-section fade-in" id="nr10">
-            <aside class="section-meta fade-in">
-                <div class="section-number">10 / Self-Portrait</div>
-                <div class="project-title">
-                    <h1>Self-Portrait</h1>
-                </div>
-            </aside>
-            <div class="section-content fade-in">
-                <p class="project-quote">Flattened shapes and a limited red-black-white palette</p>
-                <p class="project-description">
-                    <b>Self-Portrait</b> This bold self-portrait uses flattened shapes 
-                    and a limited red-black-white palette to explore identity and duality. 
-                    Overlapping features create tension and balance, suggesting multiple 
-                    perspectives within a single expression. The style is graphic and symbolic, 
-                    relying on clean vector forms and strong contrasts to express inner complexity 
-                    with striking simplicity.
-
-              </p>
-                <div class="image-container tall">
-                    <img src="images/illustra/self_portrait copy.png" class="zoomable" alt="Artist Self-Portrait">
-                </div>
+          <div class="collection-item">
+            <a href="#breakfast" class="collection-link" data-target="breakfast">08. Breakfast</a>
+            <div class="tech-info" id="tech-breakfast">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Character Illustration</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Soft Lighting, Gentle Composition</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Theme</div>
+                <div class="tech-content">Intimacy, Daily Rituals</div>
+              </div>
             </div>
-        </article>
+          </div>
+
+          <div class="collection-item">
+            <a href="#sleeping" class="collection-link" data-target="sleeping">09. Sleeping</a>
+            <div class="tech-info" id="tech-sleeping">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Mixed Media</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Comic-inspired, Halftones</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Palette</div>
+                <div class="tech-content">Vibrant Purples</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-item">
+            <a href="#portrait" class="collection-link" data-target="portrait">10. Self-Portrait</a>
+            <div class="tech-info" id="tech-portrait">
+              <div class="tech-section">
+                <div class="tech-label">Medium</div>
+                <div class="tech-content">Vector Portrait</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Style</div>
+                <div class="tech-content">Graphic, Symbolic</div>
+              </div>
+              <div class="tech-section">
+                <div class="tech-label">Palette</div>
+                <div class="tech-content">Red-Black-White</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-section">
+          <div class="meta-label">Year</div>
+          <div class="meta-content">6th Semester, 2025</div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Tools</div>
+          <div class="meta-content">
+            Adobe Photoshop<br>
+            Adobe Illustrator<br>
+            Procreate
+          </div>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-label">Themes</div>
+          <div class="meta-content">
+            Narrative Illustration<br>
+            Character Design<br>
+            Environmental Art<br>
+            Fashion Illustration
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- RIGHT PANEL - IMAGE GALLERY -->
+    <div class="right-panel">
+      <div class="gallery">
+        <!-- Hero Title -->
+        <div class="image-section" id="candy">
+          <div class="image-container img-hero">
+            <img src="images/illustra/story1.JPG" alt="Candy Castle Story">
+            <div class="image-caption">Candy Castle Children Story</div>
+            <div class="image-number">01/10</div>
+          </div>
+        </div>
 
-  </main>
+        <!-- Candy Castle Series -->
+        <div class="image-section grid-4">
+          <div class="image-container img-square">
+            <img src="images/illustra/story1.JPG" alt="Candy Castle 1">
+          </div>
+          <div class="image-container img-square">
+            <img src="images/illustra/story2.JPG" alt="Candy Castle 2">
+          </div>
+          <div class="image-container img-square">
+            <img src="images/illustra/story3.JPG" alt="Candy Castle 3">
+          </div>
+          <div class="image-container img-square">
+            <img src="images/illustra/story4.JPG" alt="Candy Castle 4">
+          </div>
+        </div>
 
-   <div class="circle-cursor"></div>
-  <script src="script.js"></script>
-  <script src="hamburguer.js"></script>
-  <script src="scrollprojectsection.js"></script>
-  <script src="sliding.js"></script>
-  
+
+        <!-- Graphic Novel -->
+        <div class="image-section" id="farol">
+       <div class="image-container img-hero">
+            <img src="images/illustra/farol.PNG" alt="Farol">
+            <div class="image-caption">Graphic Novel</div>
+            <div class="image-number">05/10</div>
+          </div>
+        </div>
+
+              <div class="image-section">
+            <div class="image-container img-hero">
+            <img src="images/illustra/farol2.JPG" alt="Graphic Novel Detail">
+          </div>
+          </div>
+
+     
+
+        <!-- Matilde Portrait -->
+        <div class="image-section" id="matilde">
+          <div class="image-container img-tall">
+            <img src="images/illustra/matildetexto2.5.jpg" alt="Matilde Portrait">
+            <div class="image-caption">Matilde - Symbolic Portrait</div>
+            <div class="image-number">03/10</div>
+          </div>
+        </div>
+
+        <!-- Beach -->
+        <div class="image-section" id="beach">
+          <div class="image-container img-tall">
+            <img src="images/illustra/praia1 copy.png" alt="Beach Scene">
+            <div class="image-caption">Beach - Minimalist Study</div>
+            <div class="image-number">04/10</div>
+          </div>
+        </div>
+
+        <!-- farol -->
+     
+               <div class="image-section grid-row" id="graphic">
+                    <div class="image-container img-medium">
+            <img src="images/illustra/cronic.JPG" alt="Graphic Novel">
+            <div class="image-caption">Graphic Novel</div>
+            <div class="image-number">02/10</div>
+          </div>
+            <div class="image-container img-medium">
+            <img src="images/illustra/IMG_0307 copy.JPG" alt="Graphic Novel Detail">
+          </div>
+        </div>
+
+        <!-- Fashion Illustrations -->
+        <div class="image-section grid-row" id="fashion">
+          <div class="image-container img-medium">
+            <img src="images/illustra/bluegirl copy.png" alt="Fashion Blue">
+            <div class="image-caption">Fashion Illustrations</div>
+            <div class="image-number">06/10</div>
+          </div>
+           <div class="image-container img-medium">
+            <img src="images/illustra/fashion2.png" alt="Fashion Red">
+          </div>
+        </div>
+
+
+        <!-- Jungle -->
+        <div class="image-section" id="jungle">
+          <div class="image-container img-wide">
+            <img src="images/illustra/jungle.jpg" alt="Jungle Scene">
+            <div class="image-caption">Jungle - Wild Nature</div>
+            <div class="image-number">07/10</div>
+          </div>
+        </div>
+
+        <!-- Breakfast -->
+        <div class="image-section" id="breakfast">
+          <div class="image-container img-tall">
+            <img src="images/illustra/oldcouple.jpg" alt="Breakfast Scene">
+            <div class="image-caption">Breakfast - Morning Ritual</div>
+            <div class="image-number">08/10</div>
+          </div>
+        </div>
+
+        <!-- Sleeping -->
+        <div class="image-section" id="sleeping">
+          <div class="image-container img-tall">
+            <img src="images/illustra/sleeping.jpg" alt="Sleeping Student">
+            <div class="image-caption">Sleeping - Classroom Dreams</div>
+            <div class="image-number">09/10</div>
+          </div>
+        </div>
+
+        <!-- Self Portrait -->
+        <div class="image-section" id="portrait">
+          <div class="image-container img-tall">
+            <img src="images/illustra/IMG_0142.JPG" alt="Self Portrait">
+            <div class="image-caption">Self-Portrait - Identity Study</div>
+            <div class="image-number">10/10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Scroll progress bar
-      window.addEventListener('scroll', () => {
-        const scrollProgress = document.querySelector('.scroll-progress');
-        const scrollTop = document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / scrollHeight) * 100;
-        if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
-      });
+    // Collection navigation functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const collectionLinks = document.querySelectorAll('.collection-link');
+      const techInfos = document.querySelectorAll('.tech-info');
 
-      // Fade-in animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      };
-
-      const fadeInElements = document.querySelectorAll('.fade-in');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+      collectionLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active class from all links
+          collectionLinks.forEach(l => l.classList.remove('active'));
+          
+          // Close all tech info panels
+          techInfos.forEach(info => info.classList.remove('active'));
+          
+          // Add active class to clicked link
+          this.classList.add('active');
+          
+          // Open corresponding tech info
+          const target = this.getAttribute('data-target');
+          const techPanel = document.getElementById(`tech-${target}`);
+          if (techPanel) {
+            techPanel.classList.add('active');
+          }
+          
+          // Scroll to target section
+          const targetSection = document.getElementById(target);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
-      }, observerOptions);
-
-      fadeInElements.forEach(el => observer.observe(el));
-
-      // Carousel functionality
-      const carousels = document.querySelectorAll('.carousel-container');
-      carousels.forEach(carousel => {
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const prevButton = carousel.querySelector('.carousel-arrow-prev');
-        const nextButton = carousel.querySelector('.carousel-arrow-next');
-        const currentSlideEl = carousel.querySelector('.current-slide');
-        const totalSlidesEl = carousel.querySelector('.total-slides');
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-
-        if (totalSlidesEl) totalSlidesEl.textContent = totalSlides.toString();
-
-        function updateSlide(newIndex) {
-          slides.forEach(slide => slide.classList.remove('active'));
-          slides[newIndex].classList.add('active');
-          if (currentSlideEl) currentSlideEl.textContent = (newIndex + 1).toString();
-          currentIndex = newIndex;
-        }
-
-        if (prevButton) {
-          prevButton.addEventListener('click', () => {
-            const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-            updateSlide(newIndex);
-          });
-        }
-
-        if (nextButton) {
-          nextButton.addEventListener('click', () => {
-            const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-            updateSlide(newIndex);
-          });
-        }
       });
 
-      // Smooth scrolling for navigation links
-      const anchorLinks = document.querySelectorAll('a[href^="#"]');
-      anchorLinks.forEach(anchor => {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute('href'));
           if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });
 
-      // Handle page load with hash
-      const hash = window.location.hash;
-      if (hash) {
-        window.scrollTo({ top: 0, behavior: "auto" });
-        setTimeout(() => {
-          const target = document.querySelector(hash);
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
+      // Auto-highlight active section on scroll
+      const sections = document.querySelectorAll('[id]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const correspondingLink = document.querySelector(`[data-target="${id}"]`);
+            if (correspondingLink) {
+              collectionLinks.forEach(l => l.classList.remove('active'));
+              correspondingLink.classList.add('active');
+            }
           }
-        }, 300);
-      }
-    });
-  </script>
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50% 0px'
+      });
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 300,
-    });
-  </script>
-   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('.zoomable');
-    const overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <button id="lightbox-close">×</button>
-      <button class="lightbox-arrow" id="lightbox-prev">‹</button>
-      <img id="lightbox-img" src="" alt="">
-      <button class="lightbox-arrow" id="lightbox-next">›</button>
-    `;
-    document.body.appendChild(overlay);
-
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const nextBtn = document.getElementById('lightbox-next');
-    const prevBtn = document.getElementById('lightbox-prev');
-
-    let currentIndex = 0;
-    const imageArray = Array.from(images);
-
-    function showImage(index) {
-      const img = imageArray[index];
-      lightboxImg.src = img.src;
-      currentIndex = index;
-      overlay.style.display = 'flex';
-    }
-
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        showImage(index);
+      sections.forEach(section => {
+        observer.observe(section);
       });
     });
 
-    closeBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      lightboxImg.src = '';
-    });
+    // Fade in animation for visible elements
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % imageArray.length;
-      showImage(currentIndex);
-    });
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-      showImage(currentIndex);
+    document.querySelectorAll('.fade-in').forEach(el => {
+      fadeObserver.observe(el);
     });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = 'none';
-        lightboxImg.src = '';
-      }
-    });
-  });
-</script>
+  </script>
 </body>
 </html>
